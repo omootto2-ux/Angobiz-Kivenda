@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AngoBiz Kivenda – Meu Perfil</title>
+  <link rel="stylesheet" href="../style/perfil_cliente.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+<script>if(typeof Sessao!=="undefined"){ Sessao.exigirLogin('perfil_cliente.html'); }</script>
+
+<!-- ===================== TOPO / NAVBAR ===================== -->
+<header class="navbar">
+  <div class="navbar-logo">
+    <div class="logo-icon">
+      <span class="logo-a">A</span><span class="logo-k">K</span>
+      <div class="logo-gear"><i class="fas fa-gear"></i></div>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">ANGOBIZ</span>
+      <span class="logo-sub">KIVENDA</span>
+    </div>
+  </div>
+
+  <div class="navbar-search">
+    <input type="text" placeholder="Buscar produtos, serviços ou vendedores..." id="searchInput" />
+    <button class="btn-search" onclick="buscar()"><i class="fas fa-search"></i></button>
+  </div>
+
+  <div class="navbar-actions">
+    <button class="nav-btn" onclick="abrirMensagens()">
+      <i class="fas fa-envelope"></i>
+      <span>Mensagens</span>
+    </button>
+    <button class="nav-btn notif-btn" onclick="abrirNotificacoes()">
+      <i class="fas fa-bell"></i>
+      <span>Notificações</span>
+      <span class="badge badge-red">3</span>
+      <span class="badge badge-yellow notif-badge">12</span>
+    </button>
+    <button class="nav-btn" onclick="abrirAjuda()">
+      <i class="fas fa-circle-question"></i>
+      <span>Ajuda</span>
+    </button>
+    <div class="nav-user" onclick="toggleUserDropdown()">
+      <img src="https://i.pravatar.cc/40?img=12" alt="João Fernandes" class="nav-avatar" />
+      <div class="nav-user-info">
+        <span class="nav-user-name">João Fernandes</span>
+        <span class="nav-user-role">Cliente</span>
+      </div>
+      <i class="fas fa-chevron-down nav-chevron" id="userChevron"></i>
+
+      <!-- Dropdown do usuário -->
+      <div class="user-dropdown" id="userDropdown">
+        <div class="dropdown-item" onclick="navegarPara('perfil')"><i class="fas fa-user"></i> Meu Perfil</div>
+        <div class="dropdown-item" onclick="navegarPara('configuracoes')"><i class="fas fa-gear"></i> Configurações</div>
+        <div class="dropdown-item" onclick="navegarPara('financeiro')"><i class="fas fa-wallet"></i> Financeiro</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-item dropdown-logout" onclick="sair()"><i class="fas fa-right-from-bracket"></i> Sair</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== LAYOUT PRINCIPAL ===================== -->
+<div class="main-layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <a class="nav-item" href="home.html"><i class="fas fa-house"></i><span>Pagína Principal</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('pedidos')"><i class="fas fa-bag-shopping"></i><span>Meus Pedidos</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('favoritos')"><i class="fas fa-heart"></i><span>Favoritos</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('mensagens')">
+        <i class="fas fa-comment-dots"></i><span>Mensagens</span>
+        <span class="badge-side">3</span>
+      </a>
+      <a class="nav-item active" href="#" onclick="navegarPara('perfil')"><i class="fas fa-circle-user"></i><span>Meu Perfil</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('produtos')"><i class="fas fa-box"></i><span>Produtos</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('servicos')"><i class="fas fa-sliders"></i><span>Serviços</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('financeiro')"><i class="fas fa-credit-card"></i><span>Financeiro</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('promocoes')"><i class="fas fa-star"></i><span>Promoções</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('avaliacoes')"><i class="fas fa-comment-alt"></i><span>Avaliações</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('relatorios')"><i class="fas fa-chart-bar"></i><span>Relatórios</span></a>
+      <a class="nav-item" href="#" onclick="navegarPara('configuracoes')"><i class="fas fa-gear"></i><span>Configurações</span></a>
+    </nav>
+
+    <!-- Banner profissional -->
+    <div class="sidebar-banner">
+      <div class="sidebar-banner-icon"><i class="fas fa-crown"></i></div>
+      <p class="sidebar-banner-title">Seja um profissional<br />na plataforma!</p>
+      <p class="sidebar-banner-desc">Tenha mais visibilidade, vendas e benefícios exclusivos.</p>
+      <button class="btn-plans" onclick="verPlanos()">Ver planos</button>
+    </div>
+  </aside>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main class="content">
+
+    <!-- CARTÃO DE PERFIL -->
+    <section class="profile-card">
+      <div class="profile-left">
+        <div class="profile-avatar-wrap">
+          <img src="https://i.pravatar.cc/120?img=12" alt="João Fernandes" class="profile-avatar" id="profileAvatar" />
+          <button class="btn-avatar-edit" onclick="editarFoto()" title="Alterar foto">
+            <i class="fas fa-camera"></i>
+          </button>
+        </div>
+        <div class="profile-info">
+          <h2 class="profile-name">João Fernandes <i class="fas fa-circle-check verified-icon"></i></h2>
+          <p class="profile-detail"><i class="fas fa-envelope"></i> joao.fernandes@email.com</p>
+          <p class="profile-detail"><i class="fas fa-phone" style="color:#f59e0b"></i> +244 923 456 789</p>
+          <p class="profile-detail"><i class="fas fa-location-dot" style="color:#ef4444"></i> Luanda, Angola</p>
+          <button class="btn-edit-profile" onclick="editarPerfil()"><i class="fas fa-pen"></i> Editar Perfil</button>
+        </div>
+      </div>
+
+      <div class="profile-right">
+        <div class="profile-level-box">
+          <div class="level-logo">
+            <div class="mini-logo-icon">
+              <span class="logo-a">A</span><span class="logo-k">K</span>
+            </div>
+            <div class="logo-text-sm">
+              <span>ANGOBIZ</span>
+              <span style="font-size:8px;color:#ef4444">KIVENDA</span>
+            </div>
+          </div>
+          <div class="level-info">
+            <p class="level-label">Nível</p>
+            <p class="level-name">Ouro</p>
+            <p class="level-points">350 pontos</p>
+            <div class="level-bar-wrap">
+              <div class="level-bar"><div class="level-fill" style="width:54%"></div></div>
+            </div>
+            <p class="level-next">Próximo nível: 650 pts</p>
+          </div>
+          <div class="member-since">
+            <i class="fas fa-crown member-crown"></i>
+            <p>Membro desde</p>
+            <p class="member-date">Maio de 2024</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTATÍSTICAS -->
+    <section class="stats-bar">
+      <div class="stat-item" onclick="navegarPara('pedidos')">
+        <i class="fas fa-bag-shopping stat-icon red"></i>
+        <span class="stat-num">28</span>
+        <span class="stat-label">Pedidos</span>
+        <span class="stat-link">Ver todos</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" onclick="navegarPara('favoritos')">
+        <i class="fas fa-heart stat-icon red"></i>
+        <span class="stat-num">15</span>
+        <span class="stat-label">Favoritos</span>
+        <span class="stat-link">Ver todos</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" onclick="navegarPara('enderecos')">
+        <i class="fas fa-location-dot stat-icon red"></i>
+        <span class="stat-num">3</span>
+        <span class="stat-label">Endereços</span>
+        <span class="stat-link">Gerenciar</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item" onclick="navegarPara('avaliacoes')">
+        <i class="fas fa-comment-dots stat-icon red"></i>
+        <span class="stat-num">7</span>
+        <span class="stat-label">Avaliações</span>
+        <span class="stat-link">Ver todas</span>
+      </div>
+    </section>
+
+    <!-- GRID INFERIOR -->
+    <div class="bottom-grid">
+
+      <!-- LISTA DE OPÇÕES -->
+      <section class="options-list">
+        <div class="option-item" onclick="navegarPara('pedidos')">
+          <div class="option-icon red"><i class="fas fa-bag-shopping"></i></div>
+          <div class="option-text">
+            <p class="option-title">Meus Pedidos</p>
+            <p class="option-desc">Acompanhe seus pedidos e entregas</p>
+          </div>
+          <i class="fas fa-chevron-right option-arrow"></i>
+        </div>
+        <div class="option-item" onclick="navegarPara('favoritos')">
+          <div class="option-icon red"><i class="fas fa-heart"></i></div>
+          <div class="option-text">
+            <p class="option-title">Produtos Favoritos</p>
+            <p class="option-desc">Veja seus produtos favoritos</p>
+          </div>
+          <i class="fas fa-chevron-right option-arrow"></i>
+        </div>
+        <div class="option-item" onclick="navegarPara('enderecos')">
+          <div class="option-icon red"><i class="fas fa-location-dot"></i></div>
+          <div class="option-text">
+            <p class="option-title">Meus Endereços</p>
+            <p class="option-desc">Gerencie seus endereços de entrega</p>
+          </div>
+          <i class="fas fa-chevron-right option-arrow"></i>
+        </div>
+        <div class="option-item" onclick="navegarPara('pagamento')">
+          <div class="option-icon red"><i class="fas fa-credit-card"></i></div>
+          <div class="option-text">
+            <p class="option-title">Métodos de Pagamento</p>
+            <p class="option-desc">Gerencie seus cartões e métodos</p>
+          </div>
+          <i class="fas fa-chevron-right option-arrow"></i>
+        </div>
+        <div class="option-item" onclick="navegarPara('notificacoes')">
+          <div class="option-icon red"><i class="fas fa-bell"></i></div>
+          <div class="option-text">
+            <p class="option-title">Notificações</p>
+            <p class="option-desc">Gerencie suas preferências</p>
+          </div>
+          <i class="fas fa-chevron-right option-arrow"></i>
+        </div>
+        <div class="option-item" onclick="navegarPara('seguranca')">
+          <div class="option-icon red"><i class="fas fa-shield-halved"></i></div>
+          <div class="option-text">
+            <p class="option-title">Segurança</p>
+            <p class="option-desc">Senha, verificação em duas etapas e mais</p>
+          </div>
+          <i class="fas fa-chevron-right option-arrow"></i>
+        </div>
+      </section>
+
+      <!-- PAINEL DIREITO -->
+      <div class="right-panel">
+
+        <!-- Promoção AngoBiz -->
+        <div class="promo-card">
+          <div class="promo-card-left">
+            <div class="promo-logo">
+              <div class="mini-logo-icon mini-logo-lg">
+                <span class="logo-a">A</span><span class="logo-k">K</span>
+              </div>
+              <div class="logo-text-sm" style="margin-left:8px">
+                <span style="font-size:13px;font-weight:700;color:#f59e0b">ANGOBIZ</span>
+                <span style="font-size:9px;color:#ef4444">KIVENDA</span>
+              </div>
+            </div>
+            <h3 class="promo-title">AngoBiz Kivenda</h3>
+            <p class="promo-desc">Conectando negócios,<br />inovação e crescimento.</p>
+            <button class="btn-saiba-mais" onclick="saibaMais()">Saiba mais</button>
+          </div>
+          <div class="promo-card-bg">
+            <div class="promo-globe"></div>
+          </div>
+        </div>
+
+        <!-- Ajuda -->
+        <div class="help-card">
+          <h3 class="help-title">Precisa de ajuda?</h3>
+          <p class="help-sub">Estamos aqui para ajudar você!</p>
+          <div class="help-grid">
+            <button class="help-btn" onclick="helpAcao('suporte')">
+              <i class="fas fa-comment-dots help-btn-icon"></i>
+              <span>Fale com<br />o suporte</span>
+            </button>
+            <button class="help-btn" onclick="helpAcao('central')">
+              <i class="fas fa-book-open help-btn-icon"></i>
+              <span>Central de<br />ajuda</span>
+            </button>
+            <button class="help-btn" onclick="helpAcao('reclamacao')">
+              <i class="fas fa-shield-halved help-btn-icon"></i>
+              <span>Abrir<br />reclamação</span>
+            </button>
+            <button class="help-btn" onclick="helpAcao('faq')">
+              <i class="fas fa-circle-question help-btn-icon"></i>
+              <span>Perguntas<br />frequentes</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="footer">
+  <span>© 2025 AngoBiz Kivenda. Todos os direitos reservados.</span>
+  <div class="footer-links">
+    <a href="#" onclick="navegarPara('termos')">Termos de Uso</a>
+    <span>|</span>
+    <a href="#" onclick="navegarPara('privacidade')">Política de Privacidade</a>
+  </div>
+</footer>
+
+<!-- ===================== MODAL GENÉRICO ===================== -->
+<div class="modal-overlay" id="modalOverlay" onclick="fecharModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="fecharModal()"><i class="fas fa-xmark"></i></button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+  <script src="../script/perfil_cliente.js"></script>
+</body>
+</html>

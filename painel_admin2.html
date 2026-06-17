@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel Geral – Administrador AngoBiz Kivenda</title>
+  <link rel="stylesheet" href="../style/painel_admin.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+<script>if(typeof Sessao!=="undefined"){ Sessao.exigirAdmin(); }</script>
+
+<!-- ======================== SIDEBAR ======================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-circulo">
+      <span class="logo-ak">AK</span>
+    </div>
+    <div class="logo-texto">
+      <span class="lst-ango"><span class="w">ANGO</span><span class="g">BIZ</span></span>
+      <span class="lst-kiv">— KIVENDA —</span>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul id="navLista">
+      <li class="nav-item ativo" data-pagina="painel">
+        <a href="painel_admin.html"><i class="fa fa-home"></i><span>Painel Geral</span></a>
+      </li>
+      <li class="nav-item" data-pagina="usuarios">
+        <a href="#"><i class="fa fa-users"></i><span>Usuários</span></a>
+      </li>
+      <li class="nav-item" data-pagina="vendedores">
+        <a href="#"><i class="fa fa-store"></i><span>Vendedores</span></a>
+      </li>
+      <li class="nav-item" data-pagina="produtos">
+        <a href="#"><i class="fa fa-box"></i><span>Produtos</span></a>
+      </li>
+      <li class="nav-item" data-pagina="servicos">
+        <a href="#"><i class="fa fa-concierge-bell"></i><span>Serviços</span></a>
+      </li>
+      <li class="nav-item" data-pagina="pedidos">
+        <a href="#"><i class="fa fa-clipboard-list"></i><span>Pedidos</span></a>
+      </li>
+      <li class="nav-item" data-pagina="transacoes">
+        <a href="#"><i class="fa fa-exchange-alt"></i><span>Transações</span></a>
+      </li>
+      <li class="nav-item" data-pagina="financeiro">
+        <a href="#"><i class="fa fa-wallet"></i><span>Financeiro</span></a>
+      </li>
+      <li class="nav-item" data-pagina="relatorios">
+        <a href="#"><i class="fa fa-chart-bar"></i><span>Relatórios</span></a>
+      </li>
+      <li class="nav-item" data-pagina="avaliacoes">
+        <a href="#"><i class="fa fa-star"></i><span>Avaliações</span></a>
+      </li>
+      <li class="nav-item" data-pagina="disputas">
+        <a href="#"><i class="fa fa-gavel"></i><span>Disputas</span></a>
+      </li>
+      <li class="nav-item" data-pagina="promocoes">
+        <a href="#"><i class="fa fa-tags"></i><span>Promoções</span></a>
+      </li>
+      <li class="nav-item" data-pagina="notificacoes">
+        <a href="#"><i class="fa fa-bell"></i><span>Notificações</span></a>
+      </li>
+      <li class="nav-item" data-pagina="configuracoes">
+        <a href="#"><i class="fa fa-cog"></i><span>Configurações</span></a>
+      </li>
+      <li class="nav-item" data-pagina="perfil">
+        <a href="#"><i class="fa fa-user-circle"></i><span>Meu Perfil</span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-suporte">
+    <div class="ss-top">
+      <i class="fa fa-question-circle ss-ic"></i>
+      <div>
+        <strong>Precisa de ajuda?</strong>
+        <span>Suporte da plataforma</span>
+      </div>
+    </div>
+    <button class="btn-suporte" id="btnSuporteNav">Contactar Suporte</button>
+  </div>
+</aside>
+
+<!-- ======================== CONTEÚDO ======================== -->
+<div class="conteudo" id="conteudo">
+
+  <!-- TOPO -->
+  <div class="topo-barra">
+    <div class="tb-esq">
+      <h1 id="tituloPagina">Meu Perfil (Administrador)</h1>
+      <p id="subtituloPagina">Gerencie sua conta e configurações da plataforma</p>
+    </div>
+    <div class="tb-dir">
+      <!-- Notificações -->
+      <button class="tb-btn" id="btnNotif" title="Notificações">
+        <i class="fa fa-bell"></i>
+        <span class="tb-badge" id="badgeNotif">12</span>
+      </button>
+      <!-- Tema -->
+      <button class="tb-btn" id="btnTema" title="Alternar tema">
+        <i class="fa fa-moon" id="iconeTema"></i>
+      </button>
+      <!-- Avatar -->
+      <div class="avatar-wrap" id="avatarWrap">
+        <div class="avatar-box">
+          <div class="avatar-img"><i class="fa fa-user-circle"></i></div>
+          <i class="fa fa-chevron-down av-seta" id="avSeta"></i>
+        </div>
+        <div class="av-dropdown" id="avDropdown">
+          <div class="avd-info">
+            <div class="avd-avatar"><i class="fa fa-user-circle"></i></div>
+            <div>
+              <strong>Administrador AngoBiz</strong>
+              <span>admin@angobizkivenda.com</span>
+            </div>
+          </div>
+          <div class="avd-div"></div>
+          <a href="#" class="avd-item" data-pagina="perfil"><i class="fa fa-user"></i> Meu Perfil</a>
+          <a href="#" class="avd-item" data-pagina="configuracoes"><i class="fa fa-cog"></i> Configurações</a>
+          <div class="avd-div"></div>
+          <a href="#" class="avd-item avd-sair" id="btnSair"><i class="fa fa-sign-out-alt"></i> Sair</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAINEL DE NOTIFICAÇÕES -->
+  <div class="notif-painel" id="notifPainel">
+    <div class="np-header">
+      <span>Notificações</span>
+      <button id="btnMarcarLidas">Marcar todas lidas</button>
+    </div>
+    <div id="npLista" class="np-lista"></div>
+    <div class="np-footer"><a href="#" data-pagina="notificacoes">Ver todas</a></div>
+  </div>
+
+  <!-- =================== PÁGINAS =================== -->
+
+  <!-- PAINEL GERAL (activo) -->
+  <div class="pagina ativa" id="paginaPainel">
+
+    <!-- Linha 1: Distribuição + Status + Atividade -->
+    <div class="linha-tres">
+
+      <!-- Gráfico Donut -->
+      <div class="card card-donut">
+        <div class="card-titulo">Distribuição de Usuários</div>
+        <div class="donut-wrap">
+          <canvas id="canvasDonut" width="180" height="180"></canvas>
+          <div class="donut-centro">
+            <span class="dc-num">12.458</span>
+            <span class="dc-label">Total</span>
+          </div>
+        </div>
+        <div class="donut-legenda">
+          <div class="dl-item"><span class="dl-cor" style="background:#cc0000"></span><span class="dl-nome">Clientes</span><span class="dl-val">9.245 (74,2%)</span></div>
+          <div class="dl-item"><span class="dl-cor" style="background:#c9a227"></span><span class="dl-nome">Vendedores</span><span class="dl-val">2.341 (18,8%)</span></div>
+          <div class="dl-item"><span class="dl-cor" style="background:#1db954"></span><span class="dl-nome">Administradores</span><span class="dl-val">156 (1,2%)</span></div>
+          <div class="dl-item"><span class="dl-cor" style="background:#7c4dff"></span><span class="dl-nome">Bloqueados</span><span class="dl-val">442 (3,5%)</span></div>
+        </div>
+        <button class="btn-outline-dour" id="btnRelatorioCompleto">Ver relatório completo</button>
+      </div>
+
+      <!-- Status da Plataforma -->
+      <div class="card card-status">
+        <div class="card-titulo">Status da Plataforma</div>
+        <div class="status-lista" id="statusLista"></div>
+        <button class="btn-outline-dour" id="btnStatusDetalhado">Ver status detalhado</button>
+      </div>
+
+      <!-- Atividade em Tempo Real -->
+      <div class="card card-atividade">
+        <div class="card-titulo-linha">
+          <span class="card-titulo">Atividade em Tempo Real</span>
+          <a href="#" class="link-verde" id="linkVerTudo">Ver tudo</a>
+        </div>
+        <div class="ativrt-lista" id="ativRtLista"></div>
+      </div>
+    </div>
+
+    <!-- Usuários Recentes -->
+    <div class="card card-tabela" id="cardUsuariosRecentes">
+      <div class="card-titulo-linha">
+        <span class="card-titulo">Usuários Recentes</span>
+        <a href="#" class="link-dour" data-pagina="usuarios">Ver todos</a>
+      </div>
+      <div class="tabela-scroll">
+        <table class="tabela" id="tabelaUsuarios">
+          <thead>
+            <tr>
+              <th>Usuário</th>
+              <th>Tipo</th>
+              <th>Localização</th>
+              <th>Data de Cadastro</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyUsuarios"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Linha: Pedidos + Transações -->
+    <div class="linha-dupla">
+
+      <!-- Pedidos Recentes -->
+      <div class="card card-tabela">
+        <div class="card-titulo-linha">
+          <span class="card-titulo">Pedidos Recentes</span>
+          <a href="#" class="link-dour" data-pagina="pedidos">Ver todos</a>
+        </div>
+        <div class="tabela-scroll">
+          <table class="tabela" id="tabelaPedidos">
+            <thead>
+              <tr><th>Pedido</th><th>Cliente</th><th>Vendedor</th><th>Valor</th><th>Status</th></tr>
+            </thead>
+            <tbody id="tbodyPedidos"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Transações Recentes -->
+      <div class="card card-tabela">
+        <div class="card-titulo-linha">
+          <span class="card-titulo">Transações Recentes</span>
+          <a href="#" class="link-dour" data-pagina="transacoes">Ver todas</a>
+        </div>
+        <div class="tabela-scroll">
+          <table class="tabela" id="tabelaTransacoes">
+            <thead>
+              <tr><th>ID Transação</th><th>Tipo</th><th>Valor</th><th>Método</th><th>Status</th></tr>
+            </thead>
+            <tbody id="tbodyTransacoes"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha: Desempenho + Top Vendedores -->
+    <div class="linha-dupla">
+
+      <!-- Desempenho da Plataforma -->
+      <div class="card card-desempenho">
+        <div class="card-titulo-linha">
+          <span class="card-titulo">Desempenho da Plataforma</span>
+          <a href="#" class="link-verde" data-pagina="relatorios">Ver relatório completo</a>
+        </div>
+        <div class="desemp-stats">
+          <div class="ds-item">
+            <span class="ds-label">Receita Total</span>
+            <span class="ds-val">362.540.000 Kz</span>
+            <span class="ds-var positivo"><i class="fa fa-arrow-up"></i> 32%</span>
+            <span class="ds-sub">vs mês anterior</span>
+          </div>
+          <div class="ds-item">
+            <span class="ds-label">Pedidos</span>
+            <span class="ds-val">32.114</span>
+            <span class="ds-var positivo"><i class="fa fa-arrow-up"></i> 16%</span>
+            <span class="ds-sub">vs mês anterior</span>
+          </div>
+          <div class="ds-item">
+            <span class="ds-label">Novos Usuários</span>
+            <span class="ds-val">1.248</span>
+            <span class="ds-var positivo"><i class="fa fa-arrow-up"></i> 23%</span>
+            <span class="ds-sub">vs mês anterior</span>
+          </div>
+          <div class="ds-item">
+            <span class="ds-label">Vendedores Ativos</span>
+            <span class="ds-val">1.890</span>
+            <span class="ds-var positivo"><i class="fa fa-arrow-up"></i> 15%</span>
+            <span class="ds-sub">vs mês anterior</span>
+          </div>
+        </div>
+        <div class="desemp-grafico">
+          <div class="dg-eixo-y">
+            <span>400M</span><span>300M</span><span>200M</span><span>100M</span><span>0</span>
+          </div>
+          <canvas id="canvasDesemp" class="canvas-desemp"></canvas>
+        </div>
+        <div class="dg-eixo-x">
+          <span>19 Abr</span><span>26 Abr</span><span>03 Mai</span><span>10 Mai</span><span>17 Mai</span>
+        </div>
+      </div>
+
+      <!-- Top Vendedores -->
+      <div class="card card-tabela">
+        <div class="card-titulo-linha">
+          <span class="card-titulo">Top Vendedores</span>
+          <a href="#" class="link-verde" data-pagina="vendedores">Ver ranking completo</a>
+        </div>
+        <div class="tabela-scroll">
+          <table class="tabela" id="tabelaTopVend">
+            <thead>
+              <tr><th>Posição</th><th>Vendedor</th><th>Pedidos</th><th>Receita</th><th>Avaliação</th></tr>
+            </thead>
+            <tbody id="tbodyTopVend"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="rodape-painel">
+      <span>© 2025 AngoBiz Kivenda. Todos os direitos reservados.</span>
+      <span>Versão 2.3.1</span>
+    </div>
+
+  </div><!-- /paginaPainel -->
+
+  <!-- PÁGINAS SECUNDÁRIAS -->
+  <div class="pagina" id="paginaUsuarios">
+    <div class="card card-tabela">
+      <div class="card-titulo-linha">
+        <span class="card-titulo">Gestão de Usuários</span>
+        <button class="btn-novo"><i class="fa fa-plus"></i> Novo Usuário</button>
+      </div>
+      <div class="tabela-filtros">
+        <input type="text" class="filtro-inp" id="filtroUsuariosNome" placeholder="Pesquisar usuário..."/>
+        <select class="filtro-sel" id="filtroUsuariosStatus">
+          <option value="">Todos os status</option>
+          <option value="ativo">Ativo</option>
+          <option value="pendente">Pendente</option>
+          <option value="bloqueado">Bloqueado</option>
+        </select>
+      </div>
+      <div class="tabela-scroll">
+        <table class="tabela" id="tabelaUsuariosFull">
+          <thead><tr><th>Usuário</th><th>Tipo</th><th>Localização</th><th>Data de Cadastro</th><th>Status</th><th>Ações</th></tr></thead>
+          <tbody id="tbodyUsuariosFull"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagina" id="paginaVendedores">
+    <div class="card card-tabela">
+      <div class="card-titulo-linha">
+        <span class="card-titulo">Gestão de Vendedores</span>
+        <button class="btn-novo"><i class="fa fa-store"></i> Aprovar Pendentes</button>
+      </div>
+      <div class="tabela-scroll">
+        <table class="tabela" id="tabelaVendedoresFull">
+          <thead><tr><th>Vendedor</th><th>Categoria</th><th>Produtos</th><th>Receita</th><th>Pedidos</th><th>Status</th><th>Ações</th></tr></thead>
+          <tbody id="tbodyVendedoresFull"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagina" id="paginaProdutos">
+    <div class="card card-tabela">
+      <div class="card-titulo-linha">
+        <span class="card-titulo">Gestão de Produtos</span>
+        <button class="btn-novo"><i class="fa fa-plus"></i> Adicionar</button>
+      </div>
+      <div class="tabela-scroll">
+        <table class="tabela" id="tabelaProdutosFull">
+          <thead><tr><th>Produto</th><th>Vendedor</th><th>Preço</th><th>Vendas</th><th>Status</th><th>Ações</th></tr></thead>
+          <tbody id="tbodyProdutosFull"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Páginas placeholder -->
+  <div class="pagina" id="paginaServicos"><div class="placeholder-pag"><i class="fa fa-concierge-bell"></i><h2>Serviços</h2><p>Gerencie os serviços disponíveis na plataforma.</p></div></div>
+  <div class="pagina" id="paginaPedidosFull"><div class="placeholder-pag"><i class="fa fa-clipboard-list"></i><h2>Pedidos</h2><p>Todos os pedidos da plataforma.</p></div></div>
+  <div class="pagina" id="paginaTransacoesFull"><div class="placeholder-pag"><i class="fa fa-exchange-alt"></i><h2>Transações</h2><p>Histórico completo de transações.</p></div></div>
+  <div class="pagina" id="paginaFinanceiro"><div class="placeholder-pag"><i class="fa fa-wallet"></i><h2>Financeiro</h2><p>Gestão financeira da plataforma.</p></div></div>
+  <div class="pagina" id="paginaRelatorios"><div class="placeholder-pag"><i class="fa fa-chart-bar"></i><h2>Relatórios</h2><p>Análises e relatórios detalhados.</p></div></div>
+  <div class="pagina" id="paginaAvaliacoes"><div class="placeholder-pag"><i class="fa fa-star"></i><h2>Avaliações</h2><p>Avaliações de produtos e vendedores.</p></div></div>
+  <div class="pagina" id="paginaDisputas"><div class="placeholder-pag"><i class="fa fa-gavel"></i><h2>Disputas</h2><p>Resolução de conflitos na plataforma.</p></div></div>
+  <div class="pagina" id="paginaPromocoes"><div class="placeholder-pag"><i class="fa fa-tags"></i><h2>Promoções</h2><p>Cupons e promoções activas.</p></div></div>
+  <div class="pagina" id="paginaNotificacoes"><div class="placeholder-pag"><i class="fa fa-bell"></i><h2>Notificações</h2><p>Central de notificações do sistema.</p></div></div>
+  <div class="pagina" id="paginaConfiguracoes"><div class="placeholder-pag"><i class="fa fa-cog"></i><h2>Configurações</h2><p>Configurações gerais da plataforma.</p></div></div>
+  <div class="pagina" id="paginaPerfil"><div class="placeholder-pag"><i class="fa fa-user-circle"></i><h2>Meu Perfil</h2><p>Gerencie a sua conta de administrador.</p></div></div>
+
+</div><!-- /conteudo -->
+
+<!-- ===== MODAL: STATUS DETALHADO ===== -->
+<div class="modal-overlay" id="modalStatus">
+  <div class="modal-caixa">
+    <button class="modal-fechar" id="btnFecharStatus"><i class="fa fa-times"></i></button>
+    <h3><i class="fa fa-server"></i> Status Detalhado do Sistema</h3>
+    <div class="status-detalhe-lista" id="statusDetalhe"></div>
+    <div class="modal-botoes"><button class="btn-salvar" id="btnOkStatus">Fechar</button></div>
+  </div>
+</div>
+
+<!-- ===== MODAL: RELATÓRIO ===== -->
+<div class="modal-overlay" id="modalRelatorio">
+  <div class="modal-caixa">
+    <button class="modal-fechar" id="btnFecharRelatorio"><i class="fa fa-times"></i></button>
+    <h3><i class="fa fa-chart-pie"></i> Relatório Completo de Usuários</h3>
+    <div class="relatorio-conteudo">
+      <div class="rel-stat"><span>Total de Usuários</span><strong>12.458</strong></div>
+      <div class="rel-stat"><span>Clientes</span><strong style="color:#cc0000">9.245 (74,2%)</strong></div>
+      <div class="rel-stat"><span>Vendedores</span><strong style="color:#c9a227">2.341 (18,8%)</strong></div>
+      <div class="rel-stat"><span>Administradores</span><strong style="color:#1db954">156 (1,2%)</strong></div>
+      <div class="rel-stat"><span>Bloqueados</span><strong style="color:#7c4dff">442 (3,5%)</strong></div>
+      <div class="rel-stat"><span>Novos este mês</span><strong>1.248</strong></div>
+      <div class="rel-stat"><span>Taxa de crescimento</span><strong style="color:#1db954">↑ 23%</strong></div>
+    </div>
+    <div class="modal-botoes"><button class="btn-salvar" id="btnOkRelatorio">Fechar</button></div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast">
+  <i id="toastIcone" class="fa fa-check-circle"></i>
+  <span id="toastTexto"></span>
+</div>
+  <script src="../script/painel_admin.js"></script>
+</body>
+</html>

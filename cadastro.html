@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar Conta – AngoBiz Kivenda</title>
+  <link rel="stylesheet" href="../style/cadastro.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- ===== ÁREA PRINCIPAL ===== -->
+  <main class="pagina-registo">
+    <div class="registo-layout">
+
+      <!-- ── COLUNA ESQUERDA: Info e benefícios ── -->
+      <aside class="registo-esquerda">
+        <nav class="breadcrumb">
+          <a href="home.html">Início</a>
+          <i class="fa fa-chevron-right"></i>
+          <span>Criar conta</span>
+        </nav>
+
+        <h1 class="titulo-pagina">Criar conta</h1>
+        <p class="subtitulo-pagina">Preencha os dados abaixo para criar sua conta na AngoBiz Kivenda.</p>
+
+        <div class="beneficios-lista">
+
+          <div class="beneficio-item">
+            <div class="beneficio-icone">
+              <i class="fa fa-user-circle"></i>
+            </div>
+            <div class="beneficio-texto">
+              <strong>Acesso rápido</strong>
+              <p>Faça login e compre de forma mais rápida e segura.</p>
+            </div>
+          </div>
+
+          <div class="beneficio-item">
+            <div class="beneficio-icone">
+              <i class="fa fa-shopping-bag"></i>
+            </div>
+            <div class="beneficio-texto">
+              <strong>Acompanhe seus pedidos</strong>
+              <p>Veja o histórico e o status de todos os seus pedidos.</p>
+            </div>
+          </div>
+
+          <div class="beneficio-item">
+            <div class="beneficio-icone">
+              <i class="fa fa-heart"></i>
+            </div>
+            <div class="beneficio-texto">
+              <strong>Lista de desejos</strong>
+              <p>Salve seus produtos favoritos e compre quando quiser.</p>
+            </div>
+          </div>
+
+          <div class="beneficio-item">
+            <div class="beneficio-icone">
+              <i class="fa fa-tag"></i>
+            </div>
+            <div class="beneficio-texto">
+              <strong>Ofertas exclusivas</strong>
+              <p>Receba promoções e descontos especiais para você.</p>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- ── COLUNA DIREITA: Formulário ── -->
+      <section class="registo-direita">
+        <div class="form-caixa">
+          <h2 class="form-titulo">Dados da sua conta</h2>
+          <p class="form-subtitulo">Todos os campos são obrigatórios.</p>
+
+          <form id="formRegisto" novalidate>
+
+            <!-- Nome completo -->
+            <div class="campo-linha">
+              <label class="campo-label" for="nomeCompleto">Nome completo</label>
+              <div class="campo-wrapper" id="wrapperNome">
+                <i class="fa fa-user campo-icone"></i>
+                <input
+                  type="text"
+                  id="nomeCompleto"
+                  name="nomeCompleto"
+                  placeholder="Digite seu nome completo"
+                  autocomplete="name"
+                />
+              </div>
+              <span class="campo-erro" id="erroNome"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="campo-linha">
+              <label class="campo-label" for="email">Email</label>
+              <div class="campo-wrapper" id="wrapperEmail">
+                <i class="fa fa-envelope campo-icone"></i>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Digite seu email"
+                  autocomplete="email"
+                />
+              </div>
+              <span class="campo-erro" id="erroEmail"></span>
+            </div>
+
+            <!-- Telefone -->
+            <div class="campo-linha">
+              <label class="campo-label" for="telefone">Telefone</label>
+              <div class="campo-wrapper" id="wrapperTelefone">
+                <i class="fa fa-phone campo-icone"></i>
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  placeholder="Ex: +244 923 456 789"
+                  autocomplete="tel"
+                />
+              </div>
+              <span class="campo-erro" id="erroTelefone"></span>
+            </div>
+
+            <!-- Bairro -->
+            <div class="campo-linha">
+              <label class="campo-label" for="bairro">Bairro</label>
+              <div class="campo-wrapper" id="wrapperBairro">
+                <i class="fa fa-map-marker-alt campo-icone"></i>
+                <input
+                  type="text"
+                  id="bairro"
+                  name="bairro"
+                  placeholder="Digite seu bairro"
+                  autocomplete="address-level3"
+                />
+              </div>
+              <span class="campo-erro" id="erroBairro"></span>
+            </div>
+
+            <!-- Província -->
+            <div class="campo-linha">
+              <label class="campo-label" for="provincia">Província</label>
+              <div class="campo-wrapper campo-select" id="wrapperProvincia">
+                <i class="fa fa-map campo-icone"></i>
+                <select id="provincia" name="provincia">
+                  <option value="">Selecione a província</option>
+                  <option value="bengo">Bengo</option>
+                  <option value="benguela">Benguela</option>
+                  <option value="bie">Bié</option>
+                  <option value="cabinda">Cabinda</option>
+                  <option value="cuanza-norte">Cuanza Norte</option>
+                  <option value="cuanza-sul">Cuanza Sul</option>
+                  <option value="cunene">Cunene</option>
+                  <option value="huambo">Huambo</option>
+                  <option value="huila">Huíla</option>
+                  <option value="luanda">Luanda</option>
+                  <option value="lunda-norte">Lunda Norte</option>
+                  <option value="lunda-sul">Lunda Sul</option>
+                  <option value="malanje">Malanje</option>
+                  <option value="moxico">Moxico</option>
+                  <option value="namibe">Namibe</option>
+                  <option value="uige">Uíge</option>
+                  <option value="zaire">Zaire</option>
+                </select>
+                <i class="fa fa-chevron-down select-seta"></i>
+              </div>
+              <span class="campo-erro" id="erroProvincia"></span>
+            </div>
+
+            <!-- Tipo de usuário -->
+            <div class="campo-linha">
+              <label class="campo-label" for="tipoUsuario">
+                Tipo de usuário
+                <button type="button" class="btn-tooltip" id="btnTooltip" title="Escolha o tipo de conta que melhor se adequa ao seu perfil">
+                  <i class="fa fa-question-circle"></i>
+                </button>
+              </label>
+              <div class="campo-wrapper campo-select" id="wrapperTipo">
+                <i class="fa fa-user-tag campo-icone"></i>
+                <select id="tipoUsuario" name="tipoUsuario">
+                  <option value="">Selecione o tipo de usuário</option>
+                  <option value="comprador">Comprador</option>
+                  <option value="vendedor">Vendedor</option>
+                  <option value="empresa">Empresa</option>
+                  <option value="revendedor">Revendedor</option>
+                </select>
+                <i class="fa fa-chevron-down select-seta"></i>
+              </div>
+              <span class="campo-erro" id="erroTipo"></span>
+            </div>
+
+            <!-- Senha -->
+            <div class="campo-linha">
+              <label class="campo-label" for="senha">Senha</label>
+              <div class="campo-wrapper" id="wrapperSenha">
+                <i class="fa fa-lock campo-icone"></i>
+                <input
+                  type="password"
+                  id="senha"
+                  name="senha"
+                  placeholder="Crie uma senha"
+                  autocomplete="new-password"
+                />
+                <button type="button" class="btn-ver-senha" id="btnVerSenha1" title="Mostrar/ocultar senha">
+                  <i class="fa fa-eye" id="olho1"></i>
+                </button>
+              </div>
+              <!-- Barra de força da senha -->
+              <div class="forca-senha" id="forcaSenha">
+                <div class="forca-barra">
+                  <div class="forca-progresso" id="forcaProgresso"></div>
+                </div>
+                <span class="forca-texto" id="forcaTexto"></span>
+              </div>
+              <span class="campo-erro" id="erroSenha"></span>
+            </div>
+
+            <!-- Confirmar senha -->
+            <div class="campo-linha">
+              <label class="campo-label" for="confirmarSenha">Confirmar senha</label>
+              <div class="campo-wrapper" id="wrapperConfirmar">
+                <i class="fa fa-lock campo-icone"></i>
+                <input
+                  type="password"
+                  id="confirmarSenha"
+                  name="confirmarSenha"
+                  placeholder="Confirme sua senha"
+                  autocomplete="new-password"
+                />
+                <button type="button" class="btn-ver-senha" id="btnVerSenha2" title="Mostrar/ocultar senha">
+                  <i class="fa fa-eye" id="olho2"></i>
+                </button>
+              </div>
+              <span class="campo-erro" id="erroConfirmar"></span>
+            </div>
+
+            <!-- Termos e condições -->
+            <div class="campo-termos">
+              <label class="termos-label" id="labelTermos">
+                <input type="checkbox" id="checkTermos" name="termos" />
+                <span class="check-custom"></span>
+                Li e aceito os
+                <a href="#" class="link-termos" id="linkTermos">Termos e Condições</a>
+                e a
+                <a href="#" class="link-termos" id="linkPrivacidade">Política de Privacidade</a>.
+              </label>
+              <span class="campo-erro" id="erroTermos"></span>
+            </div>
+
+            <!-- Botão criar conta -->
+            <button type="submit" class="btn-criar-conta" id="btnCriar">
+              <span id="textoBtnCriar">CRIAR CONTA</span>
+              <span class="spinner" id="spinnerCriar"></span>
+            </button>
+
+            <!-- Link login -->
+            <p class="linha-login">
+              Já tem uma conta? <a href="login.html">Fazer login</a>
+            </p>
+
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape">
+    <div class="rodape-inner">
+
+      <div class="rodape-col rodape-sobre">
+        <a href="home.html" class="logo rodape-logo">
+          <div class="logo-circulo pequeno"> <img src="../img/logo.png" alt=""></div>
+          <div class="logo-texto">
+            <span class="logo-angotext"><span class="w">ANGO</span><span class="g">BIZ</span></span>
+            <span class="logo-kivenda">— KIVENDA —</span>
+          </div>
+        </a>
+        <p>A AngoBiz Kivenda é a sua parceira ideal para negócios, inovação e crescimento. Oferecemos os melhores produtos e soluções para impulsionar o seu sucesso.</p>
+        <div class="rodape-redes">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/244923456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="rodape-col">
+        <h4>LINKS RÁPIDOS</h4>
+        <ul>
+          <li><a href="home.html">Início</a></li>
+          <li><a href="mercado.html">Loja</a></li>
+          <li><a href="mercado.html">Mercado</a></li>
+          <li><a href="promocao.html">Promoções</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-col">
+        <h4>CATEGORIAS</h4>
+        <ul>
+          <li><a href="mercado.html">Supermercado</a></li>
+          <li><a href="eletronicos.html">Eletrónicos</a></li>
+          <li><a href="escritorio.html">Escritório</a></li>
+          <li><a href="industria.html">Indústria</a></li>
+          <li><a href="#">Casa &amp; Decoração</a></li>
+          <li><a href="automovel.html">Automóvel</a></li>
+          <li><a href="#">Moda &amp; Beleza</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-col">
+        <h4>CONTACTOS</h4>
+        <ul class="rodape-contactos">
+          <li><i class="fa fa-phone"></i> +244 923 456 789</li>
+          <li><i class="fa fa-envelope"></i> atendimento@angobizkivenda.ao</li>
+          <li><i class="fa fa-map-marker-alt"></i> Rua da Kivenda, Nº 123<br />Luanda, Angola</li>
+          <li><i class="fa fa-clock"></i> Seg – Sex: 08h00 – 18h00<br />Sáb: 08h00 – 13h00</li>
+        </ul>
+      </div>
+
+      <div class="rodape-col">
+        <h4>FORMAS DE PAGAMENTO</h4>
+        <div class="pagamento-grid">
+          <div class="pagamento-card visa">VISA</div>
+          <div class="pagamento-card mastercard">mastercard</div>
+          <div class="pagamento-card verve">Verve</div>
+          <div class="pagamento-card multicaixa">MULTICAIXA</div>
+          <div class="pagamento-card unitel">unitel money</div>
+          <div class="pagamento-card pay">PAY</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="rodape-fundo">
+      <span>© 2024 AngoBiz Kivenda. Todos os direitos reservados.</span>
+      <div>
+        <a href="termos.html">Termos e Condições</a>
+        <a href="politica.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL: TERMOS E CONDIÇÕES ===== -->
+  <div class="modal-overlay" id="modalTermos">
+    <div class="modal-caixa modal-grande">
+      <button class="modal-fechar" id="btnFecharTermos"><i class="fa fa-times"></i></button>
+      <h3><i class="fa fa-file-contract"></i> Termos e Condições</h3>
+      <div class="modal-conteudo-scroll">
+        <h4>1. Aceitação dos Termos</h4>
+        <p>Ao criar uma conta na AngoBiz Kivenda, você concorda com estes Termos e Condições. Se não concordar, não prossiga com o registo.</p>
+        <h4>2. Uso da Plataforma</h4>
+        <p>A plataforma AngoBiz Kivenda destina-se exclusivamente a fins legais e comerciais legítimos. É proibido usar a plataforma para actividades ilegais, fraudulentas ou prejudiciais a terceiros.</p>
+        <h4>3. Conta do Utilizador</h4>
+        <p>É responsável por manter a confidencialidade das suas credenciais de acesso. Deverá notificar-nos imediatamente em caso de uso não autorizado da sua conta.</p>
+        <h4>4. Produtos e Serviços</h4>
+        <p>A AngoBiz Kivenda actua como intermediária entre compradores e vendedores. Não garantimos a disponibilidade de produtos de terceiros e não somos responsáveis por disputas entre utilizadores.</p>
+        <h4>5. Pagamentos</h4>
+        <p>Todos os pagamentos são processados de forma segura. A AngoBiz Kivenda não armazena dados de cartões bancários. Os preços estão expressos em Kwanzas (Kz).</p>
+        <h4>6. Cancelamentos e Devoluções</h4>
+        <p>O prazo de devolução é de 7 dias úteis após a recepção do produto, desde que este se encontre nas condições originais.</p>
+        <h4>7. Privacidade</h4>
+        <p>Os seus dados pessoais são tratados de acordo com a nossa Política de Privacidade e a legislação angolana aplicável.</p>
+        <h4>8. Modificações</h4>
+        <p>A AngoBiz Kivenda reserva-se o direito de alterar estes termos com aviso prévio de 30 dias.</p>
+      </div>
+      <div class="modal-botoes">
+        <button class="btn-modal-cancel" id="btnRecusarTermos">Recusar</button>
+        <button class="btn-modal-ok" id="btnAceitarTermos">Aceitar e Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: POLÍTICA DE PRIVACIDADE ===== -->
+  <div class="modal-overlay" id="modalPrivacidade">
+    <div class="modal-caixa modal-grande">
+      <button class="modal-fechar" id="btnFecharPrivacidade"><i class="fa fa-times"></i></button>
+      <h3><i class="fa fa-shield-alt"></i> Política de Privacidade</h3>
+      <div class="modal-conteudo-scroll">
+        <h4>1. Dados Recolhidos</h4>
+        <p>Recolhemos dados pessoais como nome, e-mail, telefone e localização para prestar os nossos serviços e melhorar a sua experiência.</p>
+        <h4>2. Uso dos Dados</h4>
+        <p>Os seus dados são utilizados para: processar encomendas, enviar comunicações relevantes, melhorar a plataforma e cumprir obrigações legais.</p>
+        <h4>3. Partilha de Dados</h4>
+        <p>Não vendemos os seus dados a terceiros. Partilhamos apenas com parceiros necessários para a prestação do serviço (ex.: transportadoras, processadores de pagamento).</p>
+        <h4>4. Segurança</h4>
+        <p>Utilizamos encriptação SSL e medidas de segurança robustas para proteger os seus dados contra acesso não autorizado.</p>
+        <h4>5. Cookies</h4>
+        <p>Utilizamos cookies para melhorar a sua experiência. Pode gerir as suas preferências de cookies nas definições do browser.</p>
+        <h4>6. Os Seus Direitos</h4>
+        <p>Tem direito a aceder, corrigir ou eliminar os seus dados pessoais. Contacte-nos em privacidade@angobizkivenda.ao para exercer estes direitos.</p>
+        <h4>7. Retenção de Dados</h4>
+        <p>Os seus dados são conservados pelo período necessário à prestação dos serviços ou por exigência legal.</p>
+      </div>
+      <div class="modal-botoes">
+        <button class="btn-modal-cancel" id="btnFecharPriv2">Fechar</button>
+        <button class="btn-modal-ok" id="btnAceitarPriv">Aceitar e Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: CONTA CRIADA COM SUCESSO ===== -->
+  <div class="modal-overlay" id="modalSucesso">
+    <div class="modal-caixa">
+      <div class="modal-icone verde"><i class="fa fa-check-circle"></i></div>
+      <h3>Conta Criada!</h3>
+      <p>A sua conta na AngoBiz Kivenda foi criada com sucesso. Bem-vindo à família!</p>
+      <div class="modal-botoes">
+        <button class="btn-modal-ok" id="btnIrLogin">Fazer Login</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOOLTIP ===== -->
+  <div class="tooltip-caixa" id="tooltipCaixa">
+    <p>Escolha o perfil que melhor descreve como vai usar a plataforma:</p>
+    <ul>
+      <li><strong>Comprador</strong> – Compra produtos para uso pessoal</li>
+      <li><strong>Vendedor</strong> – Vende produtos na plataforma</li>
+      <li><strong>Empresa</strong> – Conta corporativa com compras a granel</li>
+      <li><strong>Revendedor</strong> – Compra para revender</li>
+    </ul>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast">
+    <i id="toastIcone" class="fa fa-check-circle"></i>
+    <span id="toastTexto"></span>
+  </div>
+<!-- Container/Modal de Verificação Pós-Formulário -->
+<div id="modalVerificacaoWhats" class="modal-whats-container" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 20000; align-items: center; justify-content: center; font-family: sans-serif;">
+  <div style="background: #1a1a1a; color: #fff; width: 90%; max-width: 500px; padding: 25px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.5); border-top: 5px solid #25D366;">
+    
+    <h3 style="color: #c9a227; margin-top: 0; text-align: center;">Confirmar Dados e Verificar Conta</h3>
+    <p style="font-size: 13px; color: #aaa; text-align: center;">Um código de verificação foi gerado para o seu WhatsApp. Por favor, confirme os seus dados abaixo:</p>
+    
+    <!-- Resumo dos Dados Pessoais -->
+    <div id="resumoDadosPessoais" style="background: #222; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; border: 1px solid #333;">
+      <!-- Injetado dinamicamente via JS -->
+    </div>
+
+    <!-- Campo do Código de Verificação -->
+    <div style="margin-bottom: 20px;">
+      <label for="codigoWhatsAppModal" style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 13px; color: #25D366;">Introduza o Código de Verificação:</label>
+      <input type="text" id="codigoWhatsAppModal" placeholder="Ex: 123465" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #444; background: #000; color: #fff; font-size: 16px; text-align: center; letter-spacing: 4px;">
+    </div>
+
+    <!-- Ações -->
+    <div style="display: flex; gap: 10px;">
+      <button id="btnCancelarVerificacao" style="flex: 1; padding: 12px; background: #c0392b; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Cancelar</button>
+      <button id="btnConfirmarRegistoFinal" style="flex: 1; padding: 12px; background: #25D366; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Concluir Registo</button>
+    </div>
+  </div>
+</div>
+
+  <script src="../script/cadastro_page.js"></script>
+</body>
+</html>

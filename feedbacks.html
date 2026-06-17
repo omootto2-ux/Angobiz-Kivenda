@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda – Dê seu Feedback</title>
+  <link rel="stylesheet" href="../style/feedbacks.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     BARRA TOPO
+══════════════════════════════════════ -->
+<div id="header-placeholder"></div>
+
+<!-- ══════════════════════════════════════
+     CONTEÚDO PRINCIPAL
+══════════════════════════════════════ -->
+<div class="pagina">
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="home.html">Início</a>
+    <i class="fas fa-chevron-right"></i>
+    <a href="#">Minhas compras</a>
+    <i class="fas fa-chevron-right"></i>
+    <a href="#">Pedido #ABK-78291</a>
+    <i class="fas fa-chevron-right"></i>
+    <span>Feedback do vendedor</span>
+  </div>
+
+  <!-- Título -->
+  <h1 class="titulo-pagina">DÊ SEU FEEDBACK</h1>
+  <p class="subtitulo-pagina">Sua opinião ajuda outros compradores e melhora a experiência na plataforma.</p>
+
+  <!-- ═══════════ GRID PRINCIPAL ═══════════ -->
+  <div class="grid-main">
+
+    <!-- ══ COLUNA ESQUERDA ══ -->
+    <div class="col-esq">
+
+      <!-- CARD: INFO DA LOJA -->
+      <div class="card-loja">
+        <div class="loja-av-wrap">
+          <div class="loja-avatar">
+            <div class="av-circulo">
+              <span class="av-ak">AK</span>
+            </div>
+          </div>
+        </div>
+        <div class="loja-info">
+          <div class="loja-nome-linha">
+            <span class="loja-nome">Loja Tech Angola</span>
+            <span class="badge-vrf">Vendedor Verificado</span>
+          </div>
+          <div class="loja-cat">Tecnologia & Electrónicos</div>
+          <div class="loja-local"><i class="fas fa-map-marker-alt" style="color:#e6a817;"></i> Luanda, Angola</div>
+          <div class="loja-online"><span class="dot-online"></span> Online agora</div>
+        </div>
+        <div class="loja-media">
+          <div class="media-label">Avaliação média da loja</div>
+          <div class="media-num">4.8</div>
+          <div class="media-estrelas">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span class="media-total">(128 avaliações)</span>
+          </div>
+        </div>
+        <div class="pedido-info">
+          <div class="pedido-linha">
+            <span class="pedido-num">Pedido #ABK-78291</span>
+            <span class="badge-concluido">Concluído</span>
+          </div>
+          <div class="pedido-data">Data da compra: 20/05/2024</div>
+          <div class="pedido-total">Total: <strong>125.000 Kz</strong></div>
+          <button class="btn-detalhes-pedido" onclick="toast('A ver detalhes do pedido...')">
+            Ver detalhes do pedido
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══ SECÇÃO 1: AVALIAÇÃO GERAL ═══ -->
+      <div class="secao-card">
+        <div class="secao-titulo-num">
+          <span class="snum">1.</span> COMO VOCÊ AVALIA ESTE VENDEDOR?
+        </div>
+
+        <div class="avaliacao-geral-grid">
+          <!-- Estrelas grandes -->
+          <div class="av-geral-esq">
+            <div class="av-label">Avaliação geral</div>
+            <div class="estrelas-grandes" id="estrelasGerais">
+              <i class="fas fa-star estrela-g" data-val="1" onclick="selecionarGeralEstrela(1)"></i>
+              <i class="fas fa-star estrela-g" data-val="2" onclick="selecionarGeralEstrela(2)"></i>
+              <i class="fas fa-star estrela-g" data-val="3" onclick="selecionarGeralEstrela(3)"></i>
+              <i class="fas fa-star estrela-g" data-val="4" onclick="selecionarGeralEstrela(4)"></i>
+              <i class="far fa-star estrela-g" data-val="5" onclick="selecionarGeralEstrela(5)"></i>
+            </div>
+            <div class="av-texto" id="avTextoGeral">Muito bom</div>
+          </div>
+          <!-- Botões rápidos 1-5 -->
+          <div class="av-geral-dir">
+            <div class="av-instrucao">
+              Clique nas <strong>estrelas</strong> para avaliar<br/>
+              <span style="font-size:11px;color:#666;">(1 estrela = Muito ruim / 5 estrelas = Excelente)</span>
+            </div>
+            <div class="btns-estrela-rapida" id="btnsRapidos">
+              <button class="btn-rapido" data-val="1" onclick="selecionarGeralEstrela(1)"><i class="fas fa-star"></i> 1</button>
+              <button class="btn-rapido" data-val="2" onclick="selecionarGeralEstrela(2)"><i class="fas fa-star"></i> 2</button>
+              <button class="btn-rapido" data-val="3" onclick="selecionarGeralEstrela(3)"><i class="fas fa-star"></i> 3</button>
+              <button class="btn-rapido ativo" data-val="4" onclick="selecionarGeralEstrela(4)"><i class="fas fa-star"></i> 4</button>
+              <button class="btn-rapido" data-val="5" onclick="selecionarGeralEstrela(5)"><i class="fas fa-star"></i> 5</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SECÇÃO 2: ASPECTOS ═══ -->
+      <div class="secao-card">
+        <div class="secao-titulo-num">
+          <span class="snum">2.</span> AVALIE OS ASPECTOS DO ATENDIMENTO
+        </div>
+        <div class="aspectos-grid" id="aspectosGrid">
+          <!-- gerado pelo JS -->
+        </div>
+      </div>
+
+      <!-- ═══ SECÇÕES 3 e 4 LADO A LADO ═══ -->
+      <div class="secoes-meio">
+
+        <!-- SECÇÃO 3: COMENTÁRIO -->
+        <div class="secao-card flex-1">
+          <div class="secao-titulo-num">
+            <span class="snum">3.</span> COMENTE SUA EXPERIÊNCIA (OPCIONAL)
+          </div>
+          <p class="secao-desc">Conte mais sobre sua experiência com este vendedor.</p>
+          <textarea
+            id="comentario"
+            maxlength="1000"
+            placeholder="Partilhe detalhes que possam ajudar outros compradores..."
+            oninput="contarChars(this,'cntComentario',1000)"
+          ></textarea>
+          <div class="cnt-chars"><span id="cntComentario">0</span>/1000 caracteres</div>
+        </div>
+
+        <!-- SECÇÃO 4: FOTOS/VÍDEOS -->
+        <div class="secao-card flex-1">
+          <div class="secao-titulo-num">
+            <span class="snum">4.</span> ADICIONE FOTOS OU VÍDEOS (OPCIONAL)
+          </div>
+          <p class="secao-desc">Adicione imagens ou vídeos do produto recebido.</p>
+
+          <div class="zona-upload"
+               id="zonaUpload"
+               onclick="document.getElementById('fileUpload').click()"
+               ondragover="dSobre(event,this)" ondragleave="dFora(this)" ondrop="dSoltar(event)">
+            <input type="file" id="fileUpload" accept=".png,.jpg,.jpeg,.mp4,.mov"
+                   multiple hidden onchange="addFotos(this.files)"/>
+            <i class="fas fa-cloud-upload-alt zu-ico"></i>
+            <p><span class="zu-link">Clique para enviar</span> ou arraste arquivos aqui</p>
+            <small>PNG, JPG, MP4 ou MOV. Máx. 10MB por arquivo.</small>
+          </div>
+
+          <!-- Thumbnails pré-carregados -->
+          <div class="fotos-grid" id="fotosGrid">
+            <div class="foto-thumb" id="ft-0">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=120&q=80" alt=""/>
+              <button class="rm-foto" onclick="rmFoto('ft-0')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="foto-thumb" id="ft-1">
+              <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=120&q=80" alt=""/>
+              <button class="rm-foto" onclick="rmFoto('ft-1')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="foto-thumb" id="ft-2">
+              <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=120&q=80" alt=""/>
+              <button class="rm-foto" onclick="rmFoto('ft-2')"><i class="fas fa-times"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SECÇÃO 5: RECOMENDA? ═══ -->
+      <div class="secao-card">
+        <div class="secao-titulo-num">
+          <span class="snum">5.</span> VOCÊ RECOMENDA ESTE VENDEDOR?
+        </div>
+        <p class="secao-desc">Você recomendaria este vendedor para outros compradores?</p>
+        <div class="btns-recomendar">
+          <button class="btn-recomendar sim ativo" id="btnSim" onclick="selecionarRecomenda('sim')">
+            Sim, recomendo! <i class="fas fa-thumbs-up"></i>
+          </button>
+          <button class="btn-recomendar nao" id="btnNao" onclick="selecionarRecomenda('nao')">
+            Não recomendo <i class="fas fa-thumbs-down"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- BOTÃO ENVIAR -->
+      <div class="wrap-enviar">
+        <button class="btn-enviar" onclick="enviarFeedback()">
+          ENVIAR FEEDBACK <i class="fas fa-paper-plane"></i>
+        </button>
+        <p class="nota-envio">
+          <i class="fas fa-lock"></i>
+          Seu feedback é público e ajuda a comunidade AngoBiz Kivenda.
+        </p>
+      </div>
+
+    </div><!-- /col-esq -->
+
+    <!-- ══ COLUNA DIREITA ══ -->
+    <div class="col-dir">
+
+      <!-- Por que deixar feedback -->
+      <div class="card-lateral">
+        <div class="lat-titulo">POR QUE DEIXAR UM FEEDBACK?</div>
+        <div class="motivo-item">
+          <div class="motivo-ico" style="background:rgba(192,57,43,.15);border-color:rgba(192,57,43,.3);">
+            <i class="fas fa-users" style="color:#c0392b;"></i>
+          </div>
+          <div>
+            <strong>Ajuda outros compradores</strong>
+            <p>Seu feedback ajuda a comunidade a fazer melhores escolhas.</p>
+          </div>
+        </div>
+        <div class="motivo-item">
+          <div class="motivo-ico" style="background:rgba(230,168,23,.12);border-color:rgba(230,168,23,.3);">
+            <i class="fas fa-store" style="color:#e6a817;"></i>
+          </div>
+          <div>
+            <strong>Vendedores melhores</strong>
+            <p>Seu feedback ajuda os vendedores a melhorarem seus serviços.</p>
+          </div>
+        </div>
+        <div class="motivo-item">
+          <div class="motivo-ico" style="background:rgba(192,57,43,.15);border-color:rgba(192,57,43,.3);">
+            <i class="fas fa-shield-alt" style="color:#c0392b;"></i>
+          </div>
+          <div>
+            <strong>Plataforma mais segura</strong>
+            <p>Feedbacks ajudam a manter um ambiente seguro e confiável.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dicas para bom feedback -->
+      <div class="card-lateral">
+        <div class="lat-titulo">DICAS PARA UM BOM FEEDBACK</div>
+        <div class="dica-item">
+          <i class="fas fa-check-circle" style="color:#27ae60;"></i>
+          <span>Seja honesto e objetivo</span>
+        </div>
+        <div class="dica-item">
+          <i class="fas fa-check-circle" style="color:#27ae60;"></i>
+          <span>Descreva sua experiência real</span>
+        </div>
+        <div class="dica-item">
+          <i class="fas fa-check-circle" style="color:#27ae60;"></i>
+          <span>Mencione pontos positivos e negativos</span>
+        </div>
+        <div class="dica-item">
+          <i class="fas fa-check-circle" style="color:#27ae60;"></i>
+          <span>Se possível, adicione fotos</span>
+        </div>
+      </div>
+
+    </div><!-- /col-dir -->
+  </div><!-- /grid-main -->
+</div><!-- /pagina -->
+
+<!-- ══════════════════════════════════════
+     RODAPÉ
+══════════════════════════════════════ -->
+<footer class="rodape">
+  <div class="rod-top">
+    <div class="rod-col rod-logo-col">
+      <div class="rod-logo">
+        <div class="logo-circulo sm"><span class="logo-ak sm">AK</span></div>
+        <div class="logo-txt">
+          <span class="logo-ango">ANGO<span class="logo-biz">BIZ</span></span>
+          <span class="logo-kiv">KIVENDA</span>
+        </div>
+      </div>
+      <p class="rod-desc">A plataforma completa para compras e vendas em Angola.</p>
+      <div class="rod-social">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/244923456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="rod-col">
+      <h4>LINKS RÁPIDOS</h4>
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="mercado.html">Loja</a></li>
+        <li><a href="mercado.html">Mercado</a></li>
+        <li><a href="promocoes.html">Promoções</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="suporte.html">Contactos</a></li>
+      </ul>
+    </div>
+    <div class="rod-col">
+      <h4>CATEGORIAS</h4>
+      <ul>
+        <li><a href="mercado.html">Supermercado</a></li>
+        <li><a href="#">Electrónicos</a></li>
+        <li><a href="escritorio.html">Escritório</a></li>
+        <li><a href="industria.html">Indústria</a></li>
+        <li><a href="#">Casa & Decoração</a></li>
+        <li><a href="automovel.html">Automóvel</a></li>
+        <li><a href="#">Moda & Beleza</a></li>
+      </ul>
+    </div>
+    <div class="rod-col">
+      <h4>CONTACTOS</h4>
+      <ul class="rod-contactos">
+        <li><i class="fas fa-phone" style="color:#e6a817;"></i> +244 923 456 789</li>
+        <li><i class="fas fa-envelope" style="color:#e6a817;"></i> atendimento@angobizkivenda.ao</li>
+        <li><i class="fas fa-map-marker-alt" style="color:#e6a817;"></i> Rua da Kivenda, Nº 123<br/>Luanda, Angola</li>
+        <li><i class="fas fa-clock" style="color:#e6a817;"></i> Seg - Sex: 08h00 - 18h00<br/>Sáb: 08h00 - 13h00</li>
+      </ul>
+    </div>
+    <div class="rod-col">
+      <h4>FORMAS DE PAGAMENTO</h4>
+      <div class="rod-pag">
+        <div class="fp visa">VISA</div>
+        <div class="fp mc">
+          <i class="fas fa-circle" style="color:#eb001b;font-size:18px;"></i>
+          <i class="fas fa-circle" style="color:#f79e1b;font-size:18px;margin-left:-8px;"></i>
+          <span style="font-size:9px;font-weight:700;margin-left:3px;color:#ccc;">mastercard.</span>
+        </div>
+        <div class="fp verve">Verve</div>
+        <div class="fp multi">MULTICAIXA</div>
+        <div class="fp unitel">Unitel<br/><small>money</small></div>
+        <div class="fp pay">PAY</div>
+      </div>
+    </div>
+  </div>
+  <div class="rod-bottom">
+    <span>© 2024 AngoBiz Kivenda. Todos os direitos reservados.</span>
+    <div class="rod-bottom-links">
+      <a href="termos.html">Termos e Condições</a>
+      <span>|</span>
+      <a href="politica.html">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL SUCESSO -->
+<div class="modal-ov" id="modalSucesso">
+  <div class="modal-box">
+    <div class="modal-ico-ok"><i class="fas fa-check-circle"></i></div>
+    <h3>Feedback enviado!</h3>
+    <p>Obrigado pela sua avaliação. O seu feedback ajuda a comunidade AngoBiz Kivenda a crescer.</p>
+    <div class="modal-info-grid">
+      <div><strong>Avaliação geral:</strong> <span id="mAv">4/5 estrelas</span></div>
+      <div><strong>Recomenda:</strong> <span id="mRec">Sim</span></div>
+    </div>
+    <button class="btn-modal-ok" onclick="fecharModal()">Ver minhas compras</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-el" id="toastEl"></div>
+  <script src="feedback.js"></script>
+  <script src="../script/forms_page.js"></script>
+</body>
+</html>

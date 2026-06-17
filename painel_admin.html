@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meu Perfil – Administrador AngoBiz Kivenda</title>
+  <link rel="stylesheet" href="../style/perfil_admin.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body class="tema-escuro">
+<script>if(typeof Sessao!=="undefined"){ Sessao.exigirAdmin(); }</script>
+
+<!-- ===================== SIDEBAR ===================== -->
+<aside class="sidebar" id="sidebar">
+
+  <!-- Logo -->
+  <div class="sidebar-logo">
+    <div class="logo-circulo-grande">
+      <img src="../img/logo.png" alt="AngoBiz" style="width:80px;height:80px;object-fit:contain;border-radius:50%;">
+    </div>
+    <div class="logo-texto-sidebar">
+      <span class="lst-ango"><span class="w">ANGO</span><span class="g">BIZ</span></span>
+      <span class="lst-kiv">— KIVENDA —</span>
+    </div>
+  </div>
+
+  <!-- Navegação -->
+  <nav class="sidebar-nav">
+    <ul>
+      <li class="nav-item" data-pagina="painel">
+        <a href="#"><i class="fa fa-home"></i><span>Painel Geral</span></a>
+      </li>
+      <li class="nav-item" data-pagina="usuarios">
+        <a href="#"><i class="fa fa-users"></i><span>Usuários</span></a>
+      </li>
+      <li class="nav-item" data-pagina="vendedores">
+        <a href="#"><i class="fa fa-store"></i><span>Vendedores</span></a>
+      </li>
+      <li class="nav-item" data-pagina="produtos">
+        <a href="#"><i class="fa fa-box"></i><span>Produtos</span></a>
+      </li>
+      <li class="nav-item" data-pagina="servicos">
+        <a href="#"><i class="fa fa-concierge-bell"></i><span>Serviços</span></a>
+      </li>
+      <li class="nav-item" data-pagina="pedidos">
+        <a href="#"><i class="fa fa-clipboard-list"></i><span>Pedidos</span></a>
+      </li>
+      <li class="nav-item" data-pagina="transacoes">
+        <a href="#"><i class="fa fa-exchange-alt"></i><span>Transações</span></a>
+      </li>
+      <li class="nav-item" data-pagina="financeiro">
+        <a href="#"><i class="fa fa-wallet"></i><span>Financeiro</span></a>
+      </li>
+      <li class="nav-item" data-pagina="relatorios">
+        <a href="#"><i class="fa fa-chart-bar"></i><span>Relatórios</span></a>
+      </li>
+      <li class="nav-item" data-pagina="avaliacoes">
+        <a href="#"><i class="fa fa-star"></i><span>Avaliações</span></a>
+      </li>
+      <li class="nav-item" data-pagina="disputas">
+        <a href="#"><i class="fa fa-gavel"></i><span>Disputas</span></a>
+      </li>
+      <li class="nav-item" data-pagina="promocoes">
+        <a href="#"><i class="fa fa-tags"></i><span>Promoções</span></a>
+      </li>
+      <li class="nav-item" data-pagina="notificacoes">
+        <a href="#"><i class="fa fa-bell"></i><span>Notificações</span></a>
+      </li>
+      <li class="nav-item" data-pagina="configuracoes">
+        <a href="#"><i class="fa fa-cog"></i><span>Configurações</span></a>
+      </li>
+      <li class="nav-item ativo" data-pagina="perfil">
+        <a href="painel_admin2.html">Ver Mais
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Suporte -->
+  <div class="sidebar-suporte">
+    <div class="ss-icone"><i class="fa fa-question-circle"></i></div>
+    <div>
+      <strong>Precisa de ajuda?</strong>
+      <span>Suporte da plataforma</span>
+    </div>
+    <button class="btn-suporte" id="btnContatar">Contactar Suporte</button>
+  </div>
+
+</aside>
+
+<!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+<div class="conteudo-principal" id="conteudoPrincipal">
+
+  <!-- TOPO DO CONTEÚDO -->
+  <div class="conteudo-topo">
+    <div class="ct-esquerda">
+      <h1 class="ct-titulo" id="tituloPagina">Meu Perfil (Administrador)</h1>
+      <p class="ct-subtitulo" id="subtituloPagina">Gerencie sua conta e configurações da plataforma</p>
+    </div>
+    <div class="ct-direita">
+      <!-- Notificações -->
+      <button class="topo-btn notif-btn" id="btnNotif">
+        <i class="fa fa-bell"></i>
+        <span class="badge-notif" id="badgeNotif">12</span>
+      </button>
+      <!-- Tema -->
+      <button class="topo-btn tema-btn" id="btnTema" title="Alternar tema">
+        <i class="fa fa-moon" id="iconeTema"></i>
+      </button>
+      <!-- Avatar + dropdown -->
+      <div class="avatar-wrapper" id="avatarWrapper">
+        <div class="avatar-admin">
+          <div class="avatar-img">
+            <i class="fa fa-user-circle"></i>
+          </div>
+          <i class="fa fa-chevron-down seta-av"></i>
+        </div>
+        <div class="avatar-dropdown" id="avatarDropdown">
+          <div class="ad-perfil">
+            <div class="ad-avatar"><i class="fa fa-user-circle"></i></div>
+            <div>
+              <strong>Administrador AngoBiz</strong>
+              <span>admin@angobizkivenda.com</span>
+            </div>
+          </div>
+          <div class="ad-divider"></div>
+          <a href="#" class="ad-item"><i class="fa fa-user"></i> Meu Perfil</a>
+          <a href="#" class="ad-item"><i class="fa fa-cog"></i> Configurações</a>
+          <div class="ad-divider"></div>
+          <a href="#" class="ad-item ad-sair"><i class="fa fa-sign-out-alt"></i> Sair</a>
+        </div>
+      </div>
+      <!-- Botão Editar Perfil -->
+      <button class="btn-editar-perfil" id="btnEditarPerfil">
+        <i class="fa fa-edit"></i> Editar Perfil
+      </button>
+    </div>
+  </div>
+
+  <!-- PAINEL DE NOTIFICAÇÕES -->
+  <div class="notif-painel" id="notifPainel">
+    <div class="np-header">
+      <span>Notificações</span>
+      <button id="btnMarcarLidas">Marcar todas como lidas</button>
+    </div>
+    <div class="np-lista" id="npLista"></div>
+    <div class="np-footer"><a href="#" data-pagina="notificacoes">Ver todas</a></div>
+  </div>
+
+  <!-- ================== PÁGINAS ================== -->
+
+  <!-- PERFIL (activa por defeito) -->
+  <div class="pagina ativa" id="paginaPerfil">
+
+    <!-- Card do Perfil -->
+    <div class="card-perfil">
+      <div class="cp-esquerda">
+        <div class="cp-avatar-wrap">
+          <div class="cp-avatar"><i class="fa fa-user-circle"></i></div>
+          <div class="cp-status-dot"></div>
+        </div>
+        <div class="cp-info">
+          <div class="cp-nome-linha">
+            <h2>Administrador AngoBiz</h2>
+            <i class="fa fa-check-circle cp-verificado" title="Verificado"></i>
+          </div>
+          <span class="tag-admin">Administrador Principal</span>
+          <ul class="cp-dados">
+            <li><i class="fa fa-envelope"></i> admin@angobizkivenda.com</li>
+            <li><i class="fa fa-phone"></i> +244 923 456 789</li>
+            <li><i class="fa fa-map-marker-alt"></i> Luanda, Angola</li>
+            <li><i class="fa fa-clock"></i> Último acesso: 18/05/2025 • 14:30</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cp-direita">
+        <div class="cp-meta">
+          <div class="cp-meta-item">
+            <i class="fa fa-user-shield"></i>
+            <span>Função:</span>
+            <strong>Administrador Principal</strong>
+          </div>
+          <div class="cp-meta-item">
+            <i class="fa fa-key"></i>
+            <span>Permissão:</span>
+            <strong>Acesso Total</strong>
+          </div>
+          <div class="cp-meta-item">
+            <i class="fa fa-calendar-alt"></i>
+            <span>Membro desde:</span>
+            <strong>01/01/2024</strong>
+          </div>
+          <div class="cp-meta-item">
+            <i class="fa fa-id-badge"></i>
+            <span>ID do Administrador:</span>
+            <strong>#ABK-ADM-001</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats da plataforma -->
+    <div class="stats-plataforma">
+      <div class="stat-pl" data-pagina="usuarios">
+        <div class="spl-icone vermelho"><i class="fa fa-users"></i></div>
+        <span class="spl-val" data-count="12458">12.458</span>
+        <span class="spl-nome">Usuários</span>
+        <span class="spl-link">Ver todos</span>
+      </div>
+      <div class="stat-pl" data-pagina="vendedores">
+        <div class="spl-icone laranja"><i class="fa fa-store"></i></div>
+        <span class="spl-val" data-count="2341">2.341</span>
+        <span class="spl-nome">Vendedores</span>
+        <span class="spl-link">Ver todos</span>
+      </div>
+      <div class="stat-pl" data-pagina="produtos">
+        <div class="spl-icone verde"><i class="fa fa-shopping-bag"></i></div>
+        <span class="spl-val" data-count="18765">18.765</span>
+        <span class="spl-nome">Produtos</span>
+        <span class="spl-link">Ver todos</span>
+      </div>
+      <div class="stat-pl" data-pagina="servicos">
+        <div class="spl-icone azul"><i class="fa fa-briefcase"></i></div>
+        <span class="spl-val" data-count="4892">4.892</span>
+        <span class="spl-nome">Serviços</span>
+        <span class="spl-link">Ver todos</span>
+      </div>
+      <div class="stat-pl" data-pagina="pedidos">
+        <div class="spl-icone roxo"><i class="fa fa-shopping-cart"></i></div>
+        <span class="spl-val" data-count="32114">32.114</span>
+        <span class="spl-nome">Pedidos</span>
+        <span class="spl-link">Ver todos</span>
+      </div>
+      <div class="stat-pl" data-pagina="transacoes">
+        <div class="spl-icone amarelo"><i class="fa fa-coins"></i></div>
+        <span class="spl-val" data-count="362540000" data-kz="true">362.540.000 Kz</span>
+        <span class="spl-nome">Transações</span>
+        <span class="spl-link">Ver relatório</span>
+      </div>
+    </div>
+
+    <!-- Linha dupla: Visão Geral + metade -->
+    <div class="linha-dupla-larga">
+
+      <!-- Visão Geral da Plataforma -->
+      <div class="card-visao-geral">
+        <div class="card-header">
+          <h3>Visão Geral da Plataforma</h3>
+          <div class="select-wrap">
+            <select id="selectPeriodo">
+              <option value="30">Últimos 30 dias</option>
+              <option value="7">Últimos 7 dias</option>
+              <option value="90">Últimos 90 dias</option>
+            </select>
+            <i class="fa fa-chevron-down"></i>
+          </div>
+        </div>
+        <div class="mini-graficos-grid">
+          <div class="mini-grafico-item">
+            <span class="mg-titulo">Novos Usuários</span>
+            <div class="mg-val-linha">
+              <span class="mg-val">1.248</span>
+              <span class="mg-badge positivo">↑ 23%</span>
+            </div>
+            <canvas id="canvasUsuarios" class="mini-canvas"></canvas>
+          </div>
+          <div class="mini-grafico-item">
+            <span class="mg-titulo">Novos Vendedores</span>
+            <div class="mg-val-linha">
+              <span class="mg-val">156</span>
+              <span class="mg-badge positivo">↑ 18%</span>
+            </div>
+            <canvas id="canvasVendedores" class="mini-canvas"></canvas>
+          </div>
+          <div class="mini-grafico-item">
+            <span class="mg-titulo">Pedidos Realizados</span>
+            <div class="mg-val-linha">
+              <span class="mg-val">2.340</span>
+              <span class="mg-badge positivo">↑ 27%</span>
+            </div>
+            <canvas id="canvasPedidos" class="mini-canvas"></canvas>
+          </div>
+          <div class="mini-grafico-item">
+            <span class="mg-titulo">Valor Transacionado</span>
+            <div class="mg-val-linha">
+              <span class="mg-val">45.720.000 Kz</span>
+              <span class="mg-badge positivo">↑ 32%</span>
+            </div>
+            <canvas id="canvasTransacoes" class="mini-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha: Atividades + Aprovações -->
+    <div class="linha-dupla">
+
+      <!-- Atividades Recentes -->
+      <div class="card-atividades">
+        <div class="card-header">
+          <h3>Atividades Recentes</h3>
+          <a href="#" class="link-dourado" data-pagina="painel">Ver todas</a>
+        </div>
+        <div class="ativ-lista" id="ativLista"></div>
+        <button class="btn-ver-ativ" id="btnVerAtiv">Ver todas as atividades</button>
+      </div>
+
+      <!-- Aprovações Pendentes -->
+      <div class="card-aprovacoes">
+        <div class="card-header">
+          <h3>Aprovações Pendentes</h3>
+          <a href="#" class="link-dourado">Ver todas</a>
+        </div>
+        <div class="aprov-lista" id="aprovLista"></div>
+      </div>
+    </div>
+
+    <!-- Linha: Segurança + Ações Rápidas -->
+    <div class="linha-dupla">
+
+      <!-- Segurança da Conta -->
+      <div class="card-seguranca">
+        <div class="card-header">
+          <h3>Segurança da Conta</h3>
+          <i class="fa fa-chevron-right seg-seta" id="setaSeguranca"></i>
+        </div>
+        <div class="seg-itens">
+          <div class="seg-item" id="itemSenha">
+            <div class="seg-item-esq">
+              <i class="fa fa-lock seg-ic"></i>
+              <span>Senha</span>
+            </div>
+            <div class="seg-item-dir">
+              <span class="seg-pontos">••••••••••</span>
+              <i class="fa fa-chevron-right seg-seta-item"></i>
+            </div>
+          </div>
+          <div class="seg-item" id="item2FA">
+            <div class="seg-item-esq">
+              <i class="fa fa-shield-alt seg-ic verde"></i>
+              <span>Autenticação de Dois Fatores</span>
+            </div>
+            <div class="seg-item-dir">
+              <span class="tag-ativo">Ativado</span>
+              <i class="fa fa-chevron-right seg-seta-item"></i>
+            </div>
+          </div>
+          <div class="seg-item" id="itemSessoes">
+            <div class="seg-item-esq">
+              <i class="fa fa-desktop seg-ic"></i>
+              <span>Sessões Ativas</span>
+            </div>
+            <div class="seg-item-dir">
+              <span class="seg-sub">3 dispositivos</span>
+              <i class="fa fa-chevron-right seg-seta-item"></i>
+            </div>
+          </div>
+        </div>
+        <button class="btn-seg" id="btnGerenciarSeg">Gerenciar Segurança</button>
+      </div>
+
+      <!-- Ações Rápidas -->
+      <div class="card-acoes-rapidas">
+        <div class="card-header"><h3>Ações Rápidas</h3></div>
+        <div class="acoes-grid">
+          <button class="acao-btn" data-pagina="usuarios">
+            <i class="fa fa-users"></i>
+            <span>Gerenciar Usuários</span>
+          </button>
+          <button class="acao-btn" data-pagina="vendedores">
+            <i class="fa fa-store"></i>
+            <span>Gerenciar Vendedores</span>
+          </button>
+          <button class="acao-btn" data-pagina="produtos">
+            <i class="fa fa-box-open"></i>
+            <span>Gerenciar Produtos</span>
+          </button>
+          <button class="acao-btn" data-pagina="servicos">
+            <i class="fa fa-tools"></i>
+            <span>Gerenciar Serviços</span>
+          </button>
+          <button class="acao-btn" data-pagina="financeiro">
+            <i class="fa fa-chart-line"></i>
+            <span>Relatórios Financeiros</span>
+          </button>
+          <button class="acao-btn" data-pagina="configuracoes">
+            <i class="fa fa-sliders-h"></i>
+            <span>Configurações da Plataforma</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info da plataforma -->
+    <div class="card-plataforma-info">
+      <div class="pi-logo">
+        <div class="logo-circulo-grande"><img src="../img/logo.png" alt="AK" style="width:50px;height:50px;object-fit:contain;border-radius:50%;"></div>
+        <div class="logo-texto-sidebar">
+          <span class="lst-ango" style="font-size:16px"><span class="w">ANGO</span><span class="g">BIZ</span></span>
+          <span class="lst-kiv">— KIVENDA —</span>
+        </div>
+      </div>
+      <div class="pi-desc">
+        <p><strong>AngoBiz Kivenda</strong></p>
+        <p>Conectando negócios, inovação e crescimento.</p>
+        <p style="color:var(--cinza);font-size:12px">A maior plataforma de marketplace de Angola.</p>
+      </div>
+      <div class="pi-meta">
+        <div class="pi-meta-item"><span>Versão da Plataforma</span><strong>v2.3.1</strong></div>
+        <div class="pi-meta-item"><span>Ambiente</span><strong>Produção</strong></div>
+        <div class="pi-meta-item"><span>Último Backup</span><strong>18/05/2025 • 03:00</strong></div>
+      </div>
+      <button class="btn-status" id="btnStatus">Ver Status do Sistema</button>
+    </div>
+
+  </div><!-- /paginaPerfil -->
+
+  <!-- PAINEL GERAL -->
+  <div class="pagina" id="paginaPainel">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-home"></i></div>
+      <h2>Painel Geral</h2>
+      <p>Visão geral completa da plataforma AngoBiz Kivenda.</p>
+      <div class="pp-stats-rapidas">
+        <div class="pp-stat"><span>12.458</span><label>Usuários</label></div>
+        <div class="pp-stat"><span>2.341</span><label>Vendedores</label></div>
+        <div class="pp-stat"><span>18.765</span><label>Produtos</label></div>
+        <div class="pp-stat"><span>32.114</span><label>Pedidos</label></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USUÁRIOS -->
+  <div class="pagina" id="paginaUsuarios">
+    <div class="card-tabela">
+      <div class="card-header">
+        <h3>Gestão de Usuários</h3>
+        <button class="btn-novo"><i class="fa fa-plus"></i> Novo Usuário</button>
+      </div>
+      <div class="tabela-filtros">
+        <input type="text" class="filtro-input" placeholder="Pesquisar usuário..." id="filtroUsuarios"/>
+        <select class="filtro-sel" id="filtroStatusUsuario">
+          <option value="">Todos os status</option>
+          <option value="ativo">Ativo</option>
+          <option value="inativo">Inativo</option>
+          <option value="suspenso">Suspenso</option>
+        </select>
+      </div>
+      <div class="tabela-wrap"><table class="tabela-dados" id="tabelaUsuarios"></table></div>
+    </div>
+  </div>
+
+  <!-- VENDEDORES -->
+  <div class="pagina" id="paginaVendedores">
+    <div class="card-tabela">
+      <div class="card-header">
+        <h3>Gestão de Vendedores</h3>
+        <button class="btn-novo"><i class="fa fa-store"></i> Aprovar Pendentes</button>
+      </div>
+      <div class="tabela-filtros">
+        <input type="text" class="filtro-input" placeholder="Pesquisar vendedor..."/>
+        <select class="filtro-sel">
+          <option>Todos</option><option>Verificados</option><option>Pendentes</option>
+        </select>
+      </div>
+      <div class="tabela-wrap"><table class="tabela-dados" id="tabelaVendedores"></table></div>
+    </div>
+  </div>
+
+  <!-- PRODUTOS -->
+  <div class="pagina" id="paginaProdutos">
+    <div class="card-tabela">
+      <div class="card-header">
+        <h3>Gestão de Produtos</h3>
+        <button class="btn-novo"><i class="fa fa-plus"></i> Adicionar Produto</button>
+      </div>
+      <div class="tabela-filtros">
+        <input type="text" class="filtro-input" placeholder="Pesquisar produto..."/>
+        <select class="filtro-sel"><option>Todas as categorias</option><option>Eletrónicos</option><option>Vestuário</option></select>
+      </div>
+      <div class="tabela-wrap"><table class="tabela-dados" id="tabelaProdutos"></table></div>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <div class="pagina" id="paginaServicos">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-concierge-bell"></i></div>
+      <h2>Serviços</h2>
+      <p>Gerencie todos os serviços disponíveis na plataforma.</p>
+    </div>
+  </div>
+
+  <!-- PEDIDOS -->
+  <div class="pagina" id="paginaPedidos">
+    <div class="card-tabela">
+      <div class="card-header">
+        <h3>Gestão de Pedidos</h3>
+        <span class="badge-count">32.114 pedidos</span>
+      </div>
+      <div class="tabela-filtros">
+        <input type="text" class="filtro-input" placeholder="Pesquisar pedido..."/>
+        <select class="filtro-sel">
+          <option>Todos</option><option>Entregue</option><option>Pendente</option><option>Cancelado</option>
+        </select>
+      </div>
+      <div class="tabela-wrap"><table class="tabela-dados" id="tabelaPedidos"></table></div>
+    </div>
+  </div>
+
+  <!-- TRANSAÇÕES -->
+  <div class="pagina" id="paginaTransacoes">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-exchange-alt"></i></div>
+      <h2>Transações</h2>
+      <p>Total: 362.540.000 Kz movimentados na plataforma.</p>
+    </div>
+  </div>
+
+  <!-- FINANCEIRO -->
+  <div class="pagina" id="paginaFinanceiro">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-wallet"></i></div>
+      <h2>Financeiro</h2>
+      <p>Relatórios e gestão financeira da plataforma.</p>
+    </div>
+  </div>
+
+  <!-- RELATÓRIOS -->
+  <div class="pagina" id="paginaRelatorios">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-chart-bar"></i></div>
+      <h2>Relatórios</h2>
+      <p>Análises e relatórios detalhados da plataforma.</p>
+    </div>
+  </div>
+
+  <!-- AVALIAÇÕES -->
+  <div class="pagina" id="paginaAvaliacoes">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-star"></i></div>
+      <h2>Avaliações</h2>
+      <p>Gerencie as avaliações de produtos e vendedores.</p>
+    </div>
+  </div>
+
+  <!-- DISPUTAS -->
+  <div class="pagina" id="paginaDisputas">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-gavel"></i></div>
+      <h2>Disputas</h2>
+      <p>Resolução de conflitos entre compradores e vendedores.</p>
+    </div>
+  </div>
+
+  <!-- PROMOÇÕES -->
+  <div class="pagina" id="paginaPromocoes">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-tags"></i></div>
+      <h2>Promoções</h2>
+      <p>Gerencie cupons e promoções da plataforma.</p>
+    </div>
+  </div>
+
+  <!-- NOTIFICAÇÕES -->
+  <div class="pagina" id="paginaNotificacoes">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-bell"></i></div>
+      <h2>Notificações</h2>
+      <p>Central de notificações do sistema.</p>
+    </div>
+  </div>
+
+  <!-- CONFIGURAÇÕES -->
+  <div class="pagina" id="paginaConfiguracoes">
+    <div class="pagina-placeholder">
+      <div class="pp-icone"><i class="fa fa-cog"></i></div>
+      <h2>Configurações</h2>
+      <p>Configurações gerais da plataforma AngoBiz Kivenda.</p>
+    </div>
+  </div>
+
+</div><!-- /conteudo-principal -->
+
+<!-- ===== MODAL: EDITAR PERFIL ===== -->
+<div class="modal-overlay" id="modalEditarPerfil">
+  <div class="modal-caixa">
+    <button class="modal-fechar" id="btnFecharModal"><i class="fa fa-times"></i></button>
+    <h3><i class="fa fa-edit"></i> Editar Perfil</h3>
+    <div class="modal-form">
+      <div class="mf-campo">
+        <label>Nome completo</label>
+        <div class="mf-input"><input type="text" value="Administrador AngoBiz"/></div>
+      </div>
+      <div class="mf-campo">
+        <label>E-mail</label>
+        <div class="mf-input"><input type="email" value="admin@angobizkivenda.com"/></div>
+      </div>
+      <div class="mf-campos-duplos">
+        <div class="mf-campo">
+          <label>Telefone</label>
+          <div class="mf-input"><input type="tel" value="+244 923 456 789"/></div>
+        </div>
+        <div class="mf-campo">
+          <label>Localização</label>
+          <div class="mf-input"><input type="text" value="Luanda, Angola"/></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-botoes">
+      <button class="btn-cancelar-modal" id="btnCancelarModal">Cancelar</button>
+      <button class="btn-salvar-modal" id="btnSalvarModal">Guardar Alterações</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: SEGURANÇA ===== -->
+<div class="modal-overlay" id="modalSeguranca">
+  <div class="modal-caixa">
+    <button class="modal-fechar" id="btnFecharSeg"><i class="fa fa-times"></i></button>
+    <h3><i class="fa fa-shield-alt"></i> Segurança da Conta</h3>
+    <div class="modal-form">
+      <div class="mf-campo">
+        <label>Senha atual</label>
+        <div class="mf-input mf-senha">
+          <input type="password" id="senhaAtual" placeholder="••••••••••"/>
+          <button type="button" class="btn-ver-senha" data-target="senhaAtual"><i class="fa fa-eye"></i></button>
+        </div>
+      </div>
+      <div class="mf-campo">
+        <label>Nova senha</label>
+        <div class="mf-input mf-senha">
+          <input type="password" id="novaSenha" placeholder="Mínimo 8 caracteres"/>
+          <button type="button" class="btn-ver-senha" data-target="novaSenha"><i class="fa fa-eye"></i></button>
+        </div>
+      </div>
+      <div class="mf-campo">
+        <label>Confirmar nova senha</label>
+        <div class="mf-input mf-senha">
+          <input type="password" id="confirmarSenha" placeholder="Repita a nova senha"/>
+          <button type="button" class="btn-ver-senha" data-target="confirmarSenha"><i class="fa fa-eye"></i></button>
+        </div>
+      </div>
+      <span class="mf-erro" id="erroSenha"></span>
+    </div>
+    <div class="modal-botoes">
+      <button class="btn-cancelar-modal" id="btnCancelarSeg">Cancelar</button>
+      <button class="btn-salvar-modal" id="btnSalvarSenha">Actualizar Senha</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: STATUS DO SISTEMA ===== -->
+<div class="modal-overlay" id="modalStatus">
+  <div class="modal-caixa">
+    <button class="modal-fechar" id="btnFecharStatus"><i class="fa fa-times"></i></button>
+    <h3><i class="fa fa-server"></i> Status do Sistema</h3>
+    <div class="status-lista">
+      <div class="status-item"><i class="fa fa-circle verde"></i><span>API Principal</span><strong class="verde">Operacional</strong></div>
+      <div class="status-item"><i class="fa fa-circle verde"></i><span>Base de Dados</span><strong class="verde">Operacional</strong></div>
+      <div class="status-item"><i class="fa fa-circle verde"></i><span>Pagamentos</span><strong class="verde">Operacional</strong></div>
+      <div class="status-item"><i class="fa fa-circle amarelo"></i><span>CDN / Imagens</span><strong class="amarelo">Latência Alta</strong></div>
+      <div class="status-item"><i class="fa fa-circle verde"></i><span>Notificações</span><strong class="verde">Operacional</strong></div>
+      <div class="status-item"><i class="fa fa-circle verde"></i><span>Backup</span><strong class="verde">Último: 18/05/2025</strong></div>
+    </div>
+    <div class="modal-botoes"><button class="btn-salvar-modal" id="btnFecharStatusOk">Fechar</button></div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast">
+  <i id="toastIcone" class="fa fa-check-circle"></i>
+  <span id="toastTexto"></span>
+</div>
+  <script src="../script/painel_admin.js"></script>
+</body>
+</html>

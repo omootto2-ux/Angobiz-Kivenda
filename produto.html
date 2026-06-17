@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda – Produtos</title>
+  <link rel="stylesheet" href="../style/produto.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+<!-- ==================== BARRA TOPO ==================== -->
+<div id="header-placeholder"></div>
+
+<!-- ==================== CONTEÚDO ==================== -->
+<div class="pagina-wrap">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="home.html" onclick="navClick(event,'Início')">Início</a>
+    <i class="fas fa-chevron-right"></i>
+    <a href="mercado.html" onclick="navClick(event,'Mercado')">Mercado</a>
+    <i class="fas fa-chevron-right"></i>
+    <span>Produtos</span>
+  </div>
+
+  <!-- CABEÇALHO PÁGINA -->
+  <div class="pag-header">
+    <div>
+      <h1 class="pag-titulo">PRODUTOS</h1>
+      <p class="pag-sub">Explore milhares de produtos novos e usados publicados por vendedores verificados de todo o país.</p>
+    </div>
+    <div class="selos">
+      <div class="selo">
+        <div class="selo-ico"><i class="fas fa-shield-alt"></i></div>
+        <div><div class="selo-t">Vendedores verificados</div><div class="selo-d">Mais segurança para si</div></div>
+      </div>
+      <div class="selo">
+        <div class="selo-ico"><i class="fas fa-lock"></i></div>
+        <div><div class="selo-t">Pagamentos seguros</div><div class="selo-d">Ambiente 100% seguro</div></div>
+      </div>
+      <div class="selo">
+        <div class="selo-ico"><i class="fas fa-truck"></i></div>
+        <div><div class="selo-t">Entregas rápidas</div><div class="selo-d">Para todo o país</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRID PRINCIPAL -->
+  <div class="grid-main">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+
+      <!-- Categorias -->
+      <div class="sb-bloco">
+        <h3 class="sb-titulo">CATEGORIAS</h3>
+        <ul class="cat-lista" id="catLista">
+          <li class="cat-item cat-ativo" data-cat="Todas as categorias" onclick="clicarCategoria(this)">
+            <i class="fas fa-th"></i> Todas as categorias
+          </li>
+          <li class="cat-item" data-cat="Eletrónicos" onclick="clicarCategoria(this)">
+            <i class="fas fa-laptop"></i> Eletrónicos <span class="cat-n">432</span>
+          </li>
+          <li class="cat-item" data-cat="Telemóveis" onclick="clicarCategoria(this)">
+            <i class="fas fa-mobile-alt"></i> Telemóveis <span class="cat-n">315</span>
+          </li>
+          <li class="cat-item" data-cat="Informática" onclick="clicarCategoria(this)">
+            <i class="fas fa-desktop"></i> Informática <span class="cat-n">245</span>
+          </li>
+          <li class="cat-item" data-cat="Casa & Decoração" onclick="clicarCategoria(this)">
+            <i class="fas fa-home"></i> Casa & Decoração <span class="cat-n">312</span>
+          </li>
+          <li class="cat-item" data-cat="Moda & Beleza" onclick="clicarCategoria(this)">
+            <i class="fas fa-tshirt"></i> Moda & Beleza <span class="cat-n">620</span>
+          </li>
+          <li class="cat-item" data-cat="Saúde & Beleza" onclick="clicarCategoria(this)">
+            <i class="fas fa-heartbeat"></i> Saúde & Beleza <span class="cat-n">183</span>
+          </li>
+          <li class="cat-item" data-cat="Esportes & Lazer" onclick="clicarCategoria(this)">
+            <i class="fas fa-futbol"></i> Esportes & Lazer <span class="cat-n">98</span>
+          </li>
+          <li class="cat-item" data-cat="Automóveis" onclick="clicarCategoria(this)">
+            <i class="fas fa-car"></i> Automóveis <span class="cat-n">156</span>
+          </li>
+          <li class="cat-item" data-cat="Peças & Acessórios" onclick="clicarCategoria(this)">
+            <i class="fas fa-cog"></i> Peças & Acessórios <span class="cat-n">214</span>
+          </li>
+          <li class="cat-item" data-cat="Ferramentas" onclick="clicarCategoria(this)">
+            <i class="fas fa-wrench"></i> Ferramentas <span class="cat-n">167</span>
+          </li>
+          <li class="cat-item" data-cat="Indústria & Comércio" onclick="clicarCategoria(this)">
+            <i class="fas fa-industry"></i> Indústria & Comércio <span class="cat-n">133</span>
+          </li>
+          <li class="cat-item" data-cat="Alimentação" onclick="clicarCategoria(this)">
+            <i class="fas fa-utensils"></i> Alimentação <span class="cat-n">276</span>
+          </li>
+          <li class="cat-item" data-cat="Livros & Papelaria" onclick="clicarCategoria(this)">
+            <i class="fas fa-book"></i> Livros & Papelaria <span class="cat-n">87</span>
+          </li>
+          <li class="cat-item" data-cat="Outros" onclick="clicarCategoria(this)">
+            <i class="fas fa-ellipsis-h"></i> Outros <span class="cat-n">201</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Filtrar por -->
+      <div class="sb-bloco">
+        <h3 class="sb-titulo">FILTRAR POR</h3>
+
+        <!-- Localização -->
+        <div class="filtro-grupo">
+          <label class="filtro-label">Localização</label>
+          <div class="sel-wrap">
+            <select class="campo-sel" id="selProvincia" onchange="aplicarFiltros()">
+              <option value="">Todas as províncias</option>
+              <option>Luanda</option>
+              <option>Benguela</option>
+              <option>Huambo</option>
+              <option>Huíla</option>
+              <option>Cabinda</option>
+              <option>Malanje</option>
+              <option>Bié</option>
+            </select>
+            <i class="fas fa-chevron-down si"></i>
+          </div>
+        </div>
+
+        <!-- Faixa de preço -->
+        <div class="filtro-grupo">
+          <label class="filtro-label">Faixa de preço (Kz)</label>
+          <div class="preco-inputs">
+            <input type="number" id="precoMin" class="campo-preco" placeholder="Mín." min="0" oninput="sincronizarSliders()"/>
+            <input type="number" id="precoMax" class="campo-preco" placeholder="Máx." min="0" oninput="sincronizarSliders()"/>
+          </div>
+          <!-- Slider duplo visual -->
+          <div class="dual-slider" id="dualSlider">
+            <div class="slider-trilha">
+              <div class="slider-progresso" id="sliderProgresso"></div>
+            </div>
+            <input type="range" id="sliderMin" min="0" max="25000000" value="0"     class="range-input range-min" oninput="moverSlider()"/>
+            <input type="range" id="sliderMax" min="0" max="25000000" value="25000000" class="range-input range-max" oninput="moverSlider()"/>
+          </div>
+        </div>
+
+        <!-- Condição -->
+        <div class="filtro-grupo">
+          <label class="filtro-label">Condição</label>
+          <label class="check-item" onclick="aplicarFiltros()">
+            <input type="checkbox" id="chkNovo" class="chk" checked/> Novo (6.245)
+          </label>
+          <label class="check-item" onclick="aplicarFiltros()">
+            <input type="checkbox" id="chkUsado" class="chk"/> Usado (1.892)
+          </label>
+        </div>
+
+        <button class="btn-filtrar" onclick="aplicarFiltros()">FILTRAR</button>
+        <button class="btn-limpar" onclick="limparFiltros()">
+          <i class="fas fa-redo"></i> Limpar filtros
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- ===== ÁREA DE PRODUTOS ===== -->
+    <div class="area-produtos">
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <span class="toolbar-contagem" id="toolbarContagem">Mostrando 1–24 de 8.245 produtos</span>
+        <div class="ordenar-wrap">
+          <label class="ordenar-label">Ordenar por:</label>
+          <div class="sel-wrap">
+            <select class="campo-sel campo-sel-sm" id="selOrdenar" onchange="ordenar()">
+              <option value="recentes">Mais recentes</option>
+              <option value="populares">Mais populares</option>
+              <option value="menor">Menor preço</option>
+              <option value="maior">Maior preço</option>
+              <option value="aval">Melhor avaliação</option>
+            </select>
+            <i class="fas fa-chevron-down si"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRADE DE PRODUTOS -->
+      <div class="produtos-grid" id="produtosGrid"></div>
+
+      <!-- PAGINAÇÃO -->
+      <div class="paginacao" id="paginacaoWrap">
+        <button class="pag-btn pag-ativo" data-pag="1" onclick="irParaPagina(1)">1</button>
+        <button class="pag-btn" data-pag="2" onclick="irParaPagina(2)">2</button>
+        <button class="pag-btn" data-pag="3" onclick="irParaPagina(3)">3</button>
+        <span class="pag-reticencias">...</span>
+        <button class="pag-btn" data-pag="343" onclick="irParaPagina(343)">343</button>
+        <button class="pag-btn pag-prox" onclick="proximaPagina()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== BARRA DE GARANTIAS ===== -->
+  <div class="garantias-barra">
+    <div class="gar-item">
+      <i class="fas fa-th-large gar-ico"></i>
+      <div><div class="gar-t">Milhares de produtos</div><div class="gar-d">Encontre tudo o que precisa</div></div>
+    </div>
+    <div class="gar-item">
+      <i class="fas fa-map-marker-alt gar-ico"></i>
+      <div><div class="gar-t">Vendedores de todo o país</div><div class="gar-d">Com lojas e produtos incríveis</div></div>
+    </div>
+    <div class="gar-item">
+      <i class="fas fa-shield-alt gar-ico"></i>
+      <div><div class="gar-t">Pagamentos 100% seguros</div><div class="gar-d">Compra protegida na plataforma</div></div>
+    </div>
+    <div class="gar-item">
+      <i class="fas fa-headset gar-ico"></i>
+      <div><div class="gar-t">Suporte dedicado</div><div class="gar-d">Estamos aqui para ajudar</div></div>
+    </div>
+    <div class="gar-item">
+      <i class="fas fa-undo gar-ico"></i>
+      <div><div class="gar-t">Devolução garantida</div><div class="gar-d">Até 7 dias após o recebimento</div></div>
+    </div>
+    <div class="gar-item">
+      <i class="fas fa-truck gar-ico"></i>
+      <div><div class="gar-t">Entregas rápidas</div><div class="gar-d">Para todo o território nacional</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== MODAL PRODUTO ===== -->
+<div class="modal-overlay" id="modalProduto">
+  <div class="modal-caixa">
+    <button class="modal-fechar" onclick="fecharModal()"><i class="fas fa-times"></i></button>
+    <div id="modalConteudo"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+  <script src="../script/mercado_data.js"></script>
+  <script src="../script/produto_page.js"></script>
+  <script src="../script/mercado.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda – Assistente Virtual</title>
+  <link rel="stylesheet" href="../style/suporte.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+<div class="chat-app">
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="chat-header">
+
+    <!-- Logo + Info -->
+    <div class="header-esq" onclick="togglePainelInfo()">
+      <div class="logo-circulo">
+        <div class="logo-inner">
+          <span class="li-a">A</span><span class="li-k">K</span>
+        </div>
+        <div class="logo-ring"></div>
+      </div>
+      <div class="header-info">
+        <div class="header-nome">
+          Assistente Virtual AngoBiz
+          <span class="verif-badge"><i class="fas fa-check"></i></span>
+        </div>
+        <div class="header-online">
+          <span class="dot-verde"></span> Online
+        </div>
+      </div>
+    </div>
+
+    <!-- Botões de acção -->
+    <div class="header-dir">
+            <a href="home.html">
+      <button class="hbtn" title="home">
+        <i class="fas fa-home"></i>
+      </button>
+      </a>
+      <button class="hbtn" title="Ligar" onclick="mostrarToast('📞 Chamada de voz não disponível neste modo.')">
+        <i class="fas fa-phone"></i>
+      </button>
+      <button class="hbtn" title="Videochamada" onclick="mostrarToast('📹 Videochamada não disponível neste modo.')">
+        <i class="fas fa-video"></i>
+      </button>
+      <div class="hbtn-drop-wrap">
+        <button class="hbtn" title="Mais opções" id="btnMaisOpcoes" onclick="toggleDropOpcoes()">
+          <i class="fas fa-ellipsis-h"></i>
+        </button>
+        <div class="drop-opcoes" id="dropOpcoes">
+          <button onclick="fecharDrop('dropOpcoes');limparChat()">
+            <i class="fas fa-trash-alt"></i> Limpar conversa
+          </button>
+          <button onclick="fecharDrop('dropOpcoes');exportarChat()">
+            <i class="fas fa-download"></i> Exportar chat
+          </button>
+          <button onclick="fecharDrop('dropOpcoes');mostrarToast('🔕 Notificações silenciadas!')">
+            <i class="fas fa-bell-slash"></i> Silenciar
+          </button>
+          <button onclick="fecharDrop('dropOpcoes');mostrarToast('📋 Conversa arquivada!')">
+            <i class="fas fa-archive"></i> Arquivar
+          </button>
+          <div class="drop-sep"></div>
+          <button onclick="fecharDrop('dropOpcoes');mostrarToast('🚫 A denunciar...')">
+            <i class="fas fa-flag"></i> Denunciar
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ==================== BANNER ASSISTENTE ==================== -->
+  <div class="banner-bot">
+    <div class="ban-esq">
+      <div class="ban-bot-ico">
+        <i class="fas fa-robot"></i>
+      </div>
+      <div>
+        <div class="ban-titulo">ANGO IA</div>
+        <div class="ban-sub">Estou aqui para ajudar você!</div>
+      </div>
+    </div>
+    <div class="ban-dir">
+      <div class="ban-tempo-label"><i class="fas fa-clock"></i> Tempo médio de resposta</div>
+      <div class="ban-tempo-val">Menos de 1 minuto</div>
+    </div>
+  </div>
+
+  <!-- ==================== ÁREA DE MENSAGENS ==================== -->
+  <div class="chat-msgs" id="chatMsgs">
+    <!-- Mensagens injectadas via JS -->
+  </div>
+
+  <!-- ==================== SUGESTÕES ==================== -->
+  <div class="sugestoes" id="sugestoes">
+    <button class="sug" onclick="enviarSugestao('Como criar conta?')">
+      <i class="fas fa-user-plus"></i> Como criar conta?
+    </button>
+    <button class="sug" onclick="enviarSugestao('Taxas da plataforma')">
+      <i class="fas fa-percent"></i> Taxas da plataforma
+    </button>
+    <button class="sug" onclick="enviarSugestao('Formas de pagamento')">
+      <i class="fas fa-credit-card"></i> Formas de pagamento
+    </button>
+    <button class="sug" onclick="enviarSugestao('Como funciona a entrega?')">
+      <i class="fas fa-truck"></i> Como funciona a entrega?
+    </button>
+    <button class="sug" onclick="enviarSugestao('Dicas para vender mais')">
+      <i class="fas fa-chart-line"></i> Dicas para vender mais
+    </button>
+    <button class="sug sug-verm" onclick="enviarSugestao('Quero falar com atendente')">
+      <i class="fas fa-headset"></i> Falar com atendente
+    </button>
+  </div>
+
+  <!-- ==================== BARRA DE ENTRADA ==================== -->
+  <div class="chat-input-barra">
+
+    <!-- Botão + -->
+    <div class="btn-mais-wrap">
+      <button class="btn-mais" title="Anexar" onclick="toggleDropAnexo()">
+        <i class="fas fa-plus"></i>
+      </button>
+      <div class="drop-anexo" id="dropAnexo">
+        <button onclick="fecharDrop('dropAnexo');mostrarToast('📷 Câmara não disponível no demo.')">
+          <i class="fas fa-camera"></i> Câmara
+        </button>
+        <button onclick="fecharDrop('dropAnexo');mostrarToast('🖼️ Galeria não disponível no demo.')">
+          <i class="fas fa-image"></i> Galeria
+        </button>
+        <button onclick="fecharDrop('dropAnexo');mostrarToast('📁 Ficheiro não disponível no demo.')">
+          <i class="fas fa-file"></i> Ficheiro
+        </button>
+        <button onclick="fecharDrop('dropAnexo');mostrarToast('📍 Localização não disponível no demo.')">
+          <i class="fas fa-map-marker-alt"></i> Localização
+        </button>
+      </div>
+    </div>
+
+    <!-- Campo de texto -->
+    <div class="input-wrap">
+      <input
+        type="text"
+        id="campoMsg"
+        placeholder="Digite sua mensagem..."
+        autocomplete="off"
+        onkeydown="teclaInput(event)"
+        oninput="mudouInput()"
+      />
+      <!-- Emoji picker -->
+      <div class="emoji-wrap">
+        <button class="btn-emoji" onclick="toggleEmoji()" title="Emoji">
+          <i class="fas fa-smile"></i>
+        </button>
+        <div class="emoji-picker" id="emojiPicker">
+          <div class="emoji-categorias">
+            <span>😊 Caras</span>
+            <span>👍 Gestos</span>
+            <span>💼 Negócios</span>
+          </div>
+          <div class="emoji-grid" id="emojiGrid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão enviar -->
+    <button class="btn-enviar" id="btnEnviar" onclick="enviarMsg()" title="Enviar">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+
+  </div>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <div class="chat-rodape">
+    A tecnologia AngoBiz Kivenda conectando negócios, inovação e crescimento.
+  </div>
+
+</div>
+
+<!-- ==================== PAINEL LATERAL INFO ==================== -->
+<div class="painel-overlay" id="painelOverlay" onclick="fecharPainelInfo()"></div>
+<div class="painel-info" id="painelInfo">
+  <div class="pi-hdr">
+    <h3>Informações</h3>
+    <button onclick="fecharPainelInfo()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="pi-body">
+    <div class="pi-logo-wrap">
+      <div class="logo-circulo logo-grande">
+        <div class="logo-inner">
+          <span class="li-a" style="font-size:2.2rem">A</span>
+          <span class="li-k" style="font-size:2.2rem">K</span>
+        </div>
+      </div>
+    </div>
+    <div class="pi-nome">
+      Assistente Virtual AngoBiz
+      <span class="verif-badge"><i class="fas fa-check"></i></span>
+    </div>
+    <div class="pi-tipo">Assistente Virtual Oficial</div>
+    <div class="pi-online"><span class="dot-verde"></span> Online · responde em &lt;1 min</div>
+    <div class="pi-acoes">
+      <button onclick="mostrarToast('📞 Ligar...')"><i class="fas fa-phone"></i><span>Ligar</span></button>
+      <button onclick="mostrarToast('📹 Vídeo...')"><i class="fas fa-video"></i><span>Vídeo</span></button>
+      <button onclick="mostrarToast('🔕 Silenciado!')"><i class="fas fa-bell-slash"></i><span>Silenciar</span></button>
+      <button onclick="mostrarToast('🔍 A pesquisar...')"><i class="fas fa-search"></i><span>Pesquisar</span></button>
+    </div>
+    <div class="pi-secao-titulo">Contactos</div>
+    <div class="pi-linha"><i class="fas fa-phone"></i> +244 923 456 789</div>
+    <div class="pi-linha"><i class="fas fa-envelope"></i> atendimento@angobizkivenda.ao</div>
+    <div class="pi-linha"><i class="fas fa-globe"></i> www.angobizkivenda.ao</div>
+    <div class="pi-linha"><i class="fas fa-map-marker-alt"></i> Rua da Kivenda, Nº 123, Luanda</div>
+    <div class="pi-secao-titulo">Horário</div>
+    <div class="pi-linha"><i class="fas fa-clock"></i> Seg–Sex: 08h00 – 18h00</div>
+    <div class="pi-linha"><i class="fas fa-clock"></i> Sáb: 08h00 – 13h00</div>
+    <div class="pi-secao-titulo">Redes Sociais</div>
+    <div class="pi-redes">
+      <a href="#" onclick="mostrarToast('Facebook @angobizkivenda')"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" onclick="mostrarToast('Instagram @angobizkivenda')"><i class="fab fa-instagram"></i></a>
+      <a href="#" onclick="mostrarToast('LinkedIn AngoBiz Kivenda')"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" onclick="mostrarToast('WhatsApp +244 923 456 789')"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" onclick="mostrarToast('YouTube @angobizkivenda')"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-global" id="toastGlobal"></div>
+  <script src="../script/suporte.js"></script>
+  <script src="../script/forms_page.js"></script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback – AngoBiz Kivenda</title>
+  <link rel="stylesheet" href="../style/feedback_ak.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<!-- ===== ÁREA PRINCIPAL ===== -->
+<main class="pagina-feedback">
+
+  <!-- HERO BANNER -->
+  <section class="hero-feedback">
+    <div class="hero-conteudo">
+      <nav class="breadcrumb">
+        <a href="home.html">Início</a>
+        <i class="fa fa-chevron-right"></i>
+        <a href="#">Ajuda e Suporte</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Feedback sobre a plataforma</span>
+      </nav>
+      <h1 class="hero-titulo">DEIXE SEU FEEDBACK SOBRE A ANGOBIZ KIVENDA</h1>
+      <p class="hero-sub">Sua opinião é muito importante para continuarmos a melhorar e oferecer a melhor experiência para você.</p>
+    </div>
+    <div class="hero-icone">
+      <div class="hero-stars-box">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+      </div>
+      <!-- Decoração de rede/pontos -->
+      <div class="hero-deco">
+        <div class="deco-ponto p1"></div>
+        <div class="deco-ponto p2"></div>
+        <div class="deco-ponto p3"></div>
+        <div class="deco-linha l1"></div>
+        <div class="deco-linha l2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDA DE BENEFÍCIOS -->
+  <section class="banda-beneficios">
+    <div class="banda-inner">
+      <div class="benef-item">
+        <div class="benef-ic"><i class="fa fa-shield-alt"></i></div>
+        <div>
+          <strong>Ambiente seguro</strong>
+          <p>Sua opinião nos ajuda a manter um ambiente seguro e confiável.</p>
+        </div>
+      </div>
+      <div class="benef-item">
+        <div class="benef-ic"><i class="fa fa-chart-line"></i></div>
+        <div>
+          <strong>Melhoria contínua</strong>
+          <p>Estamos sempre evoluindo para oferecer a melhor experiência.</p>
+        </div>
+      </div>
+      <div class="benef-item">
+        <div class="benef-ic"><i class="fa fa-users"></i></div>
+        <div>
+          <strong>Comunidade forte</strong>
+          <p>Juntos construímos uma plataforma cada vez melhor para todos.</p>
+        </div>
+      </div>
+      <div class="benef-item">
+        <div class="benef-ic"><i class="fa fa-check-double"></i></div>
+        <div>
+          <strong>Resposta garantida</strong>
+          <p>Analisamos todos os feedbacks e retornamos quando necessário.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYOUT PRINCIPAL: FORM + SIDEBAR -->
+  <div class="layout-feedback">
+
+    <!-- ===== FORMULÁRIO (esquerda) ===== -->
+    <div class="form-area">
+
+      <!-- PASSO 1: Tipo de feedback -->
+      <div class="form-secao" id="secaoTipo">
+        <div class="fs-titulo">1. QUAL O TIPO DO SEU FEEDBACK?</div>
+        <p class="fs-sub">Selecione o tipo que melhor se encaixa na sua opinião.</p>
+        <div class="tipos-grid" id="tiposGrid">
+          <div class="tipo-card ativo" data-tipo="elogio">
+            <div class="tipo-ic"><i class="fa fa-thumbs-up"></i></div>
+            <strong>Elogio</strong>
+            <span>Quero elogiar algo na plataforma</span>
+          </div>
+          <div class="tipo-card" data-tipo="sugestao">
+            <div class="tipo-ic"><i class="fa fa-lightbulb"></i></div>
+            <strong>Sugestão</strong>
+            <span>Tenho uma ideia para melhorar</span>
+          </div>
+          <div class="tipo-card" data-tipo="reclamacao">
+            <div class="tipo-ic"><i class="fa fa-exclamation-circle"></i></div>
+            <strong>Reclamação</strong>
+            <span>Tive uma experiência negativa</span>
+          </div>
+          <div class="tipo-card" data-tipo="problema">
+            <div class="tipo-ic"><i class="fa fa-bug"></i></div>
+            <strong>Problema técnico</strong>
+            <span>Encontrei um erro ou instabilidade</span>
+          </div>
+          <div class="tipo-card" data-tipo="outro">
+            <div class="tipo-ic"><i class="fa fa-comment-dots"></i></div>
+            <strong>Outro</strong>
+            <span>Outro tipo de feedback</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASSO 2: Avaliação geral -->
+      <div class="form-secao" id="secaoAvaliacao">
+        <div class="fs-titulo">2. COMO VOCÊ AVALIA SUA EXPERIÊNCIA GERAL?</div>
+        <p class="fs-sub">Dê uma nota geral para sua experiência na AngoBiz Kivenda.</p>
+        <div class="estrelas-rating">
+          <div class="estrelas-row" id="estrelasRow">
+            <i class="fa fa-star estrela" data-val="1"></i>
+            <i class="fa fa-star estrela" data-val="2"></i>
+            <i class="fa fa-star estrela" data-val="3"></i>
+            <i class="fa fa-star estrela" data-val="4"></i>
+            <i class="fa fa-star estrela" data-val="5"></i>
+          </div>
+          <span class="estrela-label" id="estrelaLabel">Excelente</span>
+        </div>
+      </div>
+
+      <!-- PASSO 3: Detalhes -->
+      <div class="form-secao" id="secaoDetalhes">
+        <div class="fs-titulo">3. CONTE-NOS MAIS DETALHES (OPCIONAL)</div>
+        <p class="fs-sub">Compartilhe mais detalhes sobre sua experiência, o que gostou, o que podemos melhorar, etc.</p>
+        <div class="textarea-wrap">
+          <textarea
+            id="txtDetalhes"
+            placeholder="Escreva aqui sua opinião..."
+            maxlength="1000"
+          ></textarea>
+          <div class="textarea-count">
+            <span id="charCount">0</span>/1000 caracteres
+          </div>
+        </div>
+      </div>
+
+      <!-- PASSO 4: Área -->
+      <div class="form-secao" id="secaoArea">
+        <div class="fs-titulo">4. SOBRE QUAL ÁREA VOCÊ ESTÁ FALANDO?</div>
+        <p class="fs-sub">Isso nos ajuda a direcionar seu feedback para o time certo.</p>
+        <div class="select-area-wrap">
+          <select id="selectArea" class="select-area">
+            <option value="">Selecione uma área</option>
+            <option value="compras">Compras e pedidos</option>
+            <option value="pagamentos">Pagamentos</option>
+            <option value="vendas">Vendas e produtos</option>
+            <option value="suporte">Suporte ao cliente</option>
+            <option value="plataforma">Plataforma e navegação</option>
+            <option value="entregas">Entregas</option>
+            <option value="seguranca">Segurança e privacidade</option>
+            <option value="outro">Outra área</option>
+          </select>
+          <i class="fa fa-chevron-down select-area-seta"></i>
+        </div>
+      </div>
+
+      <!-- PASSO 5: Contacto -->
+      <div class="form-secao" id="secaoContato">
+        <div class="fs-titulo">5. POSSO ENTRAR EM CONTATO COM VOCÊ?</div>
+        <p class="fs-sub">Se necessário, podemos entrar em contato para entender melhor sua mensagem.</p>
+
+        <label class="check-anonimo" id="labelAnonimo">
+          <input type="checkbox" id="checkAnonimo"/>
+          <span class="chk-custom"></span>
+          Sim, podem me contactar sobre este feedback.
+        </label>
+
+        <div class="contato-campos" id="contatoCampos">
+          <div class="cc-campo">
+            <label>E-mail (opcional)</label>
+            <input type="email" id="inpEmail" placeholder="seuemail@exemplo.com"/>
+          </div>
+          <div class="cc-campo">
+            <label>Telefone (opcional)</label>
+            <input type="tel" id="inpTel" placeholder="+244 9XX XXX XXX"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTÃO ENVIAR -->
+      <button class="btn-enviar" id="btnEnviar">
+        <span id="txtBtnEnviar">ENVIAR FEEDBACK</span>
+        <i class="fa fa-paper-plane" id="iconeBtnEnviar"></i>
+        <span class="spinner-btn" id="spinnerEnviar"></span>
+      </button>
+      <p class="enviar-nota">
+        <i class="fa fa-lock"></i> Seu feedback é 100% confidencial e usado apenas para melhorias na plataforma.
+      </p>
+
+    </div><!-- /form-area -->
+
+    <!-- ===== SIDEBAR (direita) ===== -->
+    <aside class="sidebar-feedback">
+
+      <!-- Antes de enviar -->
+      <div class="sb-card sb-antes">
+        <h3 class="sb-titulo">ANTES DE ENVIAR</h3>
+        <p class="sb-sub">Verifique se seu feedback inclui:</p>
+        <ul class="antes-lista">
+          <li><i class="fa fa-check-circle"></i> Informações claras e objetivas</li>
+          <li><i class="fa fa-check-circle"></i> Detalhes relevantes sobre sua experiência</li>
+          <li><i class="fa fa-check-circle"></i> Sugestões construtivas (se aplicável)</li>
+          <li><i class="fa fa-check-circle"></i> Respeito e cordialidade</li>
+        </ul>
+      </div>
+
+      <!-- Feedbacks recentes -->
+      <div class="sb-card sb-recentes">
+        <h3 class="sb-titulo">FEEDBACKS RECENTES DA COMUNIDADE</h3>
+        <div class="feedbacks-lista" id="feedbacksLista"></div>
+        <a href="#" class="link-mais" id="linkMaisFeedbacks">
+          Ver mais feedbacks <i class="fa fa-chevron-right"></i>
+        </a>
+      </div>
+
+      <!-- Canais de suporte -->
+      <div class="sb-card sb-canais">
+        <h3 class="sb-titulo">CANAIS DE SUPORTE</h3>
+        <p class="sb-sub">Precisa de ajuda imediata?</p>
+        <div class="canais-lista">
+          <a href="suporte.html" class="canal-item" id="canalCentral">
+            <div class="canal-ic"><i class="fa fa-question-circle"></i></div>
+            <div class="canal-info">
+              <strong>Central de Ajuda</strong>
+              <span>Tire suas dúvidas</span>
+            </div>
+            <i class="fa fa-chevron-right canal-seta"></i>
+          </a>
+          <a href="#" class="canal-item" id="canalChat">
+            <div class="canal-ic"><i class="fa fa-comments"></i></div>
+            <div class="canal-info">
+              <strong>Falar com atendente</strong>
+              <span>Chat ao vivo 24/7</span>
+            </div>
+            <i class="fa fa-chevron-right canal-seta"></i>
+          </a>
+          <a href="#" class="canal-item" id="canalWhatsapp">
+            <div class="canal-ic"><i class="fab fa-whatsapp"></i></div>
+            <div class="canal-info">
+              <strong>WhatsApp</strong>
+              <span>+244 923 456 789</span>
+            </div>
+            <i class="fa fa-chevron-right canal-seta"></i>
+          </a>
+          <a href="#" class="canal-item" id="canalEmail">
+            <div class="canal-ic"><i class="fa fa-envelope"></i></div>
+            <div class="canal-info">
+              <strong>E-mail</strong>
+              <span>atendimento@angobizkivenda.ao</span>
+            </div>
+            <i class="fa fa-chevron-right canal-seta"></i>
+          </a>
+        </div>
+      </div>
+
+    </aside>
+  </div><!-- /layout-feedback -->
+</main>
+
+<!-- ===== RODAPÉ ===== -->
+<footer class="rodape">
+  <div class="rodape-topo">
+
+    <div class="rodape-col rodape-sobre">
+      <a href="../index.html" class="logo">
+        <div class="logo-circulo pequeno"><span class="logo-ak">AK</span></div>
+        <div class="logo-texto">
+          <span class="logo-angotext"><span class="w">ANGO</span><span class="g">BIZ</span></span>
+          <span class="logo-kiv">— KIVENDA —</span>
+        </div>
+      </a>
+      <p>A plataforma completa para compras e vendas em Angola.</p>
+      <div class="rod-redes">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/244923456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="rodape-col">
+      <h4>LINKS RÁPIDOS</h4>
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="mercado.html">Loja</a></li>
+        <li><a href="mercado.html">Mercado</a></li>
+        <li><a href="promocoes.html">Promoções</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="suporte.html">Contactos</a></li>
+      </ul>
+    </div>
+
+    <div class="rodape-col">
+      <h4>CATEGORIAS</h4>
+      <ul>
+        <li><a href="mercado.html">Supermercado</a></li>
+        <li><a href="eletronicos.html">Eletrónicos</a></li>
+        <li><a href="escritorio.html">Escritório</a></li>
+        <li><a href="industria.html">Indústria</a></li>
+        <li><a href="#">Casa &amp; Decoração</a></li>
+        <li><a href="automovel.html">Automóvel</a></li>
+        <li><a href="#">Moda &amp; Beleza</a></li>
+      </ul>
+    </div>
+
+    <div class="rodape-col">
+      <h4>CONTACTOS</h4>
+      <ul class="rod-contactos">
+        <li><i class="fa fa-phone"></i> +244 923 456 789</li>
+        <li><i class="fa fa-envelope"></i> atendimento@angobizkivenda.ao</li>
+        <li><i class="fa fa-map-marker-alt"></i> Rua da Kivenda, Nº 123<br/>Luanda, Angola</li>
+        <li><i class="fa fa-clock"></i> Seg – Sex: 08h00 – 18h00<br/>Sáb.: 08h00 – 13h00</li>
+      </ul>
+    </div>
+
+    <div class="rodape-col">
+      <h4>FORMAS DE PAGAMENTO</h4>
+      <div class="pag-grid">
+        <div class="pag-card pag-visa">VISA</div>
+        <div class="pag-card pag-mc">mastercard</div>
+        <div class="pag-card pag-verve">Verve</div>
+        <div class="pag-card pag-mult">MULTICAIXA</div>
+        <div class="pag-card pag-unitel">unitel money</div>
+        <div class="pag-card pag-pay">PAY</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="rodape-fundo">
+    <span>© 2024 AngoBiz Kivenda. Todos os direitos reservados.</span>
+    <div>
+      <a href="termos.html">Termos e Condições</a>
+      <a href="politica.html">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MODAL: FEEDBACK ENVIADO ===== -->
+<div class="modal-overlay" id="modalSucesso">
+  <div class="modal-caixa">
+    <div class="modal-ic verde"><i class="fa fa-check-circle"></i></div>
+    <h3>Feedback Enviado!</h3>
+    <p>Obrigado pela sua contribuição! Seu feedback foi recebido com sucesso e será analisado pela nossa equipa.</p>
+    <div class="modal-info">
+      <span>Nº do feedback:</span>
+      <strong id="numFeedback">#FBK-000001</strong>
+    </div>
+    <div class="modal-botoes">
+      <button class="btn-modal-ok" id="btnOkSucesso">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: FEEDBACKS DA COMUNIDADE ===== -->
+<div class="modal-overlay" id="modalComunidade">
+  <div class="modal-caixa modal-grande">
+    <button class="modal-fechar" id="btnFecharComunidade"><i class="fa fa-times"></i></button>
+    <h3><i class="fa fa-comments"></i> Feedbacks da Comunidade</h3>
+    <div class="comunidade-lista" id="comunidadeLista"></div>
+    <div class="modal-botoes"><button class="btn-modal-ok" id="btnOkComunidade">Fechar</button></div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast">
+  <i id="toastIcone" class="fa fa-check-circle"></i>
+  <span id="toastTexto"></span>
+</div>
+  <script src="feedback.js"></script>
+  <script src="../script/forms_page.js"></script>
+</body>
+</html>

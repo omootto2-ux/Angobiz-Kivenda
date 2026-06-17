@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar – AngoBiz Kivenda</title>
+  <link rel="stylesheet" href="../style/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- ===== ÁREA PRINCIPAL: LOGIN ===== -->
+  <main class="pagina-login">
+    <div class="login-container">
+
+      <!-- ── COLUNA ESQUERDA: boas-vindas e benefícios ── -->
+      <div class="login-esquerda">
+        <h2 class="bv-titulo">Bem-vindo <span class="bv-destaque">de volta!</span></h2>
+        <p class="bv-subtitulo">Faça login para continuar a sua experiência na AngoBiz Kivenda.</p>
+
+        <div class="bv-beneficios">
+
+          <div class="beneficio-item">
+            <div class="beneficio-icone">
+              <i class="fa fa-shopping-bag"></i>
+            </div>
+            <div class="beneficio-texto">
+              <strong>Acesse seus pedidos</strong>
+              <p>Acompanhe o status dos seus pedidos em tempo real.</p>
+            </div>
+          </div>
+
+          <div class="beneficio-item">
+            <div class="beneficio-icone">
+              <i class="fa fa-heart"></i>
+            </div>
+            <div class="beneficio-texto">
+              <strong>Lista de desejos</strong>
+              <p>Salve seus produtos favoritos e compre quando quiser.</p>
+            </div>
+          </div>
+
+          <div class="beneficio-item">
+            <div class="beneficio-icone">
+              <i class="fa fa-tag"></i>
+            </div>
+            <div class="beneficio-texto">
+              <strong>Ofertas exclusivas</strong>
+              <p>Receba promoções e descontos especiais para você.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── COLUNA DIREITA: formulário ── -->
+      <div class="login-direita">
+        <h1 class="form-titulo">Entrar na sua conta</h1>
+
+        <form id="formLogin" novalidate>
+
+          <!-- E-mail ou Telefone -->
+          <div class="campo-grupo">
+            <label for="emailTelefone">E-mail ou Telefone</label>
+            <div class="campo-wrapper" id="wrapperEmail">
+              <i class="fa fa-envelope campo-icone"></i>
+              <input
+                type="text"
+                id="emailTelefone"
+                name="emailTelefone"
+                placeholder="Digite seu e-mail ou telefone"
+                autocomplete="username"
+              />
+            </div>
+            <span class="campo-erro" id="erroEmail"></span>
+          </div>
+
+          <!-- Senha -->
+          <div class="campo-grupo">
+            <label for="senha">Senha</label>
+            <div class="campo-wrapper" id="wrapperSenha">
+              <i class="fa fa-lock campo-icone"></i>
+              <input
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Digite sua senha"
+                autocomplete="current-password"
+              />
+              <button type="button" class="btn-ver-senha" id="btnVerSenha" title="Mostrar/ocultar senha">
+                <i class="fa fa-eye" id="iconeOlho"></i>
+              </button>
+            </div>
+            <span class="campo-erro" id="erroSenha"></span>
+          </div>
+
+          <!-- Esqueceu senha -->
+          <div class="linha-esqueceu">
+            <a href="#" id="linkEsqueceu">Esqueceu sua senha?</a>
+          </div>
+
+          <!-- Botão ENTRAR -->
+          <button type="submit" class="btn-entrar" id="btnEntrar">
+            <span id="textoEntrar">ENTRAR</span>
+            <span class="spinner" id="spinnerEntrar"></span>
+          </button>
+
+          <!-- Divisor social -->
+          <div class="divisor">
+            <div class="divisor-linha"></div>
+            <span class="divisor-texto">ou continue com</span>
+            <div class="divisor-linha"></div>
+          </div>
+
+          <!-- Botões sociais -->
+          <div class="botoes-sociais">
+
+            <button type="button" class="btn-social btn-google" id="btnGoogle">
+              <svg class="social-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+              </svg>
+              Google
+            </button>
+
+            <button type="button" class="btn-social btn-facebook" id="btnFacebook">
+              <svg class="social-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#1877F2" d="M48 24C48 10.745 37.255 0 24 0S0 10.745 0 24c0 11.979 8.776 21.908 20.25 23.708V30.938h-6.094V24h6.094v-5.288c0-6.014 3.583-9.337 9.065-9.337 2.625 0 5.373.469 5.373.469v5.906h-3.026c-2.981 0-3.912 1.85-3.912 3.75V24h6.656l-1.063 6.938H27.75v16.77C39.224 45.908 48 35.979 48 24z"/>
+                <path fill="#fff" d="M33.343 30.938L34.406 24H27.75v-4.5c0-1.9.931-3.75 3.912-3.75h3.026V9.844S32.2 9.375 29.575 9.375c-5.482 0-9.065 3.323-9.065 9.337V24h-6.094v6.938h6.094v16.77a24.18 24.18 0 007.49 0V30.938h5.343z"/>
+              </svg>
+              Facebook
+            </button>
+
+          </div>
+
+
+
+
+
+<div class="modal-overlay" id="modalRecuperarSenha">
+    <div class="modal-caixa">
+      <button class="modal-fechar" id="btnFecharSenha"><i class="fa fa-times"></i></button>
+      <div class="modal-icone dourado"><i class="fa fa-key"></i></div>
+      <h3>Recuperar Senha</h3>
+      <p id="descRecuperar">Insira o seu e-mail ou telefone cadastrado para receber um código de redefinição.</p>
+      
+      <div id="passo1Recuperar" class="campo-grupo" style="text-align:left;">
+        <div class="campo-wrapper">
+          <i class="fa fa-envelope campo-icone"></i>
+          <input type="text" id="inputRecuperacao" placeholder="E-mail ou telefone" />
+        </div>
+      </div>
+
+      <div id="passo2Recuperar" class="campo-grupo" style="text-align:left; display: none; flex-direction: column; gap: 12px;">
+        <div class="campo-wrapper">
+          <i class="fa fa-lock-open campo-icone"></i>
+          <input type="text" id="codigoRecuperacao" placeholder="Digite o código enviado (6 dígitos)" maxlength="6" />
+        </div>
+        <div class="campo-wrapper">
+          <i class="fa fa-lock campo-icone"></i>
+          <input type="password" id="novaSenhaRecuperacao" placeholder="Digite a nova senha (mín. 6 caracteres)" />
+        </div>
+      </div>
+
+      <span class="modal-msg" id="msgRecuperacao"></span>
+      
+      <div class="modal-botoes">
+        <button class="btn-modal-cancel" id="btnCancelarSenha">Cancelar</button>
+        <button class="btn-modal-ok" id="btnEnviarRecuperacao">Avançar</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+          <!-- Criar conta -->
+          <p class="linha-criar-conta">
+            Ainda não tem uma conta?
+            <a href="cadastro.html">Criar conta</a>
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape">
+    <div class="rodape-inner">
+
+      <div class="rodape-col rodape-sobre">
+        <a href="home.html" class="logo rodape-logo">
+          <div class="logo-circulo pequeno"> <img src="../img/logo.png" alt=""></div>
+          <div class="logo-texto">
+            <span class="logo-angotext"><span class="w">ANGO</span><span class="g">BIZ</span></span>
+            <span class="logo-kivenda">— KIVENDA —</span>
+          </div>
+        </a>
+        <p>A AngoBiz Kivenda é a sua parceira ideal para negócios, inovação e crescimento. Oferecemos os melhores produtos e soluções para impulsionar o seu sucesso.</p>
+        <div class="rodape-redes">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/244923456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="rodape-col">
+        <h4>LINKS RÁPIDOS</h4>
+        <ul>
+          <li><a href="home.html">Início</a></li>
+          <li><a href="mercado.html">Loja</a></li>
+          <li><a href="mercado.html">Mercado</a></li>
+          <li><a href="promocao">Promoções</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-col">
+        <h4>CATEGORIAS</h4>
+        <ul>
+          <li><a href="mercado.html">Supermercado</a></li>
+          <li><a href="eletronicos.html">Eletrónicos</a></li>
+          <li><a href="escritorio.html">Escritório</a></li>
+          <li><a href="industria.html">Indústria</a></li>
+          <li><a href="casa&deco.html">Casa &amp; Decoração</a></li>
+          <li><a href="automovel.html">Automóvel</a></li>
+          <li><a href="moda.html">Moda &amp; Beleza</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-col">
+        <h4>CONTACTOS</h4>
+        <ul class="rodape-contactos">
+          <li><i class="fa fa-phone"></i> +244 923 456 789</li>
+          <li><i class="fa fa-envelope"></i> atendimento@angobizkivenda.ao</li>
+          <li><i class="fa fa-map-marker-alt"></i> Rua da Kivenda, Nº 123<br />Luanda, Angola</li>
+          <li><i class="fa fa-clock"></i> Seg – Sex: 08h00 – 18h00<br />Sáb: 08h00 – 13h00</li>
+        </ul>
+      </div>
+
+      <div class="rodape-col">
+        <h4>FORMAS DE PAGAMENTO</h4>
+        <div class="pagamento-grid">
+          <div class="pagamento-card visa">VISA</div>
+          <div class="pagamento-card mastercard">mastercard</div>
+          <div class="pagamento-card verve">Verve</div>
+          <div class="pagamento-card multicaixa">MULTICAIXA</div>
+          <div class="pagamento-card unitel">unitel money</div>
+          <div class="pagamento-card pay">PAY</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="rodape-fundo">
+      <span>© 2024 AngoBiz Kivenda. Todos os direitos reservados.</span>
+      <div>
+        <a href="termos.html">Termos e Condições</a>
+        <a href="politica.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL: RECUPERAR SENHA ===== -->
+  <div class="modal-overlay" id="modalSenha">
+    <div class="modal-caixa">
+      <button class="modal-fechar" id="btnFecharSenha"><i class="fa fa-times"></i></button>
+      <div class="modal-icone dourado"><i class="fa fa-key"></i></div>
+      <h3>Recuperar Senha</h3>
+      <p>Insira o seu e-mail ou telefone e enviaremos instruções para redefinir a sua senha.</p>
+      <div class="campo-grupo" style="text-align:left;">
+        <div class="campo-wrapper">
+          <i class="fa fa-envelope campo-icone"></i>
+          <input type="text" id="inputRecuperacao" placeholder="E-mail ou telefone" />
+        </div>
+      </div>
+      <span class="modal-msg" id="msgRecuperacao"></span>
+      <div class="modal-botoes">
+        <button class="btn-modal-cancel" id="btnCancelarSenha">Cancelar</button>
+        <button class="btn-modal-ok" id="btnEnviarRecuperacao">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: LOGIN SOCIAL ===== -->
+  <div class="modal-overlay" id="modalSocial">
+    <div class="modal-caixa">
+      <button class="modal-fechar" id="btnFecharSocial"><i class="fa fa-times"></i></button>
+      <div class="modal-icone" id="iconeSocial"></div>
+      <h3 id="tituloSocial"></h3>
+      <p id="textoSocial"></p>
+      <div class="modal-botoes">
+        <button class="btn-modal-ok" id="btnConfirmarSocial">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast">
+    <i id="toastIcone" class="fa fa-check-circle"></i>
+    <span id="toastTexto"></span>
+  </div>
+  <script src="../script/login_page.js"></script>
+</body>
+</html>

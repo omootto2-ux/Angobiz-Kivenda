@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – AngoBiz Kivenda</title>
+   <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <link rel="stylesheet" href="../style/blog.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+
+  <!-- ===== BREADCRUMB + BANNER BLOG ===== -->
+  <section class="banner-blog">
+    <div class="banner-conteudo">
+      <nav class="breadcrumb">
+        <a href="home.html">Início</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Blog</span>
+      </nav>
+      <h1 class="banner-titulo">BLOG</h1>
+      <p class="banner-desc">Fique por dentro das novidades, dicas e tendências do mundo dos negócios.</p>
+    </div>
+    <div class="banner-imagem">
+      <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=80" alt="AngoBiz Blog" />
+      <div class="banner-img-overlay"></div>
+    </div>
+  </section>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main class="conteudo-principal">
+    <div class="conteudo-inner">
+
+      <!-- ── COLUNA ESQUERDA: ARTIGOS ── -->
+      <section class="artigos-secao">
+
+        <!-- Grelha de artigos -->
+        <div class="artigos-grid" id="grelhaArtigos">
+
+          <!-- Artigo 1 -->
+          <article class="artigo-card">
+            <div class="artigo-img">
+              <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=400&q=80" alt="Como impulsionar o seu negócio" />
+            </div>
+            <div class="artigo-corpo">
+              <div class="artigo-meta">
+                <span class="artigo-tag negocios">NEGÓCIOS</span>
+                <span class="artigo-data">20 de Maio, 2024</span>
+              </div>
+              <h2 class="artigo-titulo">Como impulsionar o seu negócio com soluções digitais</h2>
+              <p class="artigo-resumo">Descubra como a digitalização pode levar o seu negócio para o próximo nível e aumentar os seus resultados.</p>
+              <a href="#" class="artigo-ler">Ler mais <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Artigo 2 -->
+          <article class="artigo-card">
+            <div class="artigo-img">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80" alt="Inovação: o motor do crescimento" />
+            </div>
+            <div class="artigo-corpo">
+              <div class="artigo-meta">
+                <span class="artigo-tag inovacao">INOVAÇÃO</span>
+                <span class="artigo-data">15 de Maio, 2024</span>
+              </div>
+              <h2 class="artigo-titulo">Inovação: o motor do crescimento empresarial</h2>
+              <p class="artigo-resumo">A inovação é essencial para manter a competitividade no mercado atual. Entenda porquê.</p>
+              <a href="#" class="artigo-ler">Ler mais <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Artigo 3 -->
+          <article class="artigo-card">
+            <div class="artigo-img">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80" alt="5 dicas de gestão financeira" />
+            </div>
+            <div class="artigo-corpo">
+              <div class="artigo-meta">
+                <span class="artigo-tag dicas">DICAS</span>
+                <span class="artigo-data">10 de Maio, 2024</span>
+              </div>
+              <h2 class="artigo-titulo">5 dicas de gestão financeira para pequenas empresas</h2>
+              <p class="artigo-resumo">Aprenda a gerir melhor as finanças da sua empresa e garanta um futuro sustentável.</p>
+              <a href="#" class="artigo-ler">Ler mais <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <!-- Artigo 4 -->
+          <article class="artigo-card">
+            <div class="artigo-img">
+              <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&q=80" alt="Tendências de consumo em Angola" />
+            </div>
+            <div class="artigo-corpo">
+              <div class="artigo-meta">
+                <span class="artigo-tag tendencias">TENDÊNCIAS</span>
+                <span class="artigo-data">05 de Maio, 2024</span>
+              </div>
+              <h2 class="artigo-titulo">Tendências de consumo em Angola para 2024</h2>
+              <p class="artigo-resumo">Conheça as principais mudanças no comportamento do consumidor angolano.</p>
+              <a href="#" class="artigo-ler">Ler mais <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Paginação -->
+        <div class="paginacao">
+          <button class="pag-btn ativo" data-pagina="1">1</button>
+          <button class="pag-btn" data-pagina="2">2</button>
+          <button class="pag-btn" data-pagina="3">3</button>
+          <button class="pag-btn pag-prox"><i class="fa fa-chevron-right"></i></button>
+        </div>
+
+      </section>
+
+      <!-- ── COLUNA DIREITA: SIDEBAR ── -->
+      <aside class="sidebar">
+
+        <!-- Categorias -->
+        <div class="sidebar-bloco">
+          <h3 class="sidebar-titulo">CATEGORIAS</h3>
+          <ul class="sidebar-categorias">
+            <li><a href="#">Negócios <span>(12)</span></a></li>
+            <li><a href="#">Inovação <span>(8)</span></a></li>
+            <li><a href="#">Dicas <span>(15)</span></a></li>
+            <li><a href="#">Tendências <span>(7)</span></a></li>
+            <li><a href="#">Tecnologia <span>(6)</span></a></li>
+            <li><a href="#">Empreendedorismo <span>(9)</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Artigos Recentes -->
+        <div class="sidebar-bloco">
+          <h3 class="sidebar-titulo">ARTIGOS RECENTES</h3>
+          <div class="artigos-recentes">
+
+            <a href="#" class="artigo-recente">
+              <div class="ar-img">
+                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=100&q=80" alt="Negócio digital" />
+              </div>
+              <div class="ar-info">
+                <p>Como impulsionar o seu negócio com soluções digitais</p>
+                <span>20 de Maio, 2024</span>
+              </div>
+            </a>
+
+            <a href="#" class="artigo-recente">
+              <div class="ar-img">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=100&q=80" alt="Inovação" />
+              </div>
+              <div class="ar-info">
+                <p>Inovação: o motor do crescimento empresarial</p>
+                <span>15 de Maio, 2024</span>
+              </div>
+            </a>
+
+            <a href="#" class="artigo-recente">
+              <div class="ar-img">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&q=80" alt="Gestão financeira" />
+              </div>
+              <div class="ar-info">
+                <p>5 dicas de gestão financeira para pequenas empresas</p>
+                <span>10 de Maio, 2024</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="../script/blog.js"></script>
+</body>
+</html>

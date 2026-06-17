@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel do Vendedor – AngoBiz Kivenda</title>
+  <link rel="stylesheet" href="../style/painel_vendedor.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+<script>if(typeof Sessao!=="undefined"){ Sessao.exigirVendedor(); }</script>
+
+  <!-- ===== CABEÇALHO TOPO ===== -->
+  <header class="topo">
+    <div class="topo-esquerda">
+      <!-- Logo -->
+      <a href="home.html" class="logo">
+        <div class="logo-circulo">
+          <img src="../img/logo.png" alt="logo">
+        </div>
+        <div class="logo-texto">
+          <span class="logo-angotext"><span class="w">ANGO</span><span class="g">BIZ</span></span>
+          <span class="logo-kiv">— KIVENDA —</span>
+        </div>
+      </a>
+      <!-- Botão hamburger (sidebar) -->
+       <a href="minha_loja.html">
+      <button class="btn-sidebar-toggle" id="btnSidebarToggle" title="Menu">
+        <i class="fa fa-home"></i>
+      </button>
+      </a>
+    </div>
+
+    <!-- Pesquisa central -->
+    <div class="topo-pesquisa">
+      <i class="fa fa-search topo-pesquisa-icone"></i>
+      <input type="text" id="inputPesquisaTopo" placeholder="Pesquisar produtos, pedidos, clientes..." />
+    </div>
+
+    <!-- Acções do topo -->
+    <div class="topo-direita">
+      <!-- Mensagens -->
+      <button class="topo-btn" title="Mensagens" id="btnMensagensTopo">
+        <i class="fa fa-comment-dots"></i>
+      </button>
+
+      <!-- Notificações -->
+      <button class="topo-btn topo-btn-notif" title="Notificações" id="btnNotificacoes">
+        <i class="fa fa-bell"></i>
+        <span class="badge-notif" id="badgeNotif">5</span>
+      </button>
+
+      <!-- Perfil -->
+      <div class="topo-perfil" id="topoPerfil">
+        <div class="topo-avatar">LE</div>
+        <div class="topo-perfil-info">
+          <span class="topo-nome">Loja Exemplo</span>
+          <span class="topo-cargo">Vendedor</span>
+        </div>
+        <i class="fa fa-chevron-down topo-seta"></i>
+
+        <!-- Dropdown perfil -->
+        <div class="perfil-dropdown" id="perfilDropdown">
+          <a href="#"><i class="fa fa-user"></i> Meu Perfil</a>
+          <a href="#"><i class="fa fa-store"></i> Minha Loja</a>
+          <a href="#"><i class="fa fa-cog"></i> Configurações</a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-sair"><i class="fa fa-sign-out-alt"></i> Sair</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel de notificações -->
+    <div class="notif-painel" id="notifPainel">
+      <div class="notif-header">
+        <span>Notificações</span>
+        <button id="btnMarcarTodasLidas">Marcar todas como lidas</button>
+      </div>
+      <div class="notif-lista" id="notifLista"></div>
+      <div class="notif-footer"><a href="#">Ver todas as notificações</a></div>
+    </div>
+  </header>
+
+  <!-- ===== LAYOUT PRINCIPAL ===== -->
+  <div class="layout-principal">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- Perfil da loja -->
+      <div class="sidebar-perfil">
+        <div class="sidebar-avatar">LE</div>
+        <div class="sidebar-info">
+          <span class="sidebar-nome">Loja Exemplo</span>
+          <div class="sidebar-tags">
+            <span class="tag-vendedor">Vendedor</span>
+            <span class="tag-verificado"><i class="fa fa-check-circle"></i> Verificado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navegação -->
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="nav-item ativo" data-pagina="painel">
+            <a href="#"><i class="fa fa-th-large"></i> <span>Painel</span></a>
+          </li>
+          <li class="nav-item" data-pagina="produtos">
+            <a href="#"><i class="fa fa-box"></i> <span>Produtos</span></a>
+          </li>
+          <li class="nav-item" data-pagina="servicos">
+            <a href="#"><i class="fa fa-concierge-bell"></i> <span>Serviços</span></a>
+          </li>
+          <li class="nav-item" data-pagina="pedidos">
+            <a href="#"><i class="fa fa-clipboard-list"></i> <span>Pedidos</span>
+              <span class="nav-badge">8</span>
+            </a>
+          </li>
+          <li class="nav-item" data-pagina="clientes">
+            <a href="#"><i class="fa fa-users"></i> <span>Clientes</span></a>
+          </li>
+          <li class="nav-item" data-pagina="mensagens">
+            <a href="#"><i class="fa fa-comments"></i> <span>Mensagens</span>
+              <span class="nav-badge nav-badge-verde">3</span>
+            </a>
+          </li>
+          <li class="nav-item" data-pagina="avaliacoes">
+            <a href="#"><i class="fa fa-star"></i> <span>Avaliações</span></a>
+          </li>
+          <li class="nav-item" data-pagina="cupons">
+            <a href="#"><i class="fa fa-ticket-alt"></i> <span>Cupons</span></a>
+          </li>
+          <li class="nav-item nav-expandivel" data-pagina="relatorios">
+            <a href="#"><i class="fa fa-chart-bar"></i> <span>Relatórios</span>
+              <i class="fa fa-chevron-right nav-seta"></i>
+            </a>
+          </li>
+          <li class="nav-item nav-expandivel" data-pagina="financeiro">
+            <a href="#"><i class="fa fa-wallet"></i> <span>Financeiro</span>
+              <i class="fa fa-chevron-right nav-seta"></i>
+            </a>
+          </li>
+          <li class="nav-item nav-expandivel" data-pagina="configuracoes">
+            <a href="#"><i class="fa fa-cog"></i> <span>Configurações</span>
+              <i class="fa fa-chevron-right nav-seta"></i>
+            </a>
+          </li>
+          <li class="nav-item" data-pagina="minha-loja">
+            <a href="#"><i class="fa fa-store"></i> <span>Minha Loja</span>
+              <i class="fa fa-external-link-alt nav-ext"></i>
+            </a>
+          </li>
+          <li class="nav-item" data-pagina="ajuda">
+            <a href="#"><i class="fa fa-question-circle"></i> <span>Ajuda e Suporte</span></a>
+          </li>
+        </ul>
+
+        <div class="nav-divider"></div>
+
+        <ul>
+          <li class="nav-item nav-sair">
+            <a href="#" id="btnSair"><i class="fa fa-sign-out-alt"></i> <span>Sair</span></a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="conteudo" id="conteudo">
+
+      <!-- PÁGINA: PAINEL -->
+      <div class="pagina ativa" id="paginaPainel">
+
+        <!-- Cabeçalho da página -->
+        <div class="pagina-cabecalho">
+          <div>
+            <h1 class="pagina-titulo">Bem-vindo, Loja Exemplo! 👋</h1>
+            <p class="pagina-subtitulo">Aqui está o resumo da sua loja hoje.</p>
+          </div>
+          <div class="pagina-acoes">
+            <button class="btn-acao btn-vermelho" id="btnAdicionarProduto">
+              <i class="fa fa-plus"></i><a href="cadastrar_produto.html"> Adicionar Produto</a>
+            </button>
+            <button class="btn-acao btn-dourado" id="btnAdicionarServico">
+              <i class="fa fa-briefcase"></i><a href="cadastrar_servicos.html">Adicionar Serviço</a>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cards de estatísticas -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icone stat-laranja">
+              <i class="fa fa-wallet"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Receita Total</span>
+              <span class="stat-valor" id="statReceita">2.450.000 Kz</span>
+              <span class="stat-variacao positiva"><i class="fa fa-arrow-up"></i> 18,5% este mês</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icone stat-azul">
+              <i class="fa fa-clipboard-list"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Pedidos</span>
+              <span class="stat-valor" id="statPedidos">128</span>
+              <span class="stat-variacao positiva"><i class="fa fa-arrow-up"></i> 12% este mês</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icone stat-verde">
+              <i class="fa fa-box"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Produtos</span>
+              <span class="stat-valor" id="statProdutos">56</span>
+              <span class="stat-sub">Total cadastrados</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icone stat-roxo">
+              <i class="fa fa-concierge-bell"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Serviços</span>
+              <span class="stat-valor" id="statServicos">14</span>
+              <span class="stat-sub">Total cadastrados</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icone stat-amarelo">
+              <i class="fa fa-star"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">Avaliação da Loja</span>
+              <span class="stat-valor" id="statAvaliacao">4.8</span>
+              <div class="stat-estrelas">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                <i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i>
+                <span>(128)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Linha: Gráfico + Pedidos Recentes -->
+        <div class="painel-linha-dupla">
+
+          <!-- Gráfico de vendas -->
+          <div class="card-grafico">
+            <div class="card-cabecalho">
+              <h3>Visão geral de vendas</h3>
+              <div class="grafico-filtros">
+                <select id="selectPeriodoGrafico" class="select-mini">
+                  <option value="mes">Este mês</option>
+                  <option value="semana">Esta semana</option>
+                  <option value="ano">Este ano</option>
+                </select>
+              </div>
+            </div>
+            <canvas id="canvasGrafico" height="200"></canvas>
+            <div class="grafico-resumo">
+              <div class="gr-item">
+                <span class="gr-valor">2.450.000 Kz</span>
+                <span class="gr-label">Receita</span>
+              </div>
+              <div class="gr-item">
+                <span class="gr-valor">128</span>
+                <span class="gr-label">Pedidos</span>
+              </div>
+              <div class="gr-item">
+                <span class="gr-valor">96</span>
+                <span class="gr-label">Produtos vendidos</span>
+              </div>
+              <div class="gr-item">
+                <span class="gr-valor">32</span>
+                <span class="gr-label">Serviços vendidos</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pedidos recentes -->
+          <div class="card-pedidos-recentes">
+            <div class="card-cabecalho">
+              <h3>Pedidos recentes</h3>
+              <a href="#" class="link-ver-todos" data-pagina="pedidos">Ver todos</a>
+            </div>
+            <div class="tabela-pedidos-recentes">
+              <table>
+                <tbody id="tabelaPedidosRecentes"></tbody>
+              </table>
+            </div>
+            <div class="card-rodape">
+              <a href="#" class="link-ver-todos" data-pagina="pedidos">Ver todos os pedidos <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Linha: Produtos + Serviços + Actividades -->
+        <div class="painel-linha-tripla">
+
+          <!-- Produtos mais vendidos -->
+          <div class="card-ranking">
+            <div class="card-cabecalho">
+              <h3>Produtos mais vendidos</h3>
+              <a href="#" class="link-ver-todos laranja" data-pagina="produtos">Ver todos</a>
+            </div>
+            <div class="ranking-lista" id="rankingProdutos"></div>
+          </div>
+
+          <!-- Serviços mais contratados -->
+          <div class="card-ranking">
+            <div class="card-cabecalho">
+              <h3>Serviços mais contratados</h3>
+              <a href="#" class="link-ver-todos laranja" data-pagina="servicos">Ver todos</a>
+            </div>
+            <div class="ranking-lista" id="rankingServicos"></div>
+          </div>
+
+          <!-- Actividades recentes -->
+          <div class="card-actividades">
+            <div class="card-cabecalho">
+              <h3>Atividades recentes</h3>
+            </div>
+            <div class="actividades-lista" id="actividadesLista"></div>
+            <div class="card-rodape">
+              <a href="#" class="link-ver-todos">Ver todas as atividades <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div><!-- /paginaPainel -->
+
+      <!-- PÁGINA: PRODUTOS -->
+      <div class="pagina" id="paginaProdutos">
+        <div class="pagina-cabecalho">
+          <div>
+            <h1 class="pagina-titulo">Produtos</h1>
+            <p class="pagina-subtitulo">Gerencie os seus produtos cadastrados.</p>
+          </div>
+          <button class="btn-acao btn-vermelho" id="btnAdicionarProduto2">
+            <i class="fa fa-plus"></i> Adicionar Produto
+          </button>
+        </div>
+        <div class="card-simples">
+          <div class="tabela-wrapper">
+            <table class="tabela-dados" id="tabelaProdutos"></table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PÁGINA: PEDIDOS -->
+      <div class="pagina" id="paginaPedidos">
+        <div class="pagina-cabecalho">
+          <div>
+            <h1 class="pagina-titulo">Pedidos</h1>
+            <p class="pagina-subtitulo">Todos os pedidos da sua loja.</p>
+          </div>
+        </div>
+        <div class="card-simples">
+          <div class="filtros-pedidos">
+            <button class="filtro-btn ativo" data-status="todos">Todos</button>
+            <button class="filtro-btn" data-status="pendente">Pendentes</button>
+            <button class="filtro-btn" data-status="processando">Processando</button>
+            <button class="filtro-btn" data-status="entregue">Entregues</button>
+            <button class="filtro-btn" data-status="cancelado">Cancelados</button>
+          </div>
+          <div class="tabela-wrapper">
+            <table class="tabela-dados" id="tabelaPedidos"></table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PÁGINA: CLIENTES -->
+      <div class="pagina" id="paginaClientes">
+        <div class="pagina-cabecalho">
+          <div>
+            <h1 class="pagina-titulo">Clientes</h1>
+            <p class="pagina-subtitulo">Clientes que compraram na sua loja.</p>
+          </div>
+        </div>
+        <div class="card-simples">
+          <div class="tabela-wrapper">
+            <table class="tabela-dados" id="tabelaClientes"></table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PÁGINA: SERVIÇOS -->
+      <div class="pagina" id="paginaServicos">
+        <div class="pagina-cabecalho">
+          <div>
+            <h1 class="pagina-titulo">Serviços</h1>
+            <p class="pagina-subtitulo">Gerencie os seus serviços disponíveis.</p>
+          </div>
+          <button class="btn-acao btn-vermelho">
+            <i class="fa fa-plus"></i> Adicionar Serviço
+          </button>
+        </div>
+        <div class="card-simples">
+          <div class="tabela-wrapper">
+            <table class="tabela-dados" id="tabelaServicos"></table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PÁGINAS GENÉRICAS -->
+      <div class="pagina" id="paginaMensagens">
+        <div class="pagina-cabecalho"><h1 class="pagina-titulo">Mensagens</h1></div>
+        <div class="pagina-placeholder"><i class="fa fa-comments"></i><p>Nenhuma mensagem nova.</p></div>
+      </div>
+      <div class="pagina" id="paginaAvaliacoes">
+        <div class="pagina-cabecalho"><h1 class="pagina-titulo">Avaliações</h1></div>
+        <div class="pagina-placeholder"><i class="fa fa-star"></i><p>As avaliações aparecem aqui.</p></div>
+      </div>
+      <div class="pagina" id="paginaCupons">
+        <div class="pagina-cabecalho"><h1 class="pagina-titulo">Cupons</h1></div>
+        <div class="pagina-placeholder"><i class="fa fa-ticket-alt"></i><p>Nenhum cupom criado.</p></div>
+      </div>
+      <div class="pagina" id="paginaRelatorios">
+        <div class="pagina-cabecalho"><h1 class="pagina-titulo">Relatórios</h1></div>
+        <div class="pagina-placeholder"><i class="fa fa-chart-bar"></i><p>Relatórios em breve.</p></div>
+      </div>
+      <div class="pagina" id="paginaFinanceiro">
+        <div class="pagina-cabecalho"><h1 class="pagina-titulo">Financeiro</h1></div>
+        <div class="pagina-placeholder"><i class="fa fa-wallet"></i><p>Dados financeiros em breve.</p></div>
+      </div>
+      <div class="pagina" id="paginaConfiguracoes">
+        <div class="pagina-cabecalho"><h1 class="pagina-titulo">Configurações</h1></div>
+        <div class="pagina-placeholder"><i class="fa fa-cog"></i><p>Configurações em breve.</p></div>
+      </div>
+      <div class="pagina" id="paginaMinhaLoja">
+        <div class="pagina-cabecalho"><h1 class="pagina-titulo">Minha Loja</h1></div>
+        <div class="pagina-placeholder"><i class="fa fa-store"></i><p>Página da loja em breve.</p></div>
+      </div>
+      <div class="pagina" id="paginaAjuda">
+        <div class="pagina-cabecalho"><h1 class="pagina-titulo">Ajuda e Suporte</h1></div>
+        <div class="pagina-placeholder"><i class="fa fa-question-circle"></i><p>Suporte em breve.</p></div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape-dashboard">
+    <span>© 2024 AngoBiz Kivenda. Todos os direitos reservados.</span>
+    <div>
+      <a href="#">Termos e Condições</a>
+      <a href="#">Política de Privacidade</a>
+    </div>
+  </footer>
+
+  <!-- ===== MODAL: ADICIONAR PRODUTO ===== -->
+  <div class="modal-overlay" id="modalProduto">
+    <div class="modal-caixa">
+      <button class="modal-fechar" id="btnFecharProduto"><i class="fa fa-times"></i></button>
+      <h3><i class="fa fa-box"></i> Adicionar Produto</h3>
+      <form id="formProduto" novalidate>
+        <div class="modal-campo">
+          <label>Nome do produto</label>
+          <input type="text" id="prodNome" placeholder="Ex: Smartphone Samsung Galaxy" />
+        </div>
+        <div class="modal-campo-duplo">
+          <div class="modal-campo">
+            <label>Preço (Kz)</label>
+            <input type="number" id="prodPreco" placeholder="Ex: 150000" />
+          </div>
+          <div class="modal-campo">
+            <label>Estoque</label>
+            <input type="number" id="prodEstoque" placeholder="Ex: 10" />
+          </div>
+        </div>
+        <div class="modal-campo">
+          <label>Categoria</label>
+          <select id="prodCategoria">
+            <option value="">Selecione uma categoria</option>
+            <option>Eletrónicos</option>
+            <option>Supermercado</option>
+            <option>Escritório</option>
+            <option>Indústria</option>
+            <option>Casa &amp; Decoração</option>
+            <option>Automóvel</option>
+            <option>Moda &amp; Beleza</option>
+          </select>
+        </div>
+        <div class="modal-campo">
+          <label>Descrição</label>
+          <textarea id="prodDescricao" rows="3" placeholder="Descreva o produto..."></textarea>
+        </div>
+        <div class="modal-botoes">
+          <button type="button" class="btn-modal-cancel" id="btnCancelarProduto">Cancelar</button>
+          <button type="submit" class="btn-modal-ok">Adicionar Produto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: ADICIONAR SERVIÇO ===== -->
+  <div class="modal-overlay" id="modalServico">
+    <div class="modal-caixa">
+      <button class="modal-fechar" id="btnFecharServico"><i class="fa fa-times"></i></button>
+      <h3><i class="fa fa-briefcase"></i> Adicionar Serviço</h3>
+      <form id="formServico" novalidate>
+        <div class="modal-campo">
+          <label>Nome do serviço</label>
+          <input type="text" id="servNome" placeholder="Ex: Instalação de Câmeras" />
+        </div>
+        <div class="modal-campo-duplo">
+          <div class="modal-campo">
+            <label>Preço (Kz)</label>
+            <input type="number" id="servPreco" placeholder="Ex: 50000" />
+          </div>
+          <div class="modal-campo">
+            <label>Duração</label>
+            <input type="text" id="servDuracao" placeholder="Ex: 2 horas" />
+          </div>
+        </div>
+        <div class="modal-campo">
+          <label>Descrição</label>
+          <textarea id="servDescricao" rows="3" placeholder="Descreva o serviço..."></textarea>
+        </div>
+        <div class="modal-botoes">
+          <button type="button" class="btn-modal-cancel" id="btnCancelarServico">Cancelar</button>
+          <button type="submit" class="btn-modal-ok btn-dourado-modal">Adicionar Serviço</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast">
+    <i id="toastIcone" class="fa fa-check-circle"></i>
+    <span id="toastTexto"></span>
+  </div>
+
+  <!-- Overlay sidebar mobile -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <script src="../script/painel_vendedor.js"></script>
+</body>
+</html>

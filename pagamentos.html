@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda – Pagamentos</title>
+  <link rel="stylesheet" href="../style/pagamentos.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="header">
+  <div class="header-logo">
+    <div class="logo-circulo"><span>AK</span></div>
+    <div class="logo-texto">
+      <span class="logo-nome">ANGO<span class="logo-biz">BIZ</span></span>
+      <span class="logo-sub">KIVENDA</span>
+    </div>
+  </div>
+
+  <a href="home.html">
+  <button class="btn-menu-hd" id="btnMenuHd"><i class="fas fa-home"></i></button></a>
+
+  <div class="header-busca">
+    <i class="fas fa-search"></i>
+    <input type="text" placeholder="Buscar produtos, serviços, pedidos, clientes..."/>
+  </div>
+
+  <div class="header-acoes">
+    <button class="hbtn notif-btn">
+      <i class="fas fa-bell"></i>
+      <span class="hbadge">6</span>
+    </button>
+    <button class="hbtn"><i class="fas fa-envelope"></i></button>
+
+    <div class="perfil-hd" id="perfilHd">
+      <div class="phd-avatar">JM</div>
+      <div>
+        <div class="phd-nome">João Manuel</div>
+        <div class="phd-tipo">Vendedor</div>
+      </div>
+      <i class="fas fa-chevron-down phd-seta"></i>
+      <div class="perfil-dropdown" id="perfilDropdown">
+        <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+        <a href="#"><i class="fas fa-store"></i> Minha Loja</a>
+        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+        <div class="pdrop-sep"></div>
+        <a href="#" class="sair-link"><i class="fas fa-sign-out-alt"></i> Sair</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== LAYOUT ==================== -->
+<div class="layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sid-perfil">
+      <div class="sid-avatar"><i class="fas fa-store"></i></div>
+      <div>
+        <div class="sid-nome">Loja do João <span class="badge-verif">Verificada</span></div>
+        <div class="sid-sub">Vendedor desde 15/03/2023</div>
+      </div>
+    </div>
+
+    <nav class="sid-nav">
+      <a href="minha_loja.html" class="ni"><i class="fas fa-home"></i><span>Painel inicial</span></a>
+
+
+      <a href="suporte.html" class="ni"><i class="fas fa-question-circle"></i><span>Central de ajuda</span></a>
+    </nav>
+
+    <!-- Premium -->
+    <div class="sid-premium">
+      <div class="prem-coroa"><i class="fas fa-crown"></i></div>
+      <div class="prem-titulo">Seja um vendedor premium</div>
+      <div class="prem-desc">Tenha mais visibilidade e aumente suas vendas.</div>
+      <a href="parceria.html">
+      <button class="prem-btn" onclick="mostrarToast('Em breve: planos premium!')">Saiba mais</button> </a>
+    </div>
+
+    <div class="sid-foot">
+      <p>© 2024 AngoBiz Kivenda.</p>
+      <p>Todos os direitos reservados.</p>
+    </div>
+  </aside>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main class="conteudo" id="conteudo">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="minha_loja.html">Painel do vendedor</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Financeiro</span>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <div class="pag-header">
+      <div>
+        <h1 class="pag-titulo">Pagamentos</h1>
+        <p class="pag-sub">Acompanhe seus recebimentos, histórico de transações e configure suas contas de pagamento.</p>
+      </div>
+      <div class="pag-acoes">
+        <button class="btn-extrato" onclick="mostrarToast('A gerar extrato completo...')">Extrato completo</button>
+        <button class="btn-saque" onclick="abrirModal('modalSaque')">Solicitar saque</button>
+      </div>
+    </div>
+
+    <!-- ===== RESUMO FINANCEIRO ===== -->
+    <div class="card-sec">
+      <div class="csec-header">
+        <h2 class="sec-titulo">
+          Resumo financeiro
+          <i class="fas fa-info-circle info-ic" title="Resumo das suas finanças nos últimos 30 dias"></i>
+        </h2>
+      </div>
+      <div class="resumo-grid" id="resumoGrid"></div>
+    </div>
+
+    <!-- ===== MÉTODOS DE PAGAMENTO ===== -->
+    <div class="card-sec">
+      <div class="csec-header">
+        <div>
+          <h2 class="sec-titulo">Métodos de pagamento</h2>
+          <p class="sec-desc">Gerencie as contas onde você deseja receber seus pagamentos.</p>
+        </div>
+        <button class="btn-add-conta" onclick="abrirModal('modalConta')">
+          <i class="fas fa-plus"></i> Adicionar conta
+        </button>
+      </div>
+      <div class="metodos-lista" id="metodosList"></div>
+    </div>
+
+    <!-- ===== HISTÓRICO DE TRANSAÇÕES ===== -->
+    <div class="card-sec">
+      <div class="csec-header">
+        <h2 class="sec-titulo">Histórico de transações</h2>
+        <button class="btn-ver-todas" onclick="mostrarToast('A carregar todas as transações...')">Ver todas</button>
+      </div>
+      <div class="tabela-wrapper">
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Descrição</th>
+              <th>Tipo</th>
+              <th>Status</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyTrans"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== GRADE INFERIOR: SAQUES + INFOS ===== -->
+    <div class="grade-inf">
+
+      <div class="card-sec">
+        <div class="csec-header">
+          <h2 class="sec-titulo">Saques recentes</h2>
+          <button class="btn-ver-todas" onclick="mostrarToast('A carregar todos os saques...')">Ver todos</button>
+        </div>
+        <div class="saques-lista" id="saquesList"></div>
+      </div>
+
+      <div class="card-sec">
+        <h2 class="sec-titulo" style="margin-bottom:18px">Informações importantes</h2>
+        <div class="infos-lista" id="infosList"></div>
+      </div>
+
+    </div>
+
+    <!-- ===== BANNER SEGURANÇA ===== -->
+    <div class="banner-seg">
+      <div class="ban-esq">
+        <div class="ban-ico"><i class="fas fa-shield-alt"></i></div>
+        <div>
+          <div class="ban-titulo">Seus pagamentos estão seguros</div>
+          <div class="ban-desc">Utilizamos tecnologia de criptografia e seguimos os mais altos padrões de segurança para proteger suas transações.</div>
+        </div>
+      </div>
+      <button class="btn-extrato" onclick="mostrarToast('Abrindo informações de segurança...')">Saiba mais</button>
+    </div>
+
+  </main>
+</div>
+
+<!-- ===== MODAL: SOLICITAR SAQUE ===== -->
+<div class="modal-overlay" id="modalSaque">
+  <div class="modal-caixa">
+    <div class="modal-hdr">
+      <h3><i class="fas fa-money-bill-wave" style="color:var(--dourado);margin-right:8px"></i>Solicitar saque</h3>
+      <button class="modal-fechar" onclick="fecharModal('modalSaque')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-corpo">
+      <div class="saldo-modal">
+        <span class="sm-label">Saldo disponível</span>
+        <strong class="sm-valor">AOA 218.450,00</strong>
+      </div>
+
+      <div class="campo-grupo">
+        <label>Conta de destino <span class="req">*</span></label>
+        <div class="sel-wrap">
+          <select class="campo campo-sel" id="contaSaque">
+            <option value="">Selecione a conta</option>
+            <option value="bai">BAI – **** 3456 (Padrão)</option>
+            <option value="bci">BCI – **** 7654</option>
+            <option value="paypal">PayPal – joaomanuel@email.com</option>
+            <option value="carteira">Carteira AngoBiz</option>
+          </select>
+          <i class="fas fa-chevron-down si"></i>
+        </div>
+      </div>
+
+      <div class="campo-grupo">
+        <label>Valor a sacar (AOA) <span class="req">*</span></label>
+        <input type="number" id="valorSaque" class="campo" placeholder="Ex: 50000" min="1000" max="218450"/>
+        <span class="campo-hint">Mínimo: AOA 1.000,00 · Máximo: AOA 218.450,00</span>
+        <span class="campo-erro" id="erroSaque"></span>
+      </div>
+
+      <div class="campo-grupo">
+        <label>Descrição (opcional)</label>
+        <input type="text" id="descSaque" class="campo" placeholder="Ex: Pagamento de fornecedores"/>
+      </div>
+
+      <div class="aviso-info">
+        <i class="fas fa-info-circle"></i>
+        Saques para contas bancárias levam até 1 dia útil. Via Carteira AngoBiz é instantâneo.
+      </div>
+
+      <div class="modal-btns">
+        <button class="btn-extrato" onclick="fecharModal('modalSaque')">Cancelar</button>
+        <button class="btn-saque" onclick="confirmarSaque()">Confirmar saque</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: ADICIONAR CONTA ===== -->
+<div class="modal-overlay" id="modalConta">
+  <div class="modal-caixa">
+    <div class="modal-hdr">
+      <h3><i class="fas fa-plus-circle" style="color:var(--dourado);margin-right:8px"></i>Adicionar conta</h3>
+      <button class="modal-fechar" onclick="fecharModal('modalConta')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-corpo">
+      <div class="campo-grupo">
+        <label>Tipo de conta <span class="req">*</span></label>
+        <div class="sel-wrap">
+          <select class="campo campo-sel" id="tipoConta">
+            <option value="">Selecione o tipo</option>
+            <option value="banco">Conta bancária angolana</option>
+            <option value="paypal">PayPal</option>
+            <option value="carteira">Carteira AngoBiz</option>
+          </select>
+          <i class="fas fa-chevron-down si"></i>
+        </div>
+      </div>
+      <div class="campo-grupo">
+        <label>Nome do titular <span class="req">*</span></label>
+        <input type="text" id="nomeTitular" class="campo" placeholder="Ex: João Manuel da Silva"/>
+      </div>
+      <div class="campo-grupo">
+        <label>Número de conta / IBAN <span class="req">*</span></label>
+        <input type="text" id="numConta" class="campo" placeholder="Ex: 0006 1234 5678 9012 3456 7"/>
+      </div>
+      <div class="campo-grupo">
+        <label class="check-item">
+          <input type="checkbox" id="chkPadrao" class="chk" style="accent-color:var(--dourado)"/>
+          <span style="font-size:13px;color:#ccc;margin-left:5px">Definir como conta padrão para saques</span>
+        </label>
+      </div>
+      <div class="modal-btns">
+        <button class="btn-extrato" onclick="fecharModal('modalConta')">Cancelar</button>
+        <button class="btn-saque" onclick="adicionarConta()">Adicionar conta</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: OPÇÕES DE MÉTODO ===== -->
+<div class="modal-overlay" id="modalOpcoes">
+  <div class="modal-caixa modal-sm">
+    <div class="modal-hdr">
+      <h3>Opções da conta</h3>
+      <button class="modal-fechar" onclick="fecharModal('modalOpcoes')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-corpo">
+      <button class="op-btn" onclick="mostrarToast('Conta definida como padrão!');fecharModal('modalOpcoes')">
+        <i class="fas fa-check-circle"></i> Definir como padrão
+      </button>
+      <button class="op-btn" onclick="mostrarToast('A editar conta...');fecharModal('modalOpcoes')">
+        <i class="fas fa-pen"></i> Editar conta
+      </button>
+      <button class="op-btn verm-btn" onclick="mostrarToast('Conta removida.','erro');fecharModal('modalOpcoes')">
+        <i class="fas fa-trash"></i> Remover conta
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+  <script src="../script//pagamentos.js"></script>
+  </body>
+</html>

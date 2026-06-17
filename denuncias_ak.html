@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda – Denunciar</title>
+  <link rel="stylesheet" href="../style/denuncias_ak.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+ <div id="header-placeholder"></div>
+
+<!-- ===================== CONTEÚDO ===================== -->
+<div class="pagina-wrapper">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="home.html">Início</a>
+    <i class="fas fa-chevron-right"></i>
+    <a href="denuncias.html">Denúncias e Feedback</a>
+    <i class="fas fa-chevron-right"></i>
+    <span>Denunciar AngoBiz Kivenda</span>
+  </div>
+
+  <!-- GRID PRINCIPAL -->
+  <div class="grid-principal">
+
+    <!-- ===== COLUNA ESQUERDA (FORMULÁRIO) ===== -->
+    <div class="col-form">
+
+      <!-- BADGE SEGURO -->
+      <div class="badge-seguro">
+        <i class="fas fa-shield-alt bs-ico"></i>
+        <div>
+          <div class="bs-titulo">Ambiente seguro e confidencial</div>
+          <div class="bs-desc">Sua denúncia é tratada com sigilo e responsabilidade.</div>
+        </div>
+      </div>
+
+      <h1 class="pag-titulo">DENUNCIAR ANGOBIZ KIVENDA</h1>
+      <p class="pag-sub">Tem algum problema com a nossa plataforma? Conte-nos para que possamos melhorar.</p>
+
+      <form id="formDenuncia" novalidate>
+
+        <!-- ===== BLOCO 1: TIPO DE DENÚNCIA ===== -->
+        <div class="bloco-form">
+          <h3 class="bloco-num"><span class="num-badge">1</span> O QUE DESEJA DENUNCIAR?</h3>
+          <p class="bloco-desc">Selecione o tipo de problema que você está enfrentando.</p>
+
+          <div class="tipos-grid" id="tiposGrid">
+            <label class="tipo-card ativo" data-tipo="tecnicos">
+              <input type="radio" name="tipo" value="tecnicos" checked/>
+              <div class="tc-radio"></div>
+              <div class="tc-ico"><i class="fas fa-exclamation-triangle"></i></div>
+              <div>
+                <div class="tc-nome">Problemas técnicos</div>
+                <div class="tc-desc">Erros, falhas, lentidão ou indisponibilidade da plataforma.</div>
+              </div>
+            </label>
+
+            <label class="tipo-card" data-tipo="cobrancas">
+              <input type="radio" name="tipo" value="cobrancas"/>
+              <div class="tc-radio"></div>
+              <div class="tc-ico"><i class="fas fa-receipt"></i></div>
+              <div>
+                <div class="tc-nome">Cobranças indevidas</div>
+                <div class="tc-desc">Taxas ou pagamentos não reconhecidos.</div>
+              </div>
+            </label>
+
+            <label class="tipo-card" data-tipo="seguranca">
+              <input type="radio" name="tipo" value="seguranca"/>
+              <div class="tc-radio"></div>
+              <div class="tc-ico"><i class="fas fa-user-shield"></i></div>
+              <div>
+                <div class="tc-nome">Segurança e privacidade</div>
+                <div class="tc-desc">Vazamento de dados, invasão de conta ou uso indevido de informações.</div>
+              </div>
+            </label>
+
+            <label class="tipo-card" data-tipo="conteudo">
+              <input type="radio" name="tipo" value="conteudo"/>
+              <div class="tc-radio"></div>
+              <div class="tc-ico"><i class="fas fa-ban"></i></div>
+              <div>
+                <div class="tc-nome">Conteúdo impróprio</div>
+                <div class="tc-desc">Anúncios, imagens ou informações inadequadas.</div>
+              </div>
+            </label>
+
+            <label class="tipo-card" data-tipo="atendimento">
+              <input type="radio" name="tipo" value="atendimento"/>
+              <div class="tc-radio"></div>
+              <div class="tc-ico"><i class="fas fa-comments"></i></div>
+              <div>
+                <div class="tc-nome">Atendimento ao cliente</div>
+                <div class="tc-desc">Mau atendimento, demora na resposta ou falta de suporte.</div>
+              </div>
+            </label>
+
+            <label class="tipo-card" data-tipo="outro">
+              <input type="radio" name="tipo" value="outro"/>
+              <div class="tc-radio"></div>
+              <div class="tc-ico"><i class="fas fa-ellipsis-h"></i></div>
+              <div>
+                <div class="tc-nome">Outro motivo</div>
+                <div class="tc-desc">Outros problemas não listados acima.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- ===== BLOCO 2: DETALHES ===== -->
+        <div class="bloco-form">
+          <h3 class="bloco-num"><span class="num-badge">1</span> DETALHES DA DENÚNCIA</h3>
+          <p class="bloco-desc">Preencha as informações abaixo com o máximo de detalhes possível.</p>
+
+          <div class="campo-grupo">
+            <label>Título da denúncia <span class="req">*</span></label>
+            <input type="text" id="tituloDenuncia" class="campo" placeholder="Resuma o problema em poucas palavras"/>
+            <span class="campo-erro" id="erroTitulo"></span>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Descrição detalhada <span class="req">*</span></label>
+            <div class="ta-wrap">
+              <textarea
+                id="descricao"
+                class="campo campo-ta"
+                rows="6"
+                maxlength="1500"
+                placeholder="Descreva o que aconteceu, quando ocorreu e como isso afeta você."
+                oninput="contarChars(this,'contDesc',1500)"
+              ></textarea>
+              <span class="char-cnt" id="contDesc">0/1500</span>
+            </div>
+            <span class="campo-erro" id="erroDesc"></span>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Anexos (opcional)</label>
+            <p class="campo-hint">Envie imagens, vídeos ou documentos que comprovem a denúncia.</p>
+            <div class="upload-area" id="uploadArea" onclick="document.getElementById('inputAnexos').click()">
+              <input
+                type="file"
+                id="inputAnexos"
+                multiple
+                accept=".png,.jpg,.jpeg,.mp4,.pdf"
+                style="display:none"
+                onchange="adicionarAnexos(this)"
+              />
+              <i class="fas fa-cloud-upload-alt upload-ico"></i>
+              <p>
+                <strong><span class="link-upload" onclick="document.getElementById('inputAnexos').click()">Clique para enviar</span></strong>
+                ou arraste arquivos aqui
+              </p>
+              <span>PNG, JPG, MP4 ou PDF. Máx. 10MB por arquivo.</span>
+            </div>
+            <div class="anexos-lista" id="anexosLista"></div>
+          </div>
+        </div>
+
+        <!-- ===== BLOCO 3: CONTACTO ===== -->
+        <div class="bloco-form">
+          <h3 class="bloco-num"><span class="num-badge">3</span> COMO DESEJA SER CONTACTADO?</h3>
+          <p class="bloco-desc">Informe seus dados para que nossa equipe possa entrar em contacto.</p>
+
+          <div class="linha-3" id="linhaContacto">
+            <div class="campo-grupo">
+              <label>Nome completo <span class="req">*</span></label>
+              <input type="text" id="nomeCompleto" class="campo" placeholder="Digite seu nome completo"/>
+              <span class="campo-erro" id="erroNome"></span>
+            </div>
+            <div class="campo-grupo">
+              <label>E-mail <span class="req">*</span></label>
+              <input type="email" id="emailContato" class="campo" placeholder="seuemail@exemplo.com"/>
+              <span class="campo-erro" id="erroEmail"></span>
+            </div>
+            <div class="campo-grupo">
+              <label>Telefone / WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="telefone" class="campo" placeholder="+244 9XX XXX XXX"/>
+              <span class="campo-erro" id="erroTel"></span>
+            </div>
+          </div>
+
+          <div class="anonimo-linha">
+            <label class="check-item" id="labelAnonimo">
+              <input type="checkbox" id="chkAnonimo" class="chk" onchange="toggleAnonimo()"/>
+              <span>Prefiro permanecer anónimo (não informar meus dados de contacto)</span>
+            </label>
+          </div>
+          <p class="anonimo-obs" id="obsAnonimo" style="display:none">
+            Observação: denúncias anónimas podem ter o tempo de resposta maior.
+          </p>
+        </div>
+
+        <!-- ===== BLOCO 4: CONFIRMAÇÃO ===== -->
+        <div class="bloco-form bloco-confirm">
+          <h3 class="bloco-num"><span class="num-badge">4</span> CONFIRMAÇÃO</h3>
+          <label class="check-item" id="labelConfirm">
+            <input type="checkbox" id="chkConfirm" class="chk"/>
+            <span>
+              Declaro que as informações fornecidas são verdadeiras e estou ciente de que denúncias falsas podem resultar em penalizações.
+            </span>
+          </label>
+          <span class="campo-erro" id="erroConfirm"></span>
+        </div>
+
+        <!-- BOTÃO ENVIAR -->
+        <div class="btn-enviar-wrap">
+          <button type="button" class="btn-enviar" id="btnEnviar" onclick="enviarDenuncia()">
+            <i class="fas fa-paper-plane"></i> Enviar denúncia
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- ===== COLUNA DIREITA (LATERAL) ===== -->
+    <aside class="col-lateral">
+
+      <!-- Como funciona -->
+      <div class="card-lat">
+        <h3 class="cl-titulo">COMO FUNCIONA?</h3>
+        <div class="passos-lista">
+          <div class="passo">
+            <div class="passo-ico azul"><i class="fas fa-user"></i></div>
+            <div>
+              <div class="passo-nome">Recebemos sua denúncia</div>
+              <div class="passo-desc">Nossa equipe recebe e analisa as informações enviadas.</div>
+            </div>
+          </div>
+          <div class="passo-seta"><i class="fas fa-arrow-down"></i></div>
+          <div class="passo">
+            <div class="passo-ico laranja"><i class="fas fa-search"></i></div>
+            <div>
+              <div class="passo-nome">Análise e investigação</div>
+              <div class="passo-desc">Investigamos o caso com rigor e responsabilidade.</div>
+            </div>
+          </div>
+          <div class="passo-seta"><i class="fas fa-arrow-down"></i></div>
+          <div class="passo">
+            <div class="passo-ico roxo"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <div class="passo-nome">Tomamos as medidas</div>
+              <div class="passo-desc">Caso confirmado, tomamos as medidas necessárias.</div>
+            </div>
+          </div>
+          <div class="passo-seta"><i class="fas fa-arrow-down"></i></div>
+          <div class="passo">
+            <div class="passo-ico dou"><i class="fas fa-comment-dots"></i></div>
+            <div>
+              <div class="passo-nome">Retorno para você</div>
+              <div class="passo-desc">Você será informado sobre o andamento e resultado.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- O que acontece depois -->
+      <div class="card-lat">
+        <h3 class="cl-titulo">O QUE ACONTECE DEPOIS?</h3>
+        <p class="cl-desc">Nossa equipe de confiança analisará sua denúncia e tomará as ações necessárias.</p>
+        <ul class="cl-lista">
+          <li><i class="fas fa-check"></i> Todas as denúncias são tratadas com prioridade.</li>
+          <li><i class="fas fa-check"></i> Garantimos total sigilo e confidencialidade.</li>
+          <li><i class="fas fa-check"></i> Se necessário, entraremos em contacto para mais informações.</li>
+        </ul>
+
+        <div class="tempo-resposta">
+          <div class="tr-ico"><i class="fas fa-clock"></i></div>
+          <div>
+            <div class="tr-label">Tempo médio de resposta</div>
+            <div class="tr-valor">Até 5 dias úteis</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dúvidas -->
+      <div class="card-lat">
+        <h3 class="cl-titulo">DÚVIDAS?</h3>
+        <p class="cl-desc">Caso precise de ajuda ou queira acompanhar sua denúncia.</p>
+        <button class="btn-suporte" onclick="mostrarToast('A abrir chat de suporte...')">
+          <i class="fas fa-comments"></i> FALAR COM O SUPORTE
+        </button>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ===== BARRA DE SUPORTE ===== -->
+  <div class="barra-suporte">
+    <div class="bs-item">
+      <div class="bsi-ico"><i class="fas fa-question-circle"></i></div>
+      <div>
+        <div class="bsi-titulo">Central de Ajuda</div>
+        <div class="bsi-desc">Encontre respostas para as perguntas mais frequentes.</div>
+        <a href="#" class="bsi-link">Acessar ajuda <i class="fas fa-chevron-right"></i></a>
+      </div>
+    </div>
+    <div class="bs-item">
+      <div class="bsi-ico"><i class="fas fa-envelope"></i></div>
+      <div>
+        <div class="bsi-titulo">E-mail</div>
+        <div class="bsi-desc">Envie-nos um e-mail diretamente.</div>
+        <a href="mailto:atendimento@angobizkivenda.ao" class="bsi-link-dou">atendimento@angobizkivenda.ao</a>
+      </div>
+    </div>
+    <div class="bs-item">
+      <div class="bsi-ico"><i class="fab fa-whatsapp"></i></div>
+      <div>
+        <div class="bsi-titulo">WhatsApp</div>
+        <div class="bsi-desc">Fale conosco pelo WhatsApp.</div>
+        <a href="tel:+244923456789" class="bsi-link-dou">+244 923 456 789</a>
+      </div>
+    </div>
+    <div class="bs-item">
+      <div class="bsi-ico"><i class="fas fa-clock"></i></div>
+      <div>
+        <div class="bsi-titulo">Horário de Atendimento</div>
+        <div class="bsi-desc">Seg - Sex: 09h00 - 18h00</div>
+        <div class="bsi-desc">Sáb.: 09h00 - 13h00</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-top">
+
+    <div class="ft-col ft-sobre">
+      <div class="ft-logo">
+        <div class="logo-circulo logo-sm">
+            <img src="../img/logo.png" alt="logo">
+        </div>
+        <div class="logo-txt">
+          <span class="logo-nome">ANGO<span class="logo-biz">BIZ</span></span>
+          <span class="logo-sub">KIVENDA</span>
+        </div>
+      </div>
+      <p>A plataforma completa para compras e vendas em Angola.</p>
+      <div class="ft-redes">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/244923456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="ft-col">
+      <h4>LINKS RÁPIDOS</h4>
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="mercado.html">Loja</a></li>
+        <li><a href="mercado.html">Mercado</a></li>
+        <li><a href="promocoes.html">Promoções</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="suporte.html">Contactos</a></li>
+      </ul>
+    </div>
+
+    <div class="ft-col">
+      <h4>CATEGORIAS</h4>
+      <ul>
+        <li><a href="mercado.html">Supermercado</a></li>
+        <li><a href="eletronicos.html">Eletrónicos</a></li>
+        <li><a href="escritorio.html">Escritório</a></li>
+        <li><a href="industria.html">Indústria</a></li>
+        <li><a href="#">Casa & Decoração</a></li>
+        <li><a href="automovel.html">Automóvel</a></li>
+        <li><a href="#">Moda & Beleza</a></li>
+      </ul>
+    </div>
+
+    <div class="ft-col">
+      <h4>CONTACTOS</h4>
+      <ul class="ft-contactos">
+        <li><i class="fas fa-phone"></i> +244 923 456 789</li>
+        <li><i class="fas fa-envelope"></i> atendimento@angobizkivenda.ao</li>
+        <li><i class="fas fa-map-marker-alt"></i> Rua da Kivenda, Nº 123<br/>Luanda, Angola</li>
+        <li><i class="fas fa-clock"></i> Seg - Sex: 09h00 - 18h00<br/>Sáb.: 09h00 - 13h00</li>
+      </ul>
+    </div>
+
+    <div class="ft-col">
+      <h4>FORMAS DE PAGAMENTO</h4>
+      <div class="ft-pgto-grid">
+        <div class="pgto-card visa">VISA</div>
+        <div class="pgto-card mc"><i class="fab fa-cc-mastercard"></i></div>
+        <div class="pgto-card verve">Verve</div>
+        <div class="pgto-card multi">MULTICAIXA</div>
+        <div class="pgto-card unitel">unitel<br/><small>money</small></div>
+        <div class="pgto-card pay">PAY</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-base">
+    <span>© 2024 AngoBiz Kivenda. Todos os direitos reservados.</span>
+    <div class="fb-links">
+      <a href="termos.html">Termos e Condições</a>
+      <a href="politica.html">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MODAL: SUCESSO ===== -->
+<div class="modal-overlay" id="modalSucesso">
+  <div class="modal-caixa">
+    <div class="modal-sucesso-ico"><i class="fas fa-check-circle"></i></div>
+    <h3>Denúncia enviada com sucesso!</h3>
+    <p>Recebemos a sua denúncia. A nossa equipa irá analisá-la com prioridade e entraremos em contacto em até 5 dias úteis.</p>
+    <div class="modal-ref">
+      Número de referência: <strong id="numRef"></strong>
+    </div>
+    <button class="btn-enviar" style="margin-top:16px;width:100%;justify-content:center" onclick="fecharModal('modalSucesso')">
+      <i class="fas fa-home"></i> Voltar ao início
+    </button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+  <script src="../script/denuncias._ak.js"></script>
+  <script src="../script/forms_page.js"></script>
+</body>
+</html>

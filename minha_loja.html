@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda – Meu Perfil de Vendedor</title>
+  <link rel="stylesheet" href="../style/minha_loja.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+<script>if(typeof Sessao!=="undefined"){ Sessao.exigirVendedor(); }</script>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAVBAR TOPO
+═══════════════════════════════════════════════════════ -->
+<header class="navbar">
+  <!-- Logo -->
+  <div class="navbar-logo">
+    <div class="logo-circulo">
+      <span class="logo-a">A</span><span class="logo-k">K</span>
+    </div>
+    <div class="logo-texto">
+      <span class="logo-ango">ANGOBIZ</span>
+      <span class="logo-kiv">KIVENDA</span>
+    </div>
+  </div>
+
+      <!-- Botão hamburger (sidebar) -->
+       <a href="home.html">
+      <button class="btn-sidebar-toggle" id="btnSidebarToggle" title="Menu">
+        <i class="fa fa-home"></i>
+      </button>
+      </a>
+
+  <!-- Barra de busca -->
+  <div class="navbar-busca">
+    <input type="text" id="inputBusca" placeholder="Buscar produtos, serviços ou vendedores..."
+           onkeydown="if(event.key==='Enter') pesquisar()"/>
+    <button class="btn-busca" onclick="pesquisar()">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+
+  <!-- Ações navbar -->
+  <div class="navbar-acoes">
+    <button class="nv-acao" onclick="abrirPainel('painel-mensagens')">
+      <i class="fas fa-envelope"></i>
+      <span>Mensagens</span>
+      <span class="nv-badge">3</span>
+    </button>
+    <button class="nv-acao" onclick="abrirPainel('painel-notificacoes')">
+      <i class="fas fa-bell"></i>
+      <span>Notificações</span>
+      <span class="nv-badge">12</span>
+    </button>
+    <button class="nv-acao nv-ajuda" onclick="abrirPainel('painel-ajuda')">
+      <i class="fas fa-circle-question"></i>
+      <span>Ajuda</span>
+    </button>
+    <div class="nv-perfil" onclick="toggleDropPerfil()">
+      <div class="nv-avatar"><i class="fas fa-user"></i></div>
+      <div class="nv-info">
+        <span class="nv-nome">João Fernandes</span>
+        <span class="nv-tipo">Cliente</span>
+      </div>
+      <i class="fas fa-chevron-down nv-seta"></i>
+      <div class="nv-dropdown" id="dropPerfil">
+        <a href="perfil_cliente.html" onclick="mostrarToast('Meu Perfil')"><i class="fas fa-user"></i> Meu Perfil</a>
+        <a href="#" onclick="mostrarToast('Configurações')"><i class="fas fa-cog"></i> Configurações</a>
+        <a href="#" onclick="mostrarToast('Sessão encerrada')"><i class="fas fa-sign-out-alt"></i> Sair</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     LAYOUT PRINCIPAL
+═══════════════════════════════════════════════════════ -->
+<div class="layout">
+
+  <!-- ════════════════════════════
+       SIDEBAR ESQUERDA
+  ════════════════════════════ -->
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <a href="painel_cliente.html" class="sitem" onclick="mostrarToast('Painel Principal')">
+        <i class="fas fa-home"></i><span>Painel Principal</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-pedidos')">
+        <i class="fas fa-shopping-bag"></i><span>Meus Pedidos</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-favoritos')">
+        <i class="fas fa-heart"></i><span>Favoritos</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-mensagens')">
+        <i class="fas fa-envelope"></i><span>Mensagens</span>
+        <span class="sitem-badge">3</span>
+      </a>
+      <a href="#" class="sitem ativo" onclick="mostrarToast('Já está nesta página')">
+        <i class="fas fa-user-circle"></i><span>Meu Perfil de Vendedor</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-produtos')">
+        <i class="fas fa-box-open"></i><span>Produtos</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-servicos')">
+        <i class="fas fa-tools"></i><span>Serviços</span>
+      </a>
+      <a href="pagamentos.html" class="sitem">
+        <i class="fas fa-wallet"></i><span>Financeiro</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-promocoes')">
+        <i class="fas fa-tag"></i><span>Promoções</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-avaliacoes')">
+        <i class="far fa-star"></i><span>Avaliações</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-relatorios')">
+        <i class="fas fa-chart-bar"></i><span>Relatórios</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-config')">
+        <i class="fas fa-cog"></i><span>Configurações</span>
+      </a>
+      <a href="#" class="sitem" onclick="abrirPainel('painel-ajuda')">
+        <i class="far fa-circle-question"></i><span>Central de Ajuda</span>
+      </a>
+      <a href="#" class="sitem" onclick="mostrarToast('Fale Conosco via WhatsApp: +244 923 456 789')">
+        <i class="fas fa-phone"></i><span>Fale Conosco</span>
+      </a>
+    </nav>
+
+    <!-- Banner plano sidebar -->
+    <div class="sidebar-plano">
+      <div class="sp-crown"><i class="fas fa-crown"></i></div>
+      <div class="sp-info">
+        <span class="sp-nome">Plano Profissional</span>
+        <span class="sp-desc">Aproveite todos s os benefícios</span>
+      </div>
+      <button class="btn-ver-planos-s" onclick="abrirPainel('painel-planos')">Ver Planos</button>
+    </div>
+  </aside>
+
+  <!-- ════════════════════════════
+       CONTEÚDO PRINCIPAL
+  ════════════════════════════ -->
+  <main class="conteudo">
+
+    <!-- ── CARD PERFIL DA LOJA ── -->
+    <div class="perfil-card">
+      <!-- Mapa decorativo de fundo -->
+      <div class="mapa-bg">
+        <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <defs>
+            <radialGradient id="gp1" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#e6a817" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#e6a817" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- Pontos luminosos -->
+          <circle cx="350" cy="100" r="4" fill="#e6a817" opacity="0.9"/>
+          <circle cx="390" cy="75"  r="3" fill="#e6a817" opacity="0.8"/>
+          <circle cx="430" cy="110" r="3" fill="#e6a817" opacity="0.7"/>
+          <circle cx="470" cy="85"  r="2.5" fill="#e6a817" opacity="0.8"/>
+          <circle cx="510" cy="120" r="2.5" fill="#e6a817" opacity="0.6"/>
+          <circle cx="550" cy="90"  r="2" fill="#e6a817" opacity="0.5"/>
+          <circle cx="590" cy="130" r="3" fill="#e6a817" opacity="0.7"/>
+          <circle cx="620" cy="100" r="2" fill="#e6a817" opacity="0.5"/>
+          <circle cx="640" cy="65"  r="2" fill="#e6a817" opacity="0.4"/>
+          <circle cx="670" cy="110" r="1.5" fill="#e6a817" opacity="0.4"/>
+          <circle cx="320" cy="135" r="2" fill="#e6a817" opacity="0.5"/>
+          <circle cx="410" cy="145" r="2" fill="#e6a817" opacity="0.5"/>
+          <circle cx="480" cy="155" r="1.5" fill="#e6a817" opacity="0.4"/>
+          <circle cx="560" cy="160" r="2" fill="#e6a817" opacity="0.5"/>
+          <circle cx="600" cy="55"  r="1.5" fill="#e6a817" opacity="0.4"/>
+          <!-- Linhas de conexão -->
+          <line x1="350" y1="100" x2="390" y2="75"  stroke="#e6a817" stroke-width="0.6" opacity="0.4"/>
+          <line x1="390" y1="75"  x2="430" y2="110" stroke="#e6a817" stroke-width="0.6" opacity="0.4"/>
+          <line x1="430" y1="110" x2="470" y2="85"  stroke="#e6a817" stroke-width="0.6" opacity="0.35"/>
+          <line x1="470" y1="85"  x2="510" y2="120" stroke="#e6a817" stroke-width="0.6" opacity="0.35"/>
+          <line x1="510" y1="120" x2="550" y2="90"  stroke="#e6a817" stroke-width="0.5" opacity="0.3"/>
+          <line x1="550" y1="90"  x2="590" y2="130" stroke="#e6a817" stroke-width="0.5" opacity="0.3"/>
+          <line x1="590" y1="130" x2="620" y2="100" stroke="#e6a817" stroke-width="0.5" opacity="0.3"/>
+          <line x1="350" y1="100" x2="320" y2="135" stroke="#e6a817" stroke-width="0.5" opacity="0.3"/>
+          <line x1="430" y1="110" x2="410" y2="145" stroke="#e6a817" stroke-width="0.5" opacity="0.3"/>
+          <line x1="510" y1="120" x2="480" y2="155" stroke="#e6a817" stroke-width="0.5" opacity="0.3"/>
+          <!-- Halos de brilho -->
+          <circle cx="350" cy="100" r="18" fill="url(#gp1)" opacity="0.5"/>
+          <circle cx="510" cy="120" r="14" fill="url(#gp1)" opacity="0.35"/>
+          <circle cx="590" cy="130" r="16" fill="url(#gp1)" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <!-- Logo + dados -->
+      <div class="perfil-esq">
+        <div class="perfil-avatar-wrap">
+          <div class="perfil-avatar-logo">
+            <div class="av-ak"><span class="av-a">A</span><span class="av-k">K</span></div>
+            <div class="av-marca">ANGOBIZ<br/><span>KIVENDA</span></div>
+          </div>
+          <button class="btn-av-camera" onclick="mostrarToast('Alterar foto da loja')">
+            <i class="fas fa-camera"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="perfil-info">
+        <div class="perfil-nome-linha">
+          <h1>Loja Tech Angola</h1>
+          <i class="fas fa-circle-check ico-vrf"></i>
+        </div>
+        <p class="perfil-sub">Tecnologia &amp; Electrónicos</p>
+        <span class="badge-vrf"><i class="fas fa-circle-check"></i> Vendedor Verificado</span>
+
+        <div class="perfil-contatos">
+          <div class="pc-item"><i class="fas fa-map-marker-alt"></i><span>Luanda, Angola</span></div>
+          <div class="pc-item"><i class="fas fa-phone"></i><span>+244 923 456 789</span></div>
+          <div class="pc-item"><i class="fas fa-envelope"></i><span>lojatechangola@email.com</span></div>
+          <div class="pc-item"><i class="fas fa-clock"></i><span>Membro desde Jan 2024</span></div>
+        </div>
+      </div>
+
+      <div class="perfil-dir">
+        <button class="btn-editar-perfil" onclick="abrirPainel('painel-editar')">
+          <i class="fas fa-pen-to-square"></i> Editar Perfil da Loja
+        </button>
+      </div>
+    </div>
+
+    <!-- ── RESUMO DA LOJA ── -->
+    <div class="secao-card" id="sec-resumo">
+      <h2 class="sec-titulo">Resumo da Loja</h2>
+      <div class="resumo-grid">
+        <div class="resumo-item" onclick="abrirPainel('painel-produtos')">
+          <i class="fas fa-box-open ri-ico"></i>
+          <div class="ri-num" data-target="128">0</div>
+          <div class="ri-label">Produtos</div>
+          <div class="ri-link">Ver todos</div>
+        </div>
+        <div class="resumo-sep"></div>
+        <div class="resumo-item" onclick="abrirPainel('painel-pedidos')">
+          <i class="fas fa-clipboard-list ri-ico"></i>
+          <div class="ri-num" data-target="42">0</div>
+          <div class="ri-label">Pedidos</div>
+          <div class="ri-link">Ver todos</div>
+        </div>
+        <div class="resumo-sep"></div>
+        <div class="resumo-item" onclick="abrirPainel('painel-avaliacoes')">
+          <i class="far fa-star ri-ico"></i>
+          <div class="ri-num">4.8</div>
+          <div class="ri-label">Avaliação da loja</div>
+          <div class="estrelas-min">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(128)</span>
+          </div>
+        </div>
+        <div class="resumo-sep"></div>
+        <div class="resumo-item" onclick="abrirPainel('painel-seguidores')">
+          <i class="fas fa-user-group ri-ico"></i>
+          <div class="ri-num" data-target="1250">0</div>
+          <div class="ri-label">Seguidores</div>
+          <div class="ri-link">Ver todos</div>
+        </div>
+        <div class="resumo-sep"></div>
+        <div class="resumo-item" onclick="abrirPainel('painel-insights')">
+          <i class="far fa-eye ri-ico"></i>
+          <div class="ri-num">25.6K</div>
+          <div class="ri-label">Visualizações</div>
+          <div class="ri-link">Ver insights</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── DESEMPENHO + GERENCIAR (LINHA) ── -->
+    <div class="linha-dupla">
+
+      <!-- Desempenho -->
+      <div class="secao-card flex1" id="sec-desempenho">
+        <div class="sec-header">
+          <h2 class="sec-titulo">Desempenho da Loja</h2>
+          <div class="periodo-wrap">
+            <button class="btn-periodo" onclick="toggleDropPeriodo()">
+              <span id="txtPeriodo">Últimos 30 dias</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="drop-periodo" id="dropPeriodo">
+              <div onclick="selecionarPeriodo('Últimos 7 dias')">Últimos 7 dias</div>
+              <div onclick="selecionarPeriodo('Últimos 30 dias')">Últimos 30 dias</div>
+              <div onclick="selecionarPeriodo('Últimos 90 dias')">Últimos 90 dias</div>
+              <div onclick="selecionarPeriodo('Este ano')">Este ano</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="desemp-grid">
+          <div class="desemp-card" onclick="abrirPainel('painel-insights')">
+            <span class="d-label">Visualizações</span>
+            <div class="d-linha">
+              <span class="d-num">12.540</span>
+              <span class="d-delta up"><i class="fas fa-arrow-up"></i> 18%</span>
+            </div>
+            <canvas id="g-viz" class="g-mini" data-cor="#c0392b"></canvas>
+          </div>
+          <div class="desemp-card" onclick="abrirPainel('painel-insights')">
+            <span class="d-label">Visitas</span>
+            <div class="d-linha">
+              <span class="d-num">3.860</span>
+              <span class="d-delta up"><i class="fas fa-arrow-up"></i> 15%</span>
+            </div>
+            <canvas id="g-vis" class="g-mini" data-cor="#e6a817"></canvas>
+          </div>
+          <div class="desemp-card" onclick="abrirPainel('painel-pedidos')">
+            <span class="d-label">Pedidos</span>
+            <div class="d-linha">
+              <span class="d-num">240</span>
+              <span class="d-delta up"><i class="fas fa-arrow-up"></i> 22%</span>
+            </div>
+            <canvas id="g-ped" class="g-mini" data-cor="#c0392b"></canvas>
+          </div>
+          <div class="desemp-card" onclick="abrirPainel('painel-financeiro')">
+            <span class="d-label">Receita</span>
+            <div class="d-linha">
+              <span class="d-num" style="font-size:13px">2.450.000 Kz</span>
+              <span class="d-delta up"><i class="fas fa-arrow-up"></i> 30%</span>
+            </div>
+            <canvas id="g-rec" class="g-mini" data-cor="#e6a817"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gerenciar -->
+      <div class="secao-card ger-card" id="sec-gerenciar">
+        <h2 class="sec-titulo">Gerenciar Minha Loja</h2>
+        <div class="ger-grid">
+
+          <div class="ger-item" onclick="abrirPainel('painel-produtos')">
+            <div class="ger-ico" style="background:rgba(192,57,43,.15)"><i class="fas fa-bag-shopping" style="color:#c0392b"></i></div>
+            <div class="ger-txt"><strong>Meus Produtos</strong><span>Gerencie seus produtos publicados</span></div>
+            <i class="fas fa-chevron-right ger-seta"></i>
+          </div>
+
+          <div class="ger-item" onclick="abrirPainel('painel-pedidos')">
+            <div class="ger-ico" style="background:rgba(230,168,23,.15)"><i class="fas fa-clipboard-list" style="color:#e6a817"></i></div>
+            <div class="ger-txt"><strong>Meus Pedidos</strong><span>Acompanhe e gerencie pedidos</span></div>
+            <i class="fas fa-chevron-right ger-seta"></i>
+          </div>
+
+          <div class="ger-item" onclick="abrirPainel('painel-financeiro')">
+            <div class="ger-ico" style="background:rgba(192,57,43,.15)"><i class="fas fa-wallet" style="color:#c0392b"></i></div>
+            <div class="ger-txt"><strong>Financeiro</strong><span>Veja suas vendas e saques</span></div>
+            <i class="fas fa-chevron-right ger-seta"></i>
+          </div>
+
+          <div class="ger-item" onclick="abrirPainel('painel-avaliacoes')">
+            <div class="ger-ico" style="background:rgba(230,168,23,.15)"><i class="far fa-star" style="color:#e6a817"></i></div>
+            <div class="ger-txt"><strong>Avaliações</strong><span>Veja avaliações da sua loja</span></div>
+            <i class="fas fa-chevron-right ger-seta"></i>
+          </div>
+
+          <div class="ger-item" onclick="abrirPainel('painel-promocoes')">
+            <div class="ger-ico" style="background:rgba(192,57,43,.15)"><i class="fas fa-tag" style="color:#c0392b"></i></div>
+            <div class="ger-txt"><strong>Promoções e Descontos</strong><span>Crie promoções para sua loja</span></div>
+            <i class="fas fa-chevron-right ger-seta"></i>
+          </div>
+
+          <div class="ger-item" onclick="abrirPainel('painel-envios')">
+            <div class="ger-ico" style="background:rgba(230,168,23,.15)"><i class="fas fa-truck" style="color:#e6a817"></i></div>
+            <div class="ger-txt"><strong>Envios</strong><span>Gerencie métodos e regiões de entrega</span></div>
+            <i class="fas fa-chevron-right ger-seta"></i>
+          </div>
+
+          <div class="ger-item" onclick="abrirPainel('painel-info-loja')">
+            <div class="ger-ico" style="background:rgba(230,168,23,.15)"><i class="fas fa-store" style="color:#e6a817"></i></div>
+            <div class="ger-txt"><strong>Informações da Loja</strong><span>Edite informações da sua loja</span></div>
+            <i class="fas fa-chevron-right ger-seta"></i>
+          </div>
+
+          <div class="ger-item" onclick="abrirPainel('painel-config')">
+            <div class="ger-ico" style="background:rgba(192,57,43,.15)"><i class="fas fa-gear" style="color:#c0392b"></i></div>
+            <div class="ger-txt"><strong>Configurações</strong><span>Gerencie preferências da loja</span></div>
+            <i class="fas fa-chevron-right ger-seta"></i>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PLANO ── -->
+    <div class="secao-card plano-card" id="sec-plano">
+      <div class="plano-esq">
+        <div class="plano-crown"><i class="fas fa-crown"></i></div>
+        <div class="plano-dados">
+          <span class="plano-nome">Plano Profissional</span>
+          <span class="plano-atual"><i class="fas fa-circle-check"></i> Seu plano atual</span>
+          <span class="plano-val">Válido até 20/06/2025</span>
+        </div>
+      </div>
+      <div class="plano-beneficios">
+        <strong>Benefícios do seu plano:</strong>
+        <ul>
+          <li><i class="fas fa-check"></i> Produtos ilimitados</li>
+          <li><i class="fas fa-check"></i> Destaque na busca</li>
+          <li><i class="fas fa-check"></i> Relatórios avançados</li>
+          <li><i class="fas fa-check"></i> Suporte prioritário</li>
+        </ul>
+      </div>
+      <div class="plano-acoes">
+        <button class="btn-ver-planos" onclick="abrirPainel('painel-planos')">Ver planos</button>
+        <button class="btn-faturar" onclick="abrirPainel('painel-planos')">
+          Faturar / Renovar plano <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     OVERLAY + MODAL LATERAL
+═══════════════════════════════════════════════════════ -->
+<div class="overlay" id="overlay" onclick="fecharTodos()"></div>
+
+<!-- MODAL GENÉRICO -->
+<div class="modal-lateral" id="modal-lateral">
+  <div class="ml-header">
+    <h3 id="ml-titulo"></h3>
+    <button class="ml-fechar" onclick="fecharTodos()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="ml-corpo" id="ml-corpo"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+  <script src="../script/minha_loja.js"></script>
+  <script src="../script/painel_vendedor.js"></script>
+</body>
+</html>

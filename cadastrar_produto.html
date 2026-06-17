@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda – Cadastrar Produto</title>
+  <link rel="stylesheet" href="../style/cadastrar_produto.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+<script>if(typeof Sessao!=="undefined"){ Sessao.exigirVendedor(); }</script>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<header class="navbar">
+  <div class="nav-esquerda">
+    <div class="logo">
+      <div class="logo-icone">  <img src="../img/logo.png" alt="logo"></div>
+      <div class="logo-txt">
+        <span class="l-ango">ANGOBIZ</span>
+        <span class="l-kiv">KIVENDA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-centro">
+    <a href="home.html">
+    <button class="btn-hamburguer"><i class="fas fa-home"></i></button>
+    </a>
+    <div class="nav-search">
+      <i class="fas fa-search s-icone"></i>
+      <input type="text" placeholder="Buscar produtos, pedidos, clientes..." id="inputNavSearch"/>
+    </div>
+  </div>
+
+  <div class="nav-direita">
+    <button class="nav-icon-btn notif" onclick="mostrarToast('8 novas notificações')">
+      <i class="fas fa-bell"></i>
+      <span class="nbadge">8</span>
+    </button>
+    <button class="nav-icon-btn" onclick="mostrarToast('Mensagens')">
+      <i class="fas fa-comment-dots"></i>
+    </button>
+    <div class="nav-perfil" onclick="toggleMenuNav()">
+      <div class="nav-avatar"><i class="fas fa-user"></i></div>
+      <div class="nav-pinfo">
+        <span class="nav-pnome">João Manuel</span>
+        <span class="nav-ptipo">Vendedor</span>
+      </div>
+      <i class="fas fa-chevron-down nav-caret"></i>
+      <div class="nav-dropdown" id="navDropdown">
+        <a href="#"><i class="fas fa-user"></i> Meu perfil</a>
+        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+        <a href="#" onclick="mostrarToast('Sessão encerrada')"><i class="fas fa-sign-out-alt"></i> Sair</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ LAYOUT ═══════════ -->
+<div class="layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sb-loja">
+      <div class="sb-loja-avatar"><i class="fas fa-store"></i></div>
+      <div class="sb-loja-info">
+        <span class="sb-loja-nome">Loja do João <span class="badge-verif">Verificada</span></span>
+        <span class="sb-loja-sub">Vendedor desde 15/03/2023</span>
+      </div>
+    </div>
+
+    <nav class="sb-nav">
+      <a class="sb-item" href="#" onclick="irPara('painel')">
+        <i class="fas fa-th-large"></i><span>Painel inicial</span>
+      </a>
+      <a class="sb-item" href="#" onclick="irPara('pedidos')">
+        <i class="fas fa-shopping-bag"></i><span>Pedidos</span>
+        <span class="sb-badge">12</span>
+      </a>
+
+      <!-- Produtos com submenu -->
+      <div class="sb-grupo aberto" id="grpProdutos">
+        <div class="sb-item sb-item-pai ativo" onclick="toggleGrupo('grpProdutos')">
+          <i class="fas fa-box-open"></i><span>Produtos</span>
+          <i class="fas fa-chevron-up sb-seta"></i>
+        </div>
+        <div class="sb-submenu">
+          <a href="#" onclick="irPara('todos-produtos')">Todos os produtos</a>
+          <a href="#" class="sub-ativo">Cadastrar produto</a>
+          <a href="#" onclick="irPara('categorias')">Categorias</a>
+          <a href="#" onclick="irPara('marcas')">Marcas</a>
+        </div>
+      </div>
+
+      <a class="sb-item" href="#" onclick="irPara('servicos')">
+        <i class="fas fa-tools"></i><span>Serviços</span>
+      </a>
+      <a class="sb-item" href="#" onclick="irPara('clientes')">
+        <i class="fas fa-users"></i><span>Clientes</span>
+      </a>
+      <a class="sb-item" href="#" onclick="irPara('mensagens')">
+        <i class="fas fa-envelope"></i><span>Mensagens</span>
+        <span class="sb-badge">3</span>
+      </a>
+      <a class="sb-item" href="#" onclick="irPara('avaliacoes')">
+        <i class="fas fa-star"></i><span>Avaliações</span>
+      </a>
+      <a class="sb-item" href="#" onclick="irPara('promocoes')">
+        <i class="fas fa-tag"></i><span>Promoções</span>
+      </a>
+      <a class="sb-item" href="#" onclick="irPara('relatorios')">
+        <i class="fas fa-chart-bar"></i><span>Relatórios</span>
+      </a>
+      <a class="sb-item" href="#" onclick="irPara('financeiro')">
+        <i class="fas fa-wallet"></i><span>Financeiro</span>
+      </a>
+
+      <!-- Configurações com submenu -->
+      <div class="sb-grupo" id="grpConfig">
+        <div class="sb-item sb-item-pai" onclick="toggleGrupo('grpConfig')">
+          <i class="fas fa-cog"></i><span>Configurações</span>
+          <i class="fas fa-chevron-right sb-seta"></i>
+        </div>
+        <div class="sb-submenu">
+          <a href="mercado.html">Loja</a>
+          <a href="#">Conta</a>
+          <a href="#">Pagamentos</a>
+        </div>
+      </div>
+
+      <a class="sb-item" href="#" onclick="irPara('ajuda')">
+        <i class="fas fa-question-circle"></i><span>Central de ajuda</span>
+      </a>
+    </nav>
+
+    <!-- Bloco Premium -->
+    <div class="sb-premium">
+      <div class="sb-prem-icone"><i class="fas fa-crown"></i></div>
+      <strong>Seja um vendedor premium</strong>
+      <p>Tenha mais visibilidade e aumente suas vendas.</p>
+      <button class="btn-saibamais" onclick="mostrarToast('Planos premium em breve!')">Saiba mais</button>
+    </div>
+
+    <div class="sb-rodape">© 2024 AngoBiz Kivenda.<br/>Todos os direitos reservados.</div>
+  </aside>
+
+  <!-- ── CONTEÚDO ── -->
+  <main class="conteudo">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb">
+      <a href="painel.html">
+      <span onclick="irPara('painel')">Painel do vendedor</span>
+      </a>
+      <i class="fas fa-chevron-right"></i>
+      
+      <a href="cadastrar_servicos.html">
+      <span onclick="irPara('produtos')">Serviços</span>
+      </a>
+      <i class="fas fa-chevron-right"></i>
+      <span class="bc-atual">Cadastrar produto</span>
+    </nav>
+
+    <!-- CABEÇALHO + DICA -->
+    <div class="cabecalho-linha">
+      <div>
+        <h1 class="pg-titulo">Cadastrar novo produto</h1>
+        <p class="pg-sub">Preencha todas as informações para cadastrar seu produto na plataforma.</p>
+      </div>
+      <div class="dica-box">
+        <div class="dica-icone"><i class="fas fa-lightbulb"></i></div>
+        <div>
+          <strong>Dicas para um bom anúncio</strong>
+          <p>Use fotos de qualidade, descreva bem seu produto e seja honesto nas informações.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════ BLOCO 1 — INFORMAÇÕES BÁSICAS ══════ -->
+    <div class="bloco-form">
+      <div class="bloco-num">
+        <span class="num-circulo">1</span>
+        <h2>Informações básicas</h2>
+      </div>
+
+      <div class="grid-2 mt16">
+        <div class="campo">
+          <label>Nome do produto <span class="ast">*</span></label>
+          <input type="text" id="nomeProduto" placeholder="Ex: Smartphone Samsung Galaxy A14"/>
+          <span class="err" id="e-nomeProduto"></span>
+        </div>
+        <div class="campo">
+          <label>Categoria <span class="ast">*</span></label>
+          <div class="sel-wrap">
+            <select id="categoria">
+              <option value="">Selecione a categoria</option>
+              <option>Tecnologia</option>
+              <option>Moda e Vestuário</option>
+              <option>Alimentação</option>
+              <option>Beleza e Cuidados</option>
+              <option>Casa e Decoração</option>
+              <option>Electrónica</option>
+              <option>Desporto</option>
+              <option>Automóveis</option>
+              <option>Outros</option>
+            </select>
+            <i class="fas fa-chevron-down si"></i>
+          </div>
+          <span class="err" id="e-categoria"></span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Marca (opcional)</label>
+          <input type="text" id="marca" placeholder="Ex: Samsung"/>
+        </div>
+        <div class="campo">
+          <label>Modelo (opcional)</label>
+          <input type="text" id="modelo" placeholder="Ex: Galaxy A14"/>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Condição do produto <span class="ast">*</span></label>
+          <div class="sel-wrap">
+            <select id="condicao">
+              <option value="">Selecione a condição</option>
+              <option>Novo</option>
+              <option>Usado – Como novo</option>
+              <option>Usado – Bom estado</option>
+              <option>Usado – Aceitável</option>
+              <option>Recondicionado</option>
+            </select>
+            <i class="fas fa-chevron-down si"></i>
+          </div>
+          <span class="err" id="e-condicao"></span>
+        </div>
+        <div class="campo">
+          <label>Tipo de produto <span class="ast">*</span></label>
+          <div class="sel-wrap">
+            <select id="tipoProduto">
+              <option value="">Selecione o tipo</option>
+              <option>Produto físico</option>
+              <option>Produto digital</option>
+              <option>Serviço</option>
+            </select>
+            <i class="fas fa-chevron-down si"></i>
+          </div>
+          <span class="err" id="e-tipoProduto"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════ BLOCO 2 — DESCRIÇÃO ══════ -->
+    <div class="bloco-form">
+      <div class="bloco-num">
+        <span class="num-circulo">2</span>
+        <h2>Descrição do produto</h2>
+      </div>
+
+      <div class="campo mt16">
+        <label>Descrição detalhada <span class="ast">*</span></label>
+        <textarea id="descricao" rows="5" maxlength="1000"
+          placeholder="Descreva seu produto com detalhes: características, benefícios, especificações, etc."
+          oninput="contarDesc(this)"></textarea>
+        <div class="contador-dir"><span id="cnt-desc">0</span>/1000</div>
+        <span class="err" id="e-descricao"></span>
+      </div>
+    </div>
+
+    <!-- ══════ BLOCO 3 — PREÇO E ESTOQUE ══════ -->
+    <div class="bloco-form">
+      <div class="bloco-num">
+        <span class="num-circulo">3</span>
+        <h2>Preço e estoque</h2>
+      </div>
+
+      <div class="grid-3 mt16">
+        <div class="campo">
+          <label>Preço (Kz) <span class="ast">*</span></label>
+          <input type="number" id="preco" placeholder="Ex: 25.000" min="0"/>
+          <span class="err" id="e-preco"></span>
+        </div>
+        <div class="campo">
+          <label>Preço promocional (Kz) (opcional)</label>
+          <input type="number" id="precoPromo" placeholder="Ex: 20.000" min="0"/>
+        </div>
+        <div class="campo">
+          <label>Quantidade em estoque <span class="ast">*</span></label>
+          <input type="number" id="estoque" placeholder="Ex: 10" min="0"/>
+          <span class="err" id="e-estoque"></span>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>SKU (Código do produto) (opcional)</label>
+        <input type="text" id="sku" placeholder="Ex: SKU123456" style="max-width:380px;"/>
+        <small class="hint">Código único para identificar seu produto</small>
+      </div>
+    </div>
+
+    <!-- ══════ BLOCO 4 — IMAGENS ══════ -->
+    <div class="bloco-form">
+      <div class="bloco-num">
+        <span class="num-circulo">4</span>
+        <h2>Imagens do produto</h2>
+      </div>
+      <p class="bloco-sub">Adicione imagens de qualidade do seu produto. Máximo 10 imagens.</p>
+
+      <div class="galeria-upload" id="galeriaUpload">
+        <!-- Zona principal de upload -->
+        <div class="upload-principal" id="uploadPrincipal"
+             onclick="triggerImagens()"
+             ondragover="dragSobre(event)" ondragleave="dragFora(event)" ondrop="soltarImagens(event)">
+          <input type="file" id="fileImagens" accept="image/*" multiple hidden
+                 onchange="adicionarImagens(this.files)"/>
+          <div class="up-icon"><i class="fas fa-camera"></i></div>
+          <div class="up-txt">
+            <strong>Clique para enviar imagens</strong>
+            <span>ou arraste e solte aqui</span>
+            <small>PNG, JPG ou WEBP até 5MB cada</small>
+          </div>
+        </div>
+
+        <!-- Imagens adicionadas -->
+        <div id="previewImagens" class="preview-imgs"></div>
+
+        <!-- Botão Adicionar mais (aparece quando há imagens) -->
+        <div class="card-adicionar-mais" id="cardAdicionarMais" style="display:none"
+             onclick="triggerImagens()">
+          <i class="fas fa-plus"></i>
+          <span>Adicionar mais</span>
+        </div>
+      </div>
+      <span class="err" id="e-imagens"></span>
+    </div>
+
+    <!-- ══════ BLOCO 5 — ENTREGA ══════ -->
+    <div class="bloco-form">
+      <div class="bloco-num">
+        <span class="num-circulo">5</span>
+        <h2>Entrega e envio</h2>
+      </div>
+
+      <div class="grid-2 mt16">
+        <div class="campo">
+          <label>Peso (kg) (opcional)</label>
+          <input type="number" id="peso" placeholder="Ex: 0.5" min="0" step="0.1"/>
+        </div>
+        <div class="campo">
+          <label>Dimensões (opcional)</label>
+          <input type="text" id="dimensoes" placeholder="Ex: 20 x 15 x 10 cm"/>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Tipo de envio <span class="ast">*</span></label>
+          <div class="sel-wrap">
+            <select id="tipoEnvio">
+              <option value="">Selecione o tipo de envio</option>
+              <option>Envio padrão</option>
+              <option>Envio expresso</option>
+              <option>Entrega ao domicílio</option>
+              <option>Levantamento em loja</option>
+              <option>Envio gratuito</option>
+            </select>
+            <i class="fas fa-chevron-down si"></i>
+          </div>
+          <span class="err" id="e-tipoEnvio"></span>
+        </div>
+        <div class="campo">
+          <label>Tempo de entrega estimado <span class="ast">*</span></label>
+          <div class="sel-wrap">
+            <select id="tempoEntrega">
+              <option value="">Selecione o tempo de entrega</option>
+              <option>Mesmo dia</option>
+              <option>1 a 2 dias úteis</option>
+              <option>3 a 5 dias úteis</option>
+              <option>5 a 10 dias úteis</option>
+              <option>Mais de 10 dias</option>
+            </select>
+            <i class="fas fa-chevron-down si"></i>
+          </div>
+          <span class="err" id="e-tempoEntrega"></span>
+        </div>
+      </div>
+
+      <div class="alerta-info">
+        <i class="fas fa-info-circle"></i>
+        Informação: Os custos e prazos de entrega serão calculados automaticamente com base na localização do comprador.
+      </div>
+    </div>
+
+    <!-- ══════ BLOCO 6 — STATUS ══════ -->
+    <div class="bloco-form">
+      <div class="bloco-num">
+        <span class="num-circulo">6</span>
+        <h2>Status do produto</h2>
+      </div>
+
+      <div class="campo mt16" style="max-width:300px;">
+        <label>Status <span class="ast">*</span></label>
+        <div class="sel-wrap status-sel">
+          <div class="status-dot" id="statusDot"></div>
+          <select id="statusProduto" onchange="actualizarStatus()">
+            <option value="ativo">Ativo</option>
+            <option value="rascunho">Rascunho</option>
+            <option value="inativo">Inativo</option>
+            <option value="pausado">Pausado</option>
+          </select>
+          <i class="fas fa-chevron-down si"></i>
+        </div>
+      </div>
+      <p class="hint mt8">Produtos ativos são visíveis para os clientes na plataforma.</p>
+    </div>
+
+    <!-- ══════ BARRA INFERIOR ══════ -->
+    <div class="barra-inferior">
+      <button class="btn-cancelar" onclick="cancelar()">Cancelar</button>
+      <div class="barra-dir">
+        <button class="btn-rascunho" onclick="salvarRascunho()">
+          <i class="fas fa-save"></i> Salvar como rascunho
+        </button>
+        <button class="btn-publicar" onclick="publicarProduto()">
+          <i class="fas fa-paper-plane"></i> Publicar produto
+        </button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MODAL SUCESSO -->
+<div class="modal-overlay" id="modalSucesso">
+  <div class="modal-card">
+    <div class="modal-icone-ok"><i class="fas fa-check-circle"></i></div>
+    <h2 id="modalTitulo">Produto publicado!</h2>
+    <p id="modalMensagem">O seu produto foi publicado com sucesso e já está visível na plataforma.</p>
+    <div class="modal-btns">
+      <button class="btn-cancelar" onclick="fecharModal()">Fechar</button>
+      <button class="btn-publicar" onclick="novosProduto()">Cadastrar outro</button>
+    </div>
+  </div>
+</div>
+<script src="../script/cadastrar_produto.js"></script>
+</body>
+</html>

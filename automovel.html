@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda - Automóvel</title>
+   <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <link rel="stylesheet" href="../style/automovel.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+
+  <!-- BANNER AUTOMÓVEL -->
+  <div class="banner-automovel">
+    <div class="banner-conteudo">
+      <nav class="breadcrumb">
+        <a href="home.html">Início</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Automóvel</span>
+      </nav>
+      <h1>AUTOMÓVEL</h1>
+      <p>Tudo para o seu carro. Qualidade, desempenho e segurança.</p>
+    </div>
+    <div class="banner-decoracao">
+      <div class="banner-itens-deco">
+        <i class="fas fa-car banner-icone-deco" style="color:#e0a818; font-size:5rem; opacity:.9;"></i>
+        <i class="fas fa-oil-can banner-icone-deco" style="color:#c0392b; font-size:3rem; margin-left:20px; opacity:.8;"></i>
+        <i class="fas fa-cog banner-icone-deco" style="color:#aaa; font-size:3.5rem; margin-left:16px; opacity:.7;"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="conteudo-principal">
+    <div class="layout-principal">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <div class="sidebar-bloco">
+          <h3 class="sidebar-titulo">CATEGORIAS</h3>
+          <ul class="sidebar-lista">
+            <li class="ativo"><a href="#">Todos Automóvel</a></li>
+            <li><a href="automovel.html">Peças &amp; Componentes</a></li>
+            <li><a href="automovel.html">Óleos &amp; Lubrificantes</a></li>
+            <li><a href="automovel.html">Pneus &amp; Jantes</a></li>
+            <li><a href="automovel.html">Baterias</a></li>
+            <li><a href="automovel.html">Acessórios Interiores</a></li>
+            <li><a href="automovel.html">Acessórios Exteriores</a></li>
+            <li><a href="automovel.html">Ferramentas</a></li>
+            <li><a href="automovel.html">Som &amp; Multimédia</a></li>
+            <li><a href="automovel.html">Limpeza &amp; Manutenção</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-bloco">
+          <h3 class="sidebar-titulo">FILTRO POR PREÇO</h3>
+          <input type="range" min="1000" max="1000000" value="1000000" class="slider-preco" id="sliderPreco"/>
+          <div class="preco-range">
+            <span>1.000 Kz</span>
+            <span id="valorMaxPreco">1.000.000 Kz</span>
+          </div>
+          <button class="btn-filtrar" onclick="filtrarPreco()">FILTRAR</button>
+        </div>
+
+        <div class="sidebar-bloco">
+          <h3 class="sidebar-titulo">MARCAS</h3>
+          <ul class="marcas-lista">
+            <li><label><input type="checkbox"/> Toyota <span class="qtd">(28)</span></label></li>
+            <li><label><input type="checkbox"/> Mercedes-Benz <span class="qtd">(20)</span></label></li>
+            <li><label><input type="checkbox"/> BMW <span class="qtd">(18)</span></label></li>
+            <li><label><input type="checkbox"/> Hyundai <span class="qtd">(15)</span></label></li>
+            <li><label><input type="checkbox"/> Nissan <span class="qtd">(14)</span></label></li>
+          </ul>
+          <button class="btn-ver-mais">Ver mais +</button>
+        </div>
+
+      </aside>
+
+      <!-- PRODUTOS -->
+      <section class="grade-produtos">
+
+        <div class="produtos-toolbar">
+          <span class="mostrando">Mostrando 1–12 de 145 produtos</span>
+          <div class="ordenar">
+            <label>Ordenar por:</label>
+            <select id="selectOrdenar">
+              <option>Mais populares</option>
+              <option>Menor preço</option>
+              <option>Maior preço</option>
+              <option>Mais recentes</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="produtos-grid" id="gradeprodutos"></div>
+
+        <div class="paginacao">
+          <button class="pag-btn ativo">1</button>
+          <button class="pag-btn" onclick="mudaPagina(this)">2</button>
+          <button class="pag-btn" onclick="mudaPagina(this)">3</button>
+          <button class="pag-btn pag-reticencias">...</button>
+          <button class="pag-btn" onclick="mudaPagina(this)">13</button>
+          <button class="pag-btn pag-prox" onclick="mudaPagina(document.querySelectorAll('.pag-btn')[1])">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- CARRINHO LATERAL -->
+  <div class="carrinho-sidebar" id="carritoSidebar">
+    <div class="carrinho-sidebar-header">
+      <h3>Meu Carrinho</h3>
+      <button onclick="fecharCarrinho()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="carrinho-itens" id="carritoItens">
+      <p class="carrinho-vazio">O seu carrinho está vazio.</p>
+    </div>
+    <div class="carrinho-total" id="carritoTotal" style="display:none">
+      <div class="total-linha">
+        <span>Total:</span>
+        <span id="totalValor">0 Kz</span>
+      </div>
+      <button class="btn-finalizar">Finalizar Compra</button>
+    </div>
+  </div>
+  <div class="carrinho-overlay" id="carritoOverlay" onclick="fecharCarrinho()"></div>
+
+  <!-- NOTIFICAÇÃO -->
+  <div class="notificacao" id="notificacao"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-col footer-sobre">
+        <div class="footer-logo">
+          <img src="../img/logo.png" alt="">
+          <div class="footer-logo-texto">
+            <span class="logo-nome">ANGO<span class="logo-biz">BIZ</span></span>
+            <span class="logo-sub">KIVENDA</span>
+          </div>
+        </div>
+        <p>A AngoBiz Kivenda é a sua parceira ideal para negócios, inovação e crescimento. Oferecemos os melhores produtos e soluções para impulsionar o seu sucesso.</p>
+        <div class="footer-redes">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/244923456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>LINKS RÁPIDOS</h4>
+        <ul>
+          <li><a href="home.html">Início</a></li>
+          <li><a href="ango_resolve.html">Ango Resolve</a></li>
+          <li><a href="mercado.html">Mercado</a></li>
+          <li><a href="promocoes.html">Promoções</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="denuncias.html">Suporte</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>CATEGORIAS</h4>
+        <ul>
+          <li><a href="mercado.html">Supermercado</a></li>
+          <li><a href="eletronicos.html">Eletrónicos</a></li>
+          <li><a href="escritorio.html">Escritório</a></li>
+          <li><a href="industria.html">Indústria</a></li>
+          <li><a href="casa&deco.html">Casa &amp; Decoração</a></li>
+          <li><a href="automovel.html">Automóvel</a></li>
+          <li><a href="mercado.html">Moda &amp; Beleza</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>CONTACTOS</h4>
+        <ul class="footer-contactos">
+          <li><i class="fas fa-phone"></i> +244 923 456 789</li>
+          <li><i class="fas fa-envelope"></i> atendimento@angobizkivenda.ao</li>
+          <li><i class="fas fa-map-marker-alt"></i> Rua da Kivenda, Nº 123<br/>Luanda, Angola</li>
+          <li><i class="fas fa-clock"></i> Seg - Sex: 08h00 - 18h00<br/>Sáb: 08h00 - 13h00</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>FORMAS DE PAGAMENTO</h4>
+        <div class="pagamento-grid">
+          <div class="pgto-card visa">VISA</div>
+          <div class="pgto-card mastercard"><i class="fab fa-cc-mastercard"></i></div>
+          <div class="pgto-card verve">Verve</div>
+          <div class="pgto-card multicaixa">MULTICAIXA</div>
+          <div class="pgto-card unitel">unitel<br/><small>money</small></div>
+          <div class="pgto-card pay">PAY</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-base">
+      <span>© 2024 AngoBiz Kivenda. Todos os direitos reservados.</span>
+      <div>
+        <a href="termos.html">Termos e Condições</a>
+        <span class="sep">|</span>
+        <a href="politica.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../script/mercado_data.js"></script>
+  <script src="../script/mercado.js"></script>
+  <script src="../script/automovel.js"></script>
+</body>
+</html>

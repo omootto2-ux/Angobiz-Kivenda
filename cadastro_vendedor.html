@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda – Cadastrar como vendedor</title>
+  <link rel="stylesheet" href="../style/cadastro_vendedor.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     NAVBAR
+═══════════════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <div class="logo-circulo">
+          <img src="../img/logo.png" alt="logo">
+        </div>
+        <div class="logo-texto">
+          <span class="logo-angotext"><span class="w">ANGO</span><span class="g">BIZ</span></span>
+          <span class="logo-kiv">— KIVENDA —</span>
+        </div>
+      </a>
+
+      <!-- Links de navegação -->
+      <nav class="nav-links" id="navLinks">
+        <a href="parceria.html" class="nav-link">VOLTAR</a>
+        <a href="#como-funciona" class="nav-link">COMO FUNCIONA</a>
+        <a href="#vantagens"     class="nav-link">VANTAGENS</a>
+        <a href="#planos"        class="nav-link">PLANOS</a>
+        <a href="#faq"           class="nav-link">PERGUNTAS FREQUENTES</a>
+        <a href="#contactos"     class="nav-link">CONTACTOS</a>
+      </nav>
+
+      <!-- Hamburger mobile -->
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+
+<!-- ═══════════════════════════════════
+     LAYOUT PRINCIPAL
+═══════════════════════════════════ -->
+<div class="layout-pagina">
+
+  <!-- ── PAINEL ESQUERDO ── -->
+  <aside class="painel-esquerdo">
+    <div class="painel-hero">
+      <h1 class="hero-titulo">
+        Torne-se um<br/>
+        <span class="destaque-vendedor">vendedor</span><br/>
+        na <span class="destaque-marca">AngoBiz Kivenda</span>
+      </h1>
+      <p class="hero-desc">
+        Comece a vender seus produtos e serviços para milhares de clientes em todo o país.
+        É rápido, fácil e gratuito para começar!
+      </p>
+    </div>
+
+    <div class="vantagens-lista">
+      <div class="vantagem-item">
+        <div class="vantagem-icone"><i class="fas fa-eye"></i></div>
+        <div class="vantagem-texto">
+          <strong>Mais visibilidade</strong>
+          <p>Seus produtos e serviços expostos para milhares de clientes todos os dias.</p>
+        </div>
+      </div>
+      <div class="vantagem-item">
+        <div class="vantagem-icone"><i class="fas fa-store"></i></div>
+        <div class="vantagem-texto">
+          <strong>Gestão completa da sua loja</strong>
+          <p>Controle seus produtos, pedidos, clientes e recebimentos em um só lugar.</p>
+        </div>
+      </div>
+      <div class="vantagem-item">
+        <div class="vantagem-icone"><i class="fas fa-lock"></i></div>
+        <div class="vantagem-texto">
+          <strong>Pagamentos seguros</strong>
+          <p>Receba pagamentos com segurança através da plataforma.</p>
+        </div>
+      </div>
+      <div class="vantagem-item">
+        <div class="vantagem-icone"><i class="fas fa-chart-line"></i></div>
+        <div class="vantagem-texto">
+          <strong>Relatórios e análises</strong>
+          <p>Acompanhe suas vendas e desempenho com relatórios detalhados.</p>
+        </div>
+      </div>
+      <div class="vantagem-item">
+        <div class="vantagem-icone"><i class="fas fa-headset"></i></div>
+        <div class="vantagem-texto">
+          <strong>Suporte dedicado</strong>
+          <p>Nossa equipa está pronta para ajudar você a crescer sempre.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloco de comunidade -->
+    <div class="bloco-comunidade">
+      <div class="avatares-comunidade">
+        <div class="av av1"><i class="fas fa-user"></i></div>
+        <div class="av av2"><i class="fas fa-user"></i></div>
+        <div class="av av3"><i class="fas fa-user"></i></div>
+        <div class="av av4"><i class="fas fa-user"></i></div>
+        <div class="av av5"><i class="fas fa-user"></i></div>
+        <div class="av-mais">+10.000</div>
+      </div>
+      <p>Junte-se a milhares de vendedores que já crescem com a AngoBiz Kivenda.</p>
+    </div>
+
+    <!-- Bloco segurança -->
+    <div class="bloco-seguranca">
+      <div class="seg-icone"><i class="fas fa-shield-alt"></i></div>
+      <div>
+        <strong>Seus dados estão protegidos</strong>
+        <p>Levamos a segurança e a privacidade a sério. Suas informações estão protegidas conosco.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── PAINEL FORMULÁRIO ── -->
+  <main class="painel-formulario">
+
+    <div class="form-cabecalho">
+      <h2>Cadastrar como vendedor</h2>
+      <p>Preencha todas as informações abaixo para criar sua conta de vendedor.</p>
+    </div>
+
+    <!-- STEPPER -->
+    <div class="stepper">
+      <div class="step ativo" id="step-1">
+        <div class="step-numero">1</div>
+        <div class="step-label">Informações pessoais</div>
+        <div class="step-linha"></div>
+      </div>
+      <div class="step" id="step-2">
+        <div class="step-numero">2</div>
+        <div class="step-label">Informações do negócio</div>
+        <div class="step-linha"></div>
+      </div>
+      <div class="step" id="step-3">
+        <div class="step-numero">3</div>
+        <div class="step-label">Verificação e documentos</div>
+        <div class="step-linha"></div>
+      </div>
+      <div class="step ultimo" id="step-4">
+        <div class="step-numero">4</div>
+        <div class="step-label">Revisão</div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════
+         SECÇÃO 1 — INFORMAÇÕES PESSOAIS
+    ════════════════════════════ -->
+    <section class="secao-form">
+      <div class="secao-titulo">
+        <div class="secao-icone"><i class="fas fa-user-circle"></i></div>
+        <h3>Informações pessoais</h3>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Nome completo <span class="obrigatorio">*</span></label>
+          <input type="text" id="nomeCompleto" placeholder="Ex: João António da Silva"/>
+          <span class="erro-campo" id="err-nomeCompleto"></span>
+        </div>
+        <div class="campo">
+          <label>Nome de utilizador (loja) <span class="obrigatorio">*</span></label>
+          <input type="text" id="nomeUtilizador" placeholder="Ex: loja_do_joao"/>
+          <small class="campo-hint">Será o endereço da sua loja na plataforma</small>
+          <span class="erro-campo" id="err-nomeUtilizador"></span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Email <span class="obrigatorio">*</span></label>
+          <input type="email" id="email" placeholder="Ex: joao@email.com"/>
+          <span class="erro-campo" id="err-email"></span>
+        </div>
+        <div class="campo">
+          <label>Telefone / WhatsApp <span class="obrigatorio">*</span></label>
+          <div class="campo-telefone">
+            <div class="telefone-prefixo">
+              <select id="prefixo">
+                <option value="+244">+244</option>
+                <option value="+351">+351</option>
+                <option value="+55">+55</option>
+                <option value="+258">+258</option>
+              </select>
+              <i class="fas fa-chevron-down prefixo-seta"></i>
+            </div>
+            <input type="tel" id="telefone" placeholder="Ex: 923 456 789"/>
+          </div>
+          <span class="erro-campo" id="err-telefone"></span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Data de nascimento <span class="obrigatorio">*</span></label>
+          <div class="campo-data">
+            <input type="text" id="dataNascimento" placeholder="dd/mm/aaaa" maxlength="10" oninput="formatarData(this)"/>
+            <i class="fas fa-calendar-alt data-icone"></i>
+          </div>
+          <span class="erro-campo" id="err-dataNascimento"></span>
+        </div>
+        <div class="campo">
+          <label>Género <span class="obrigatorio">*</span></label>
+          <div class="campo-select">
+            <select id="genero">
+              <option value="">Selecione o género</option>
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+              <option value="outro">Outro</option>
+              <option value="nao-informar">Prefiro não informar</option>
+            </select>
+            <i class="fas fa-chevron-down select-seta"></i>
+          </div>
+          <span class="erro-campo" id="err-genero"></span>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Endereço residencial <span class="obrigatorio">*</span></label>
+        <input type="text" id="endereco" placeholder="Ex: Rua Direita, Nº 123"/>
+        <span class="erro-campo" id="err-endereco"></span>
+      </div>
+
+      <div class="grid-3">
+        <div class="campo">
+          <label>Província <span class="obrigatorio">*</span></label>
+          <div class="campo-select">
+            <select id="provincia" onchange="carregarMunicipios()">
+              <option value="">Selecione a província</option>
+              <option value="luanda">Luanda</option>
+              <option value="benguela">Benguela</option>
+              <option value="huambo">Huambo</option>
+              <option value="lubango">Lubango</option>
+              <option value="malanje">Malanje</option>
+              <option value="cabinda">Cabinda</option>
+              <option value="uige">Uíge</option>
+              <option value="zaire">Zaire</option>
+            </select>
+            <i class="fas fa-chevron-down select-seta"></i>
+          </div>
+          <span class="erro-campo" id="err-provincia"></span>
+        </div>
+        <div class="campo">
+          <label>Município <span class="obrigatorio">*</span></label>
+          <div class="campo-select">
+            <select id="municipio">
+              <option value="">Selecione o município</option>
+            </select>
+            <i class="fas fa-chevron-down select-seta"></i>
+          </div>
+          <span class="erro-campo" id="err-municipio"></span>
+        </div>
+        <div class="campo">
+          <label>Bairro <span class="obrigatorio">*</span></label>
+          <div class="campo-select">
+            <select id="bairro">
+              <option value="">Selecione o bairro</option>
+              <option value="talatona">Talatona</option>
+              <option value="kilamba">Kilamba</option>
+              <option value="viana">Viana</option>
+              <option value="cazenga">Cazenga</option>
+              <option value="rangel">Rangel</option>
+            </select>
+            <i class="fas fa-chevron-down select-seta"></i>
+          </div>
+          <span class="erro-campo" id="err-bairro"></span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Código postal (opcional)</label>
+          <input type="text" id="codigoPostal" placeholder="Ex: 1000"/>
+        </div>
+        <div class="campo">
+          <label>NIF (Número de Identificação Fiscal)</label>
+          <input type="text" id="nif" placeholder="Ex: 5000000000"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════
+         SECÇÃO 2 — INFORMAÇÕES DO NEGÓCIO
+    ════════════════════════════ -->
+    <section class="secao-form">
+      <div class="secao-titulo">
+        <div class="secao-icone"><i class="fas fa-store"></i></div>
+        <h3>Informações do negócio</h3>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Nome da sua loja / negócio <span class="obrigatorio">*</span></label>
+          <input type="text" id="nomeLoja" placeholder="Ex: Loja do João"/>
+          <span class="erro-campo" id="err-nomeLoja"></span>
+        </div>
+        <div class="campo">
+          <label>Categoria principal <span class="obrigatorio">*</span></label>
+          <div class="campo-select">
+            <select id="categoriaPrincipal">
+              <option value="">Selecione a categoria</option>
+              <option value="tecnologia">Tecnologia</option>
+              <option value="moda">Moda e Vestuário</option>
+              <option value="alimentacao">Alimentação</option>
+              <option value="beleza">Beleza e Cuidados</option>
+              <option value="casa">Casa e Decoração</option>
+              <option value="servicos">Serviços</option>
+              <option value="saude">Saúde</option>
+              <option value="educacao">Educação</option>
+              <option value="outros">Outros</option>
+            </select>
+            <i class="fas fa-chevron-down select-seta"></i>
+          </div>
+          <span class="erro-campo" id="err-categoriaPrincipal"></span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Outras categorias (opcional)</label>
+          <div class="campo-select">
+            <select id="outrasCategoria">
+              <option value="">Selecione outras categorias</option>
+              <option value="tecnologia">Tecnologia</option>
+              <option value="moda">Moda e Vestuário</option>
+              <option value="alimentacao">Alimentação</option>
+              <option value="beleza">Beleza e Cuidados</option>
+              <option value="casa">Casa e Decoração</option>
+              <option value="servicos">Serviços</option>
+            </select>
+            <i class="fas fa-chevron-down select-seta"></i>
+          </div>
+        </div>
+        <div class="campo">
+          <label>Tipo de vendedor <span class="obrigatorio">*</span></label>
+          <div class="campo-select">
+            <select id="tipoVendedor">
+              <option value="">Selecione o tipo</option>
+              <option value="singular">Pessoa Singular</option>
+              <option value="colectiva">Pessoa Colectiva</option>
+            </select>
+            <i class="fas fa-chevron-down select-seta"></i>
+          </div>
+          <small class="campo-hint">Pessoa Singular ou Pessoa Colectiva</small>
+          <span class="erro-campo" id="err-tipoVendedor"></span>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>Descrição da sua loja / negócio <span class="obrigatorio">*</span></label>
+        <textarea id="descricaoLoja" rows="4" maxlength="500"
+          placeholder="Conte um pouco sobre sua loja, produtos ou serviços que oferece..."
+          oninput="contarCaracteres(this, 'contador-desc')"></textarea>
+        <div class="contador-texto"><span id="contador-desc">0</span>/500</div>
+        <span class="erro-campo" id="err-descricaoLoja"></span>
+      </div>
+
+      <div class="grid-3">
+        <div class="campo">
+          <label>Website (opcional)</label>
+          <input type="url" id="website" placeholder="Ex: www.sualoja.com"/>
+        </div>
+        <div class="campo">
+          <label>Facebook (opcional)</label>
+          <input type="text" id="facebook" placeholder="Ex: facebook.com/sualoja"/>
+        </div>
+        <div class="campo">
+          <label>Instagram (opcional)</label>
+          <input type="text" id="instagram" placeholder="Ex: @sualoja"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════
+         SECÇÃO 3 — INFORMAÇÕES DE ACESSO
+    ════════════════════════════ -->
+    <section class="secao-form">
+      <div class="secao-titulo">
+        <div class="secao-icone"><i class="fas fa-lock"></i></div>
+        <h3>Informações de acesso</h3>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Senha <span class="obrigatorio">*</span></label>
+          <div class="campo-senha">
+            <input type="password" id="senha" placeholder="Crie uma senha segura"/>
+            <button type="button" class="btn-olho" onclick="toggleSenha('senha', 'olho-senha')">
+              <i class="fas fa-eye" id="olho-senha"></i>
+            </button>
+          </div>
+          <small class="campo-hint">Mínimo de 8 caracteres com letras e números</small>
+          <div class="forca-senha" id="forca-senha">
+            <div class="barra-forca" id="barra-f1"></div>
+            <div class="barra-forca" id="barra-f2"></div>
+            <div class="barra-forca" id="barra-f3"></div>
+            <div class="barra-forca" id="barra-f4"></div>
+          </div>
+          <span class="erro-campo" id="err-senha"></span>
+        </div>
+        <div class="campo">
+          <label>Confirmar senha <span class="obrigatorio">*</span></label>
+          <div class="campo-senha">
+            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha"/>
+            <button type="button" class="btn-olho" onclick="toggleSenha('confirmarSenha', 'olho-confirmacao')">
+              <i class="fas fa-eye" id="olho-confirmacao"></i>
+            </button>
+          </div>
+          <span class="erro-campo" id="err-confirmarSenha"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════
+         SECÇÃO 4 — VERIFICAÇÃO E DOCUMENTOS
+    ════════════════════════════ -->
+    <section class="secao-form">
+      <div class="secao-titulo">
+        <div class="secao-icone"><i class="fas fa-shield-alt"></i></div>
+        <h3>Verificação e documentos</h3>
+      </div>
+      <p class="secao-desc">Você precisará enviar alguns documentos para verificarmos sua conta.</p>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Tipo de documento <span class="obrigatorio">*</span></label>
+          <div class="campo-select">
+            <select id="tipoDocumento">
+              <option value="">Selecione o tipo de documento</option>
+              <option value="bi">Bilhete de Identidade (BI)</option>
+              <option value="passaporte">Passaporte</option>
+              <option value="carta">Carta de Condução</option>
+            </select>
+            <i class="fas fa-chevron-down select-seta"></i>
+          </div>
+          <span class="erro-campo" id="err-tipoDocumento"></span>
+        </div>
+        <div class="campo">
+          <label>Número do documento <span class="obrigatorio">*</span></label>
+          <input type="text" id="numeroDocumento" placeholder="Ex: 123456789LA045"/>
+          <span class="erro-campo" id="err-numeroDocumento"></span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Foto do documento (frente) <span class="obrigatorio">*</span></label>
+          <div class="zona-upload" id="upload-frente"
+               onclick="triggerUpload('file-frente')"
+               ondragover="dragSobre(event)" ondragleave="dragFora(event)" ondrop="soltarFicheiro(event,'file-frente','upload-frente','prev-frente')">
+            <input type="file" id="file-frente" accept=".png,.jpg,.jpeg,.pdf" hidden onchange="previewFicheiro(this,'upload-frente','prev-frente')"/>
+            <div class="upload-icone"><i class="fas fa-upload"></i></div>
+            <div class="upload-texto">
+              <span><strong>Clique para enviar</strong> ou arraste o arquivo</span>
+              <small>PNG, JPG ou PDF até 5MB</small>
+            </div>
+            <div class="upload-preview" id="prev-frente"></div>
+          </div>
+          <span class="erro-campo" id="err-frente"></span>
+        </div>
+        <div class="campo">
+          <label>Foto do documento (verso)</label>
+          <div class="zona-upload" id="upload-verso"
+               onclick="triggerUpload('file-verso')"
+               ondragover="dragSobre(event)" ondragleave="dragFora(event)" ondrop="soltarFicheiro(event,'file-verso','upload-verso','prev-verso')">
+            <input type="file" id="file-verso" accept=".png,.jpg,.jpeg,.pdf" hidden onchange="previewFicheiro(this,'upload-verso','prev-verso')"/>
+            <div class="upload-icone"><i class="fas fa-upload"></i></div>
+            <div class="upload-texto">
+              <span><strong>Clique para enviar</strong> ou arraste o arquivo</span>
+              <small>PNG, JPG ou PDF até 5MB</small>
+            </div>
+            <div class="upload-preview" id="prev-verso"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="campo">
+          <label>Comprovativo de endereço <span class="obrigatorio">*</span></label>
+          <div class="zona-upload" id="upload-comprovativo"
+               onclick="triggerUpload('file-comprovativo')"
+               ondragover="dragSobre(event)" ondragleave="dragFora(event)" ondrop="soltarFicheiro(event,'file-comprovativo','upload-comprovativo','prev-comprovativo')">
+            <input type="file" id="file-comprovativo" accept=".png,.jpg,.jpeg,.pdf" hidden onchange="previewFicheiro(this,'upload-comprovativo','prev-comprovativo')"/>
+            <div class="upload-icone"><i class="fas fa-upload"></i></div>
+            <div class="upload-texto">
+              <span><strong>Clique para enviar</strong> ou arraste o arquivo</span>
+              <small>PNG, JPG ou PDF até 5MB</small>
+            </div>
+            <div class="upload-preview" id="prev-comprovativo"></div>
+          </div>
+          <span class="erro-campo" id="err-comprovativo"></span>
+        </div>
+        <div class="campo">
+          <label>Logo da sua loja (opcional)</label>
+          <div class="zona-upload" id="upload-logo"
+               onclick="triggerUpload('file-logo')"
+               ondragover="dragSobre(event)" ondragleave="dragFora(event)" ondrop="soltarFicheiro(event,'file-logo','upload-logo','prev-logo')">
+            <input type="file" id="file-logo" accept=".png,.jpg,.jpeg" hidden onchange="previewFicheiro(this,'upload-logo','prev-logo')"/>
+            <div class="upload-icone"><i class="fas fa-upload"></i></div>
+            <div class="upload-texto">
+              <span><strong>Clique para enviar</strong> ou arraste o arquivo</span>
+              <small>PNG, JPG ou PNG até 2MB</small>
+            </div>
+            <div class="upload-preview" id="prev-logo"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERMOS -->
+    <div class="bloco-termos">
+      <label class="checkbox-wrap">
+        <input type="checkbox" id="aceitarTermos"/>
+        <span class="checkbox-custom"></span>
+        <span class="termos-texto">
+          Eu li e concordo com os
+          <a href="#" onclick="mostrarToast('Termos de Uso')">Termos de Uso</a>,
+          <a href="#" onclick="mostrarToast('Política de Privacidade')">Política de Privacidade</a>
+          e <a href="#" onclick="mostrarToast('Política de Pagamentos')">Política de Pagamentos</a>
+          da AngoBiz Kivenda.
+        </span>
+        <span class="obrigatorio"> *</span>
+      </label>
+      <span class="erro-campo" id="err-termos"></span>
+    </div>
+
+    <!-- BOTÕES DE NAVEGAÇÃO -->
+    <div class="botoes-navegacao">
+      <button class="btn-voltar" onclick="voltarPasso()">
+        <i class="fas fa-arrow-left"></i> Voltar
+      </button>
+      <button class="btn-continuar" onclick="continuarPasso()">
+        Continuar para revisão <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════
+     RODAPÉ
+═══════════════════════════════════ -->
+<footer class="rodape">
+  <div class="rodape-logo">
+    <div class="logo-icon-wrap small"><i class="fas fa-store"></i></div>
+    <div class="logo-text small">
+      <span class="logo-ango">ANGOBIZ</span>
+      <span class="logo-kivenda">KIVENDA</span>
+    </div>
+  </div>
+  <span class="rodape-copy">© 2024 AngoBiz Kivenda. Todos os direitos reservados.</span>
+  <div class="rodape-links">
+    <a href="#" onclick="mostrarToast('Termos de Uso')">Termos de Uso</a>
+    <a href="#" onclick="mostrarToast('Política de Privacidade')">Política de Privacidade</a>
+    <a href="#" onclick="mostrarToast('Política de Pagamentos')">Política de Pagamentos</a>
+    <a href="#" onclick="mostrarToast('Ajuda')">Ajuda</a>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MODAL REVISÃO -->
+<div class="modal-overlay" id="modalRevisao">
+  <div class="modal-revisao">
+    <div class="modal-cab">
+      <h2><i class="fas fa-clipboard-check"></i> Revisão dos dados</h2>
+      <button class="modal-fechar" onclick="fecharModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-corpo" id="modalRevisaoCorpo"></div>
+    <div class="modal-rodape">
+      <button class="btn-voltar" onclick="fecharModal()"><i class="fas fa-arrow-left"></i> Editar</button>
+      <button class="btn-continuar" onclick="submeterFormulario()">
+        <i class="fas fa-check"></i> Confirmar e enviar
+      </button>
+    </div>
+  </div>
+</div>
+  <script src="../script/cadastro_vendedor.js"></script>
+  <script src="../script/forms_page.js"></script>
+  <script src="../script/cadastro_page.js"></script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços – AngoBiz Kivenda</title>
+   <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <link rel="stylesheet" href="../style/mercado.css" />
+    <link rel="stylesheet" href="../style/contratar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+
+    <!-- ===== BANNER MERCADO ===== -->
+  <section class="banner-mercado">
+    <div class="banner-conteudo">
+      <nav class="breadcrumb">
+        <a href="home.html">Início</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Serviços</span>
+      </nav>
+      <h1 class="banner-titulo">Serviços</h1>
+      <p class="banner-desc">Encontre prestadores de serviços confiáveis na AngoBiz Kivenda.</p>
+    </div>
+    <div class="banner-ilustracao">
+      <!-- Ilustração decorativa com lojas / carrinho -->
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ===== ÁREA PRINCIPAL ===== -->
+  <main class="area-principal">
+    <div class="area-inner">
+
+      <!-- ── FILTROS SIDEBAR ── -->
+      <aside class="filtros-sidebar">
+
+        <!-- Categorias -->
+        <div class="filtro-bloco">
+          <h3 class="filtro-titulo">CATEGORIAS</h3>
+          <ul class="filtro-categorias" id="listaCategorias">
+            <li class="ativo" data-cat="todas">
+              <i class="fa fa-th-large"></i> Todas as categorias <span>56</span>
+            </li>
+            <li data-cat="supermercado">
+              <i class="fa fa-shopping-basket"></i> Supermercado <span>12</span>
+            </li>
+            <li data-cat="eletronicos">
+              <i class="fa fa-laptop"></i> Eletrónicos <span>10</span>
+            </li>
+            <li data-cat="escritorio">
+              <i class="fa fa-chair"></i> Escritório <span>6</span>
+            </li>
+            <li data-cat="industria">
+              <i class="fa fa-industry"></i> Indústria <span>8</span>
+            </li>
+            <li data-cat="casa">
+              <i class="fa fa-home"></i> Casa &amp; Decoração <span>7</span>
+            </li>
+            <li data-cat="automovel">
+              <i class="fa fa-car"></i> Automóvel <span>5</span>
+            </li>
+            <li data-cat="moda">
+              <i class="fa fa-tshirt"></i> Moda &amp; Beleza <span>8</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Localização -->
+        <div class="filtro-bloco">
+          <h3 class="filtro-titulo">LOCALIZAÇÃO</h3>
+          <div class="filtro-select-wrap">
+            <select id="selectProvincia">
+              <option value="">Todas as províncias</option>
+              <option>Luanda</option>
+              <option>Benguela</option>
+              <option>Huíla</option>
+              <option>Huambo</option>
+              <option>Malanje</option>
+              <option>Cabinda</option>
+              <option>Bié</option>
+              <option>Kwanza Norte</option>
+              <option>Kwanza Sul</option>
+            </select>
+            <i class="fa fa-chevron-down"></i>
+          </div>
+        </div>
+
+        <!-- Classificação mínima -->
+        <div class="filtro-bloco">
+          <h3 class="filtro-titulo">CLASSIFICAÇÃO MÍNIMA</h3>
+          <div class="filtro-classificacoes" id="filtroEstrelas">
+            <label class="classificacao-linha">
+              <input type="radio" name="estrelas" value="5" />
+              <span class="estrelas">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+              </span>
+              <span class="qtd">(24)</span>
+            </label>
+            <label class="classificacao-linha">
+              <input type="radio" name="estrelas" value="4" />
+              <span class="estrelas">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star vazia"></i>
+              </span>
+              <span class="qtd">(18)</span>
+            </label>
+            <label class="classificacao-linha">
+              <input type="radio" name="estrelas" value="3" />
+              <span class="estrelas">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star vazia"></i><i class="fa fa-star vazia"></i>
+              </span>
+              <span class="qtd">(10)</span>
+            </label>
+            <label class="classificacao-linha">
+              <input type="radio" name="estrelas" value="2" />
+              <span class="estrelas">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star vazia"></i><i class="fa fa-star vazia"></i><i class="fa fa-star vazia"></i>
+              </span>
+              <span class="qtd">(4)</span>
+            </label>
+            <label class="classificacao-linha">
+              <input type="radio" name="estrelas" value="1" />
+              <span class="estrelas">
+                <i class="fa fa-star"></i><i class="fa fa-star vazia"></i><i class="fa fa-star vazia"></i><i class="fa fa-star vazia"></i><i class="fa fa-star vazia"></i>
+              </span>
+              <span class="qtd">(0)</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-filtrar" id="btnFiltrar">FILTRAR RESULTADOS</button>
+      </aside>
+
+
+
+   <!-- ══════════════ CONTEÚDO PRINCIPAL ══════════════ -->
+    <main class="conteudo-principal">
+
+      <!-- BREADCRUMB + CABEÇALHO -->
+      <div class="cabecalhos-blocos">
+        <div class="breadcrumb">
+          <span onclick="mostrarToast('Serviços')">Serviços</span>
+          <i class="fas fa-chevron-right"></i>
+          <span class="bc-atual">Contratar Trabalhadores</span>
+        </div>
+        <div class="cabecalho-linha">
+          <div>
+            <h1 class="titulo-pagina">Contratar Trabalhadores</h1>
+            <p class="subtitulo-pagina">Encontre trabalhadores qualificados para sua casa, negócio ou empresa.</p>
+          </div>
+          <div class="cabecalho-acoes">
+            <button class="btn-contratar" onclick="abrirModalContratar()">
+              <i class="fas fa-user-plus"></i> Quero contratar
+            </button>
+            <button class="btn-como-funciona" onclick="abrirModalComoFunciona()">
+              <i class="fas fa-info-circle"></i> Como funciona?
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BARRA DE FILTROS AVANÇADOS -->
+      <div class="barra-filtros-avancados">
+        <div class="filtro-busca">
+          <input type="text" id="inputBusca" placeholder="Buscar profissionais (ex: empregada, professor, cozinheira...)" />
+          <i class="fas fa-search icone-busca"></i>
+        </div>
+        <div class="filtro-select">
+          <select id="selectCategoria" onchange="aplicarFiltros()">
+            <option value="">Categoria</option>
+            <option value="educacao">Educação</option>
+            <option value="cabeleireiro">Cabeleireiro</option>
+            <option value="cozinheiro">Cozinheiro</option>
+            <option value="empregado">Empregado</option>
+            <option value="baba">Babá</option>
+            <option value="motorista">Motorista</option>
+            <option value="saude">Saúde</option>
+            <option value="construcao">Construção</option>
+            <option value="eventos">Eventos</option>
+          </select>
+          <i class="fas fa-chevron-down icone-select"></i>
+        </div>
+        <div class="filtro-select">
+          <select id="selectLocalizacao" onchange="aplicarFiltros()">
+            <option value="">Localização</option>
+            <option value="luanda">Luanda</option>
+            <option value="benguela">Benguela</option>
+            <option value="huambo">Huambo</option>
+            <option value="lubango">Lubango</option>
+            <option value="malanje">Malanje</option>
+          </select>
+          <i class="fas fa-chevron-down icone-select"></i>
+        </div>
+        <div class="filtro-select">
+          <select id="selectDisponibilidade" onchange="aplicarFiltros()">
+            <option value="">Disponibilidade</option>
+            <option value="disponivel">Disponível</option>
+            <option value="ocupado">Ocupado</option>
+            <option value="tempo-parcial">Tempo Parcial</option>
+          </select>
+          <i class="fas fa-chevron-down icone-select"></i>
+        </div>
+        <button class="btn-filtra" onclick="aplicarFiltros()">
+          <i class="fas fa-sliders-h"></i> Filtrar
+        </button>
+      </div>
+
+      <!-- CATEGORIAS POPULARES -->
+      <section class="secao">
+        <h2 class="secao-titulo">Categorias populares</h2>
+        <div class="categorias-populares" id="categoriasPopulares">
+          <!-- gerado pelo JS -->
+        </div>
+      </section>
+
+      <!-- TIPOS DE PROFISSIONAIS -->
+      <section class="secao">
+        <h2 class="secao-titulo">Todos os tipos de profissionais</h2>
+        <div class="filtros-profissionais" id="filtrosProfissionais">
+          <!-- gerado pelo JS -->
+        </div>
+
+        <!-- GRID DE PROFISSIONAIS -->
+        <div class="grid-profissionais" id="gridProfissionais">
+          <!-- gerado pelo JS -->
+        </div>
+      </section>
+
+      <!-- CATEGORIAS SECUNDÁRIAS (BANNERS MENORES) -->
+      <section class="secao">
+        <div class="grid-categorias-secundarias" id="gridCategoriasSecundarias">
+          <!-- gerado pelo JS -->
+        </div>
+      </section>
+
+      <!-- BLOCO DE CONFIANÇA -->
+      <div class="bloco-confianca">
+        <div class="confianca-item">
+          <div class="confianca-icone"><i class="fas fa-shield-alt"></i></div>
+          <div>
+            <div class="confianca-titulo">Profissionais verificados</div>
+            <div class="confianca-desc">Todos passam por verificação</div>
+          </div>
+        </div>
+        <div class="confianca-item">
+          <div class="confianca-icone"><i class="fas fa-star"></i></div>
+          <div>
+            <div class="confianca-titulo">Avaliações reais</div>
+            <div class="confianca-desc">Veja opiniões de outros clientes</div>
+          </div>
+        </div>
+        <div class="confianca-item">
+          <div class="confianca-icone"><i class="fas fa-credit-card"></i></div>
+          <div>
+            <div class="confianca-titulo">Pagamento seguro</div>
+            <div class="confianca-desc">Pague com segurança na plataforma</div>
+          </div>
+        </div>
+        <div class="confianca-item">
+          <div class="confianca-icone"><i class="fas fa-headset"></i></div>
+          <div>
+            <div class="confianca-titulo">Suporte dedicado</div>
+            <div class="confianca-desc">Estamos aqui para ajudar</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+
+  <!-- ══════ MODAL: VER PERFIL ══════ -->
+  <div class="modal-overlay" id="modalPerfil">
+    <div class="modal modal-perfil-container">
+      <div class="modal-cab">
+        <h2 id="modalPerfilTitulo">Perfil do Profissional</h2>
+        <button class="modal-fechar" onclick="fecharModal('modalPerfil')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-corpo" id="modalPerfilCorpo"></div>
+    </div>
+  </div>
+
+  <!-- ══════ MODAL: QUERO CONTRATAR ══════ -->
+  <div class="modal-overlay" id="modalContratar">
+    <div class="modal">
+      <div class="modal-cab">
+        <h2>Quero Contratar</h2>
+        <button class="modal-fechar" onclick="fecharModal('modalContratar')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-corpo">
+        <label>O que precisa?</label>
+        <input type="text" placeholder="Ex: Cozinheira para eventos..." id="contratarNecessidade" />
+        <label>Categoria</label>
+        <select id="contratarCategoria">
+          <option value="">Selecione uma categoria</option>
+          <option>Educação</option><option>Cabeleireiro</option><option>Cozinheiro</option>
+          <option>Empregado</option><option>Babá</option><option>Motorista</option>
+          <option>Saúde</option><option>Construção</option><option>Eventos</option>
+        </select>
+        <label>Localização</label>
+        <input type="text" placeholder="Ex: Luanda, Talatona" id="contratarLocal" />
+        <label>Orçamento (Kz/h)</label>
+        <input type="number" placeholder="Ex: 5000" id="contratarOrcamento" />
+      </div>
+      <div class="modal-rodape">
+        <button class="btn-cancelar" onclick="fecharModal('modalContratar')">Cancelar</button>
+        <button class="btn-salvar" onclick="enviarContratacao()">Enviar Pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ MODAL: COMO FUNCIONA ══════ -->
+  <div class="modal-overlay" id="modalComoFunciona">
+    <div class="modal">
+      <div class="modal-cab">
+        <h2>Como funciona?</h2>
+        <button class="modal-fechar" onclick="fecharModal('modalComoFunciona')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-corpo como-funciona-corpo">
+        <div class="passo">
+          <div class="passo-num">1</div>
+          <div><strong>Pesquise</strong><p>Encontre o profissional ideal usando filtros de categoria, localização e disponibilidade.</p></div>
+        </div>
+        <div class="passo">
+          <div class="passo-num">2</div>
+          <div><strong>Contacte</strong><p>Veja o perfil completo e entre em contacto diretamente com o profissional.</p></div>
+        </div>
+        <div class="passo">
+          <div class="passo-num">3</div>
+          <div><strong>Contrate</strong><p>Confirme os detalhes, feche o contrato e pague com segurança pela plataforma.</p></div>
+        </div>
+        <div class="passo">
+          <div class="passo-num">4</div>
+          <div><strong>Avalie</strong><p>Após o serviço, deixe a sua avaliação e ajude outros clientes a escolher.</p></div>
+        </div>
+      </div>
+      <div class="modal-rodape">
+        <button class="btn-salvar" onclick="fecharModal('modalComoFunciona')">Entendido!</button>
+      </div>
+    </div>
+  </div>
+
+
+      
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape">
+    <div class="rodape-inner">
+
+      <!-- Sobre -->
+      <div class="rodape-col rodape-sobre">
+        <a href="../index.html" class="logo rodape-logo">
+        <div class="logo-circulo">
+          <img src="../img/logo.png" alt="logo">
+        </div>
+          <div class="logo-texto">
+            <span class="logo-angotext"><span class="w">ANGO</span><span class="g">BIZ</span></span>
+            <span class="logo-kivenda">— KIVENDA —</span>
+          </div>
+        </a>
+        <p>A AngoBiz Kivenda é a sua parceira ideal para negócios, inovação e crescimento. Oferecemos os melhores produtos e soluções para impulsionar o seu sucesso.</p>
+        <div class="rodape-redes">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/244923456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- Links Rápidos -->
+      <div class="rodape-col">
+        <h4>LINKS RÁPIDOS</h4>
+        <ul>
+          <li><a href="home.html">Início</a></li>
+          <li><a href="mercado.html">Loja</a></li>
+          <li><a href="mercado.html">Mercado</a></li>
+          <li><a href="promocoes.html">Promoções</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="suporte.html">Contactos</a></li>
+        </ul>
+      </div>
+
+      <!-- Categorias -->
+      <div class="rodape-col">
+        <h4>CATEGORIAS</h4>
+        <ul>
+          <li><a href="mercado.html">Supermercado</a></li>
+          <li><a href="eletronicos.html">Eletrónicos</a></li>
+          <li><a href="escritorio.html">Escritório</a></li>
+          <li><a href="industria.html">Indústria</a></li>
+          <li><a href="#">Casa &amp; Decoração</a></li>
+          <li><a href="automovel.html">Automóvel</a></li>
+          <li><a href="#">Moda &amp; Beleza</a></li>
+        </ul>
+      </div>
+
+      <!-- Contactos -->
+      <div class="rodape-col">
+        <h4>CONTACTOS</h4>
+        <ul class="rodape-contactos">
+          <li><i class="fa fa-phone"></i> +244 923 456 789</li>
+          <li><i class="fa fa-envelope"></i> atendimento@angobizkivenda.ao</li>
+          <li><i class="fa fa-map-marker-alt"></i> Rua da Kivenda, Nº 123<br />Luanda, Angola</li>
+          <li><i class="fa fa-clock"></i> Seg – Sex: 08h00 – 18h00<br />Sáb: 08h00 – 13h00</li>
+        </ul>
+      </div>
+
+      <!-- Pagamento -->
+      <div class="rodape-col">
+        <h4>FORMAS DE PAGAMENTO</h4>
+        <div class="pagamento-grid">
+          <div class="pagamento-card visa">VISA</div>
+          <div class="pagamento-card mastercard">mastercard</div>
+          <div class="pagamento-card verve">Verve</div>
+          <div class="pagamento-card multicaixa">MULTICAIXA</div>
+          <div class="pagamento-card unitel">unitel money</div>
+          <div class="pagamento-card pay">PAY</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rodape-fundo">
+      <span>© 2026 AngoBiz Kivenda. Todos os direitos reservados.</span>
+      <div>
+        <a href="termos.html">Termos e Condições</a>
+        <a href="politica.html">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../script/contratar.js"></script>
+  <script src="../script/forms_page.js"></script>
+</body>
+</html>

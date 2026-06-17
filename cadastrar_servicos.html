@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda – Cadastrar Serviço</title>
+  <link rel="stylesheet" href="../style/cadastrar_servicos.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="shortcut icon" href="../img/image.png" type="image/x-icon">
+  <script src="../script/global.js" defer></script>
+</head>
+<body>
+<script>if(typeof Sessao!=="undefined"){ Sessao.exigirVendedor(); }</script>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header">
+  <div class="header-logo">
+    <div class="logo-circulo"><img src="../img/logo.png" alt="logo"></div>
+    <div class="logo-texto">
+      <span class="logo-nome">ANGO<span class="logo-biz">BIZ</span></span>
+      <span class="logo-sub">KIVENDA</span>
+    </div>
+  </div>
+
+  <a href="home.html">
+  <button class="btn-menu-header" id="btnMenuHeader">
+    <i class="fas fa-home"></i>
+  </button>
+  </a>
+
+  <div class="header-busca">
+    <i class="fas fa-search"></i>
+    <input type="text" placeholder="Buscar produtos, serviços, pedidos, clientes..."/>
+  </div>
+
+  <div class="header-acoes">
+    <button class="hbtn notif" title="Notificações">
+      <i class="fas fa-bell"></i>
+      <span class="hbadge">6</span>
+    </button>
+    <button class="hbtn" title="Mensagens">
+      <i class="fas fa-envelope"></i>
+    </button>
+    <div class="perfil-header">
+      <div class="perfil-avatar-foto">JM</div>
+      <div>
+        <div class="perfil-nome-h">João Manuel</div>
+        <div class="perfil-tipo-h">Vendedor</div>
+      </div>
+      <i class="fas fa-chevron-down" style="font-size:11px;color:#777"></i>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== LAYOUT ===================== -->
+<div class="layout">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-perfil">
+      <div class="sidebar-avatar-img">
+        <i class="fas fa-store"></i>
+      </div>
+      <div>
+        <div class="sidebar-nome">Loja do João <span class="badge-verificado">Verificada</span></div>
+        <div class="sidebar-sub">Vendedor desde 15/03/2023</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item" data-p="painel">
+        <i class="fas fa-home"></i><span>Painel inicial</span>
+      </a>
+      <a href="#" class="nav-item tem-badge" data-p="pedidos">
+        <i class="fas fa-clipboard-list"></i><span>Pedidos</span>
+        <span class="nav-badge vermelha">12</span>
+      </a>
+      <a href="#" class="nav-item" data-p="produtos">
+        <i class="fas fa-box"></i><span>Produtos</span>
+      </a>
+
+      <!-- Serviços expansível -->
+      <div class="nav-expansivel">
+        <a href="#" class="nav-item ativo nav-pai" id="navServicos">
+          <i class="fas fa-briefcase"></i><span>Serviços</span>
+          <i class="fas fa-chevron-up nav-seta" id="setaServicos"></i>
+        </a>
+        <div class="nav-sub" id="subServicos">
+          <a href="#" class="nav-sub-item" data-p="todos-servicos">Todos os serviços</a>
+          <a href="#" class="nav-sub-item ativo-sub" data-p="cadastrar-servico">Cadastrar serviço</a>
+          <a href="#" class="nav-sub-item" data-p="categorias-servicos">Categorias de serviços</a>
+        </div>
+      </div>
+
+      <a href="#" class="nav-item" data-p="clientes">
+        <i class="fas fa-users"></i><span>Clientes</span>
+      </a>
+      <a href="#" class="nav-item tem-badge" data-p="mensagens">
+        <i class="fas fa-comment"></i><span>Mensagens</span>
+        <span class="nav-badge vermelha">3</span>
+      </a>
+      <a href="#" class="nav-item" data-p="avaliacoes">
+        <i class="fas fa-star"></i><span>Avaliações</span>
+      </a>
+      <a href="#" class="nav-item" data-p="promocoes">
+        <i class="fas fa-tag"></i><span>Promoções</span>
+      </a>
+      <a href="#" class="nav-item" data-p="relatorios">
+        <i class="fas fa-chart-bar"></i><span>Relatórios</span>
+      </a>
+      <a href="#" class="nav-item" data-p="financeiro">
+        <i class="fas fa-dollar-sign"></i><span>Financeiro</span>
+      </a>
+      <a href="#" class="nav-item tem-sub" data-p="configuracoes">
+        <i class="fas fa-cog"></i><span>Configurações</span>
+        <i class="fas fa-chevron-right nav-seta-r"></i>
+      </a>
+      <a href="#" class="nav-item" data-p="ajuda">
+        <i class="fas fa-question-circle"></i><span>Central de ajuda</span>
+      </a>
+    </nav>
+
+    <!-- Premium -->
+    <div class="sidebar-premium">
+      <div class="premium-coroa"><i class="fas fa-crown"></i></div>
+      <div class="premium-titulo">Seja um vendedor premium</div>
+      <div class="premium-desc">Tenha mais visibilidade e aumente suas vendas.</div>
+      <button class="premium-btn" onclick="mostrarToast('Em breve: planos premium!')">Saiba mais</button>
+    </div>
+
+    <div class="sidebar-footer">
+      <p>© 2024 AngoBiz Kivenda.</p>
+      <p>Todos os direitos reservados.</p>
+    </div>
+  </aside>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main class="conteudo" id="conteudo">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="painel.html">Painel do vendedor</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="cadastrar_produto.html">Produtos</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Cadastrar serviço</span>
+    </div>
+
+    <h1 class="pagina-titulo">Cadastrar novo serviço</h1>
+    <p class="pagina-sub">Preencha todas as informações para cadastrar seu serviço na plataforma.</p>
+
+    <!-- GRID PRINCIPAL -->
+    <div class="grid-form">
+
+      <!-- ===== FORMULÁRIO CENTRAL ===== -->
+      <form class="form-principal" id="formServico" novalidate>
+
+        <!-- ========= BLOCO 1: INFORMAÇÕES BÁSICAS ========= -->
+        <div class="bloco-form">
+          <div class="bloco-numero">
+            <span class="numero-passo">1</span>
+            <h2 class="bloco-titulo">Informações básicas</h2>
+          </div>
+
+          <div class="linha-2">
+            <div class="campo-grupo">
+              <label>Nome do serviço <span class="req">*</span></label>
+              <input type="text" id="nomeServico" class="campo" placeholder="Ex: Corte de cabelo masculino"/>
+              <span class="erro" id="erroNomeServico"></span>
+            </div>
+            <div class="campo-grupo">
+              <label>Categoria do serviço <span class="req">*</span></label>
+              <div class="sel-wrap">
+                <select id="categoriaServico" class="campo campo-sel">
+                  <option value="">Selecione a categoria</option>
+                  <option>Beleza e Estética</option>
+                  <option>Educação</option>
+                  <option>Tecnologia</option>
+                  <option>Construção</option>
+                  <option>Saúde</option>
+                  <option>Limpeza</option>
+                  <option>Culinária</option>
+                  <option>Transporte</option>
+                  <option>Outros</option>
+                </select>
+                <i class="fas fa-chevron-down si"></i>
+              </div>
+              <span class="erro" id="erroCategoriaServico"></span>
+            </div>
+          </div>
+
+          <div class="linha-2">
+            <div class="campo-grupo">
+              <label>Subcategoria (opcional)</label>
+              <div class="sel-wrap">
+                <select id="subcategoria" class="campo campo-sel">
+                  <option value="">Selecione a subcategoria</option>
+                  <option>Corte masculino</option>
+                  <option>Corte feminino</option>
+                  <option>Coloração</option>
+                  <option>Tratamentos</option>
+                  <option>Tranças</option>
+                </select>
+                <i class="fas fa-chevron-down si"></i>
+              </div>
+            </div>
+            <div class="campo-grupo">
+              <label>Tipo de serviço <span class="req">*</span></label>
+              <div class="sel-wrap">
+                <select id="tipoServico" class="campo campo-sel">
+                  <option value="">Selecione o tipo</option>
+                  <option>Serviço único</option>
+                  <option>Serviço recorrente</option>
+                  <option>Pacote</option>
+                </select>
+                <i class="fas fa-chevron-down si"></i>
+              </div>
+              <span class="erro" id="erroTipoServico"></span>
+            </div>
+          </div>
+
+          <!-- Formato de atendimento -->
+          <div class="campo-grupo">
+            <label>Formato de atendimento <span class="req">*</span></label>
+            <div class="radio-grupo">
+              <label class="radio-item">
+                <input type="radio" name="formato" value="presencial" id="formatoPresencial" checked/>
+                <span class="radio-circle"></span>
+                <div>
+                  <strong>Presencial</strong>
+                  <small>Atendimento no local</small>
+                </div>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="formato" value="domicilio" id="formatoDomicilio"/>
+                <span class="radio-circle"></span>
+                <div>
+                  <strong>Domicílio</strong>
+                  <small>Vou até o cliente</small>
+                </div>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="formato" value="online" id="formatoOnline"/>
+                <span class="radio-circle"></span>
+                <div>
+                  <strong>Online</strong>
+                  <small>Atendimento remoto</small>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========= BLOCO 2: DESCRIÇÃO ========= -->
+        <div class="bloco-form">
+          <div class="bloco-numero">
+            <span class="numero-passo">2</span>
+            <h2 class="bloco-titulo">Descrição do serviço</h2>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Descrição curta <span class="req">*</span></label>
+            <div class="textarea-wrap">
+              <textarea
+                id="descCurta"
+                class="campo campo-ta"
+                rows="2"
+                maxlength="120"
+                placeholder="Ex: Corte moderno com acabamento profissional."
+                oninput="contarChars(this,'contCurta',120)"
+              ></textarea>
+              <span class="char-cnt" id="contCurta">0/120</span>
+            </div>
+            <span class="erro" id="erroDescCurta"></span>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Descrição detalhada <span class="req">*</span></label>
+            <div class="textarea-wrap">
+              <textarea
+                id="descDetalhada"
+                class="campo campo-ta campo-ta-lg"
+                rows="5"
+                maxlength="2000"
+                placeholder="Descreva o serviço em detalhes, incluindo benefícios, procedimentos, diferenciais, materiais utilizados, etc."
+                oninput="contarChars(this,'contDetalhada',2000)"
+              ></textarea>
+              <span class="char-cnt" id="contDetalhada">0/2000</span>
+            </div>
+            <span class="erro" id="erroDescDetalhada"></span>
+          </div>
+        </div>
+
+        <!-- ========= BLOCO 3: PREÇO E DURAÇÃO ========= -->
+        <div class="bloco-form">
+          <div class="bloco-numero">
+            <span class="numero-passo">3</span>
+            <h2 class="bloco-titulo">Preço e duração</h2>
+          </div>
+
+          <div class="linha-preco">
+            <div class="campo-grupo">
+              <label>Preço do serviço (Kz) <span class="req">*</span></label>
+              <input type="number" id="preco" class="campo" placeholder="Ex: 3.500" min="0"/>
+              <span class="erro" id="erroPreco"></span>
+            </div>
+            <div class="campo-grupo">
+              <label>Preço promocional (Kz) (opcional)</label>
+              <input type="number" id="precoPromo" class="campo" placeholder="Ex: 2.800" min="0"/>
+            </div>
+            <div class="campo-grupo campo-duracao">
+              <label>Duração média <span class="req">*</span></label>
+              <div class="duracao-wrapper">
+                <input type="number" id="duracao" class="campo campo-dur" placeholder="Ex: 60" min="1"/>
+                <div class="sel-wrap sel-unidade">
+                  <select id="unidadeDuracao" class="campo campo-sel">
+                    <option value="minutos">Minutos</option>
+                    <option value="horas">Horas</option>
+                    <option value="dias">Dias</option>
+                  </select>
+                  <i class="fas fa-chevron-down si"></i>
+                </div>
+              </div>
+              <span class="erro" id="erroDuracao"></span>
+            </div>
+          </div>
+
+          <!-- Atendo aos -->
+          <div class="campo-grupo">
+            <label>Atendo aos</label>
+            <div class="check-grupo">
+              <label class="check-item">
+                <input type="checkbox" id="chkHomens" class="chk"/>
+                <span>Homens</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="chkMulheres" class="chk"/>
+                <span>Mulheres</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="chkCriancas" class="chk"/>
+                <span>Crianças</span>
+              </label>
+              <label class="check-item">
+                <input type="checkbox" id="chkTodos" class="chk" checked/>
+                <span>Todos</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========= BLOCO 4: IMAGENS ========= -->
+        <div class="bloco-form">
+          <div class="bloco-numero">
+            <span class="numero-passo">4</span>
+            <h2 class="bloco-titulo">Imagens do serviço</h2>
+          </div>
+          <p class="bloco-desc">Adicione imagens de qualidade que representem bem seu serviço. Máximo 10 imagens.</p>
+
+          <div class="imagens-grid" id="imagensGrid">
+            <!-- Área de upload -->
+            <div class="upload-box" id="uploadBox" onclick="document.getElementById('inputImagens').click()">
+              <input
+                type="file"
+                id="inputImagens"
+                accept="image/png,image/jpeg,image/webp"
+                multiple
+                style="display:none"
+                onchange="adicionarImagens(this)"
+              />
+              <i class="fas fa-camera upload-cam"></i>
+              <p><strong>Clique para enviar imagens</strong></p>
+              <p>ou arraste e solte aqui</p>
+              <span>PNG, JPG ou WEBP até 5MB cada</span>
+            </div>
+
+            <!-- Imagens de exemplo (serão renderizadas via JS) -->
+            <div class="img-preview" id="prev1">
+              <div class="img-bg" style="background:linear-gradient(135deg,#1a1a1a,#333)">
+                <i class="fas fa-cut" style="font-size:2rem;color:#e0a818"></i>
+              </div>
+              <button class="img-remover" onclick="removerImagem('prev1')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="img-preview" id="prev2">
+              <div class="img-bg" style="background:linear-gradient(135deg,#1a2a1a,#2a3a2a)">
+                <i class="fas fa-scissors" style="font-size:2rem;color:#e0a818"></i>
+              </div>
+              <button class="img-remover" onclick="removerImagem('prev2')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="img-preview" id="prev3">
+              <div class="img-bg" style="background:linear-gradient(135deg,#1a1a2a,#2a2a3a)">
+                <i class="fas fa-user-circle" style="font-size:2rem;color:#e0a818"></i>
+              </div>
+              <button class="img-remover" onclick="removerImagem('prev3')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="img-preview" id="prev4">
+              <div class="img-bg" style="background:linear-gradient(135deg,#2a1a1a,#3a2a2a)">
+                <i class="fas fa-hand-holding" style="font-size:2rem;color:#e0a818"></i>
+              </div>
+              <button class="img-remover" onclick="removerImagem('prev4')"><i class="fas fa-times"></i></button>
+            </div>
+
+            <!-- Adicionar mais -->
+            <div class="add-mais" onclick="document.getElementById('inputImagens').click()">
+              <i class="fas fa-plus"></i>
+              <span>Adicionar mais</span>
+              <small id="contImagens">4 / 10</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========= BLOCO 5: LOCAL ========= -->
+        <div class="bloco-form">
+          <div class="bloco-numero">
+            <span class="numero-passo">5</span>
+            <h2 class="bloco-titulo">Local de atendimento</h2>
+          </div>
+
+          <div class="linha-local">
+            <div class="campo-grupo">
+              <label>Cidade <span class="req">*</span></label>
+              <div class="sel-wrap">
+                <select id="cidade" class="campo campo-sel">
+                  <option value="">Selecione a cidade</option>
+                  <option>Luanda</option>
+                  <option>Benguela</option>
+                  <option>Huambo</option>
+                  <option>Lobito</option>
+                  <option>Malanje</option>
+                  <option>Cabinda</option>
+                </select>
+                <i class="fas fa-chevron-down si"></i>
+              </div>
+              <span class="erro" id="erroCidade"></span>
+            </div>
+            <div class="campo-grupo">
+              <label>Bairro <span class="req">*</span></label>
+              <div class="sel-wrap">
+                <select id="bairro" class="campo campo-sel">
+                  <option value="">Selecione o bairro</option>
+                  <option>Talatona</option>
+                  <option>Kilamba</option>
+                  <option>Miramar</option>
+                  <option>Maianga</option>
+                  <option>Viana</option>
+                  <option>Cazenga</option>
+                </select>
+                <i class="fas fa-chevron-down si"></i>
+              </div>
+              <span class="erro" id="erroBairro"></span>
+            </div>
+            <div class="campo-grupo campo-end">
+              <label>Endereço completo <span class="req">*</span></label>
+              <input type="text" id="endereco" class="campo" placeholder="Ex: Rua Direita, Nº 123"/>
+              <span class="erro" id="erroEndereco"></span>
+            </div>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Ponto de referência (opcional)</label>
+            <input type="text" id="referencia" class="campo" placeholder="Ex: Próximo ao mercado do Kinaxxi"/>
+          </div>
+        </div>
+
+        <!-- ========= BLOCO 6: DISPONIBILIDADE ========= -->
+        <div class="bloco-form">
+          <div class="bloco-numero">
+            <span class="numero-passo">6</span>
+            <h2 class="bloco-titulo">Disponibilidade</h2>
+          </div>
+
+          <div class="disponibilidade-wrapper">
+            <div class="campo-grupo">
+              <label>Dias de atendimento <span class="req">*</span></label>
+              <div class="dias-grupo">
+                <label class="dia-item"><input type="checkbox" class="chk" checked/><span>Seg</span></label>
+                <label class="dia-item"><input type="checkbox" class="chk" checked/><span>Ter</span></label>
+                <label class="dia-item"><input type="checkbox" class="chk" checked/><span>Qua</span></label>
+                <label class="dia-item"><input type="checkbox" class="chk" checked/><span>Qui</span></label>
+                <label class="dia-item"><input type="checkbox" class="chk" checked/><span>Sex</span></label>
+                <label class="dia-item"><input type="checkbox" class="chk" checked/><span>Sáb</span></label>
+                <label class="dia-item"><input type="checkbox" class="chk" checked/><span>Dom</span></label>
+              </div>
+            </div>
+
+            <div class="campo-grupo">
+              <label>Horário de atendimento <span class="req">*</span></label>
+              <div class="horarios-lista" id="horariosList">
+                <div class="horario-linha" id="horario0">
+                  <span>De</span>
+                  <input type="time" value="08:00" class="campo campo-hora"/>
+                  <span>até</span>
+                  <input type="time" value="18:00" class="campo campo-hora"/>
+                  <button type="button" class="btn-rem-horario" onclick="removerHorario('horario0')" title="Remover">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <button type="button" class="btn-add-horario" onclick="adicionarHorario()">
+                <i class="fas fa-plus"></i> Adicionar horário
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========= BLOCO 7: INFORMAÇÕES ADICIONAIS ========= -->
+        <div class="bloco-form">
+          <div class="bloco-numero">
+            <span class="numero-passo">7</span>
+            <h2 class="bloco-titulo">Informações adicionais (opcional)</h2>
+          </div>
+
+          <div class="linha-3">
+            <div class="campo-grupo">
+              <label>Experiência</label>
+              <input type="text" id="experiencia" class="campo" placeholder="Ex: 5 anos de experiência"/>
+            </div>
+            <div class="campo-grupo">
+              <label>Materiais utilizados (marcas)</label>
+              <input type="text" id="materiais" class="campo" placeholder="Ex: L'Oréal, Wahl, etc."/>
+            </div>
+            <div class="campo-grupo">
+              <label>Certificações (opcional)</label>
+              <input type="text" id="certificacoes" class="campo" placeholder="Ex: Certificado de Barbeiro Profissional"/>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="faq-linha">
+            <label class="check-item">
+              <input type="checkbox" id="chkFaq" class="chk" onchange="toggleFaq()"/>
+              <span>Desejo adicionar perguntas frequentes sobre este serviço</span>
+            </label>
+            <button type="button" class="btn-faq-seta" onclick="toggleFaq()">
+              <i class="fas fa-chevron-down" id="setaFaq"></i>
+            </button>
+          </div>
+
+          <div class="faq-area" id="faqArea" style="display:none">
+            <div class="faq-item" id="faqLista">
+              <div class="faq-par" id="faqPar0">
+                <input type="text" class="campo" placeholder="Pergunta..." style="margin-bottom:6px"/>
+                <textarea class="campo campo-ta" rows="2" placeholder="Resposta..."></textarea>
+              </div>
+            </div>
+            <button type="button" class="btn-add-faq" onclick="adicionarFaq()">
+              <i class="fas fa-plus"></i> Adicionar pergunta
+            </button>
+          </div>
+        </div>
+
+        <!-- ========= BLOCO 8: STATUS ========= -->
+        <div class="bloco-form bloco-status">
+          <div class="bloco-numero">
+            <span class="numero-passo">8</span>
+            <h2 class="bloco-titulo">Status do serviço</h2>
+          </div>
+
+          <div class="campo-grupo">
+            <label>Status <span class="req">*</span></label>
+            <div class="status-opcoes">
+              <label class="radio-status">
+                <input type="radio" name="status" value="ativo" id="statusAtivo" checked/>
+                <span class="status-dot verde"></span>
+                <div>
+                  <strong>Ativo</strong>
+                  <small>Serviços ativos ficam visíveis para os clientes na plataforma.</small>
+                </div>
+              </label>
+              <label class="radio-status">
+                <input type="radio" name="status" value="rascunho" id="statusRascunho"/>
+                <span class="status-dot cinza"></span>
+                <div>
+                  <strong>Rascunho</strong>
+                  <small>Salva sem publicar. Só você pode ver.</small>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTÕES FINAIS -->
+        <div class="botoes-finais">
+          <button type="button" class="btn-cancelar" onclick="confirmarCancelar()">Cancelar</button>
+          <button type="button" class="btn-rascunho" onclick="salvarRascunho()">
+            <i class="fas fa-save"></i> Salvar como rascunho
+          </button>
+          <button type="button" class="btn-publicar" onclick="publicarServico()">
+            <i class="fas fa-paper-plane"></i> Publicar serviço
+          </button>
+        </div>
+
+      </form>
+
+      <!-- ===== COLUNA DIREITA: DICAS + RESUMO ===== -->
+      <aside class="col-lateral">
+
+        <!-- Dicas -->
+        <div class="card-lateral card-dicas">
+          <div class="card-lateral-titulo">
+            <i class="fas fa-lightbulb" style="color:var(--dourado)"></i>
+            Dicas para um bom serviço
+          </div>
+          <ul class="dicas-lista">
+            <li><i class="fas fa-circle-dot"></i> Use um nome claro e objetivo</li>
+            <li><i class="fas fa-circle-dot"></i> Descreva os benefícios para o cliente</li>
+            <li><i class="fas fa-circle-dot"></i> Defina um preço justo e competitivo</li>
+            <li><i class="fas fa-circle-dot"></i> Adicione imagens de qualidade</li>
+            <li><i class="fas fa-circle-dot"></i> Mantenha seus horários atualizados</li>
+          </ul>
+          <a href="#" class="dicas-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Resumo do serviço -->
+        <div class="card-lateral card-resumo">
+          <div class="card-lateral-titulo">Resumo do serviço</div>
+          <ul class="resumo-lista">
+            <li class="resumo-item" id="rInfo">
+              <i class="fas fa-user-circle ri"></i>
+              <span>Informações básicas</span>
+              <i class="fas fa-circle resumo-status" id="stInfo"></i>
+            </li>
+            <li class="resumo-item" id="rDesc">
+              <i class="fas fa-align-left ri"></i>
+              <span>Descrição</span>
+              <i class="fas fa-circle resumo-status" id="stDesc"></i>
+            </li>
+            <li class="resumo-item" id="rPreco">
+              <i class="fas fa-clock ri"></i>
+              <span>Preço e duração</span>
+              <i class="fas fa-circle resumo-status" id="stPreco"></i>
+            </li>
+            <li class="resumo-item" id="rImg">
+              <i class="fas fa-image ri"></i>
+              <span>Imagens</span>
+              <i class="fas fa-circle resumo-status" id="stImg"></i>
+            </li>
+            <li class="resumo-item" id="rLocal">
+              <i class="fas fa-map-marker-alt ri"></i>
+              <span>Local</span>
+              <i class="fas fa-circle resumo-status" id="stLocal"></i>
+            </li>
+            <li class="resumo-item" id="rDisp">
+              <i class="fas fa-calendar ri"></i>
+              <span>Disponibilidade</span>
+              <i class="fas fa-circle resumo-status" id="stDisp"></i>
+            </li>
+            <li class="resumo-item" id="rAd">
+              <i class="fas fa-pen ri"></i>
+              <span>Informações adicionais</span>
+              <i class="fas fa-circle resumo-status" id="stAd"></i>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Segurança -->
+        <div class="card-lateral card-seguranca">
+          <div class="seg-topo">
+            <i class="fas fa-shield-alt seg-ico"></i>
+            <strong>Seus serviços estão seguros</strong>
+          </div>
+          <p>Todas as informações são protegidas e utilizadas apenas para melhorar sua experiência na plataforma.</p>
+          <a href="#" class="dicas-link">Saiba mais sobre segurança</a>
+        </div>
+
+      </aside>
+    </div>
+
+  </main>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MODAL CONFIRMAR CANCELAR -->
+<div class="modal-overlay" id="modalCancelar">
+  <div class="modal-caixa">
+    <div class="modal-ico"><i class="fas fa-exclamation-triangle"></i></div>
+    <h3>Cancelar cadastro?</h3>
+    <p>Todas as informações preenchidas serão perdidas. Tem certeza?</p>
+    <div class="modal-btns">
+      <button class="btn-rascunho" onclick="fecharModal('modalCancelar')">Continuar editando</button>
+      <button class="btn-cancelar" onclick="fecharModal('modalCancelar');mostrarToast('Cadastro cancelado.')">Sim, cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SUCESSO PUBLICAÇÃO -->
+<div class="modal-overlay" id="modalSucesso">
+  <div class="modal-caixa modal-sucesso">
+    <div class="sucesso-ico"><i class="fas fa-check-circle"></i></div>
+    <h3>Serviço publicado com sucesso!</h3>
+    <p>Seu serviço já está visível para os clientes na plataforma.</p>
+    <button class="btn-publicar" style="width:100%;justify-content:center" onclick="fecharModal('modalSucesso')">
+      Ver meus serviços
+    </button>
+  </div>
+</div>
+  <script src="../script/cadastrar_servicos.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+/* ================================================================
+   ANGOBIZ KIVENDA — ADIÇÕES AO login.css
+   Cole este bloco no fim do ficheiro login.css existente
+   ================================================================ */
+
+/* ── Modal de recuperação — passos ── */
+#passo2Recuperar {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Badge de countdown */
+.recuperacao-timer-badge {
+  display: inline-block;
+  background: var(--dourado, #c9a227);
+  color: #000;
+  font-family: var(--ft, 'Montserrat', sans-serif);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-left: 4px;
+  letter-spacing: 1px;
+  vertical-align: middle;
+}
+
+/* Mensagem de sucesso / erro no modal */
+.modal-msg.sucesso { color: #66bb6a; font-size: 13px; display: block; margin-top: 6px; }
+.modal-msg.erro    { color: #ef5350; font-size: 13px; display: block; margin-top: 6px; }
+
+/* Descrição do modal com link */
+#descRecuperar a {
+  color: var(--dourado, #c9a227);
+  text-decoration: underline;
+}
+#descRecuperar code {
+  background: #111;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Animação de entrada do Passo 2 */
+#passo2Recuperar.visivel {
+  animation: fadeInUp .3s ease;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Input de código — fonte grande e centrada */
+#codigoRecuperacao {
+  letter-spacing: 8px;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  font-family: var(--ft, 'Montserrat', sans-serif);
+}
+
+/* Botão Google — estado loading */
+#btnGoogle:disabled,
+#btnFacebook:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AngoBiz Kivenda</title>
+  <link rel="stylesheet" href="style/splash.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     FUNDO COM PRODUTOS (ESQUERDA + DIREITA)
+═══════════════════════════════════════════ -->
+
+<!-- Produtos lado esquerdo -->
+<div class="produtos-esq">
+  <!-- Auriculares -->
+  <div class="prod-item auriculares">
+    <div class="auricular-svg">
+      <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+        <!-- Arco -->
+        <path d="M20 55 Q60 5 100 55" fill="none" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+        <!-- Almofada esquerda -->
+        <rect x="8" y="48" width="22" height="32" rx="10" fill="#111" stroke="#2a2a2a" stroke-width="1.5"/>
+        <rect x="12" y="52" width="14" height="24" rx="7" fill="#0a0a0a"/>
+        <!-- Almofada direita -->
+        <rect x="90" y="48" width="22" height="32" rx="10" fill="#111" stroke="#2a2a2a" stroke-width="1.5"/>
+        <rect x="94" y="52" width="14" height="24" rx="7" fill="#0a0a0a"/>
+        <!-- Detalhes dourados -->
+        <circle cx="19" cy="60" r="3" fill="#e6a817" opacity=".6"/>
+        <circle cx="101" cy="60" r="3" fill="#e6a817" opacity=".6"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Sofá / Almofada -->
+  <div class="prod-item sofa">
+    <div class="sofa-svg">
+      <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Corpo sofá -->
+        <rect x="10" y="40" width="140" height="55" rx="10" fill="#1a1a1a"/>
+        <!-- Assento -->
+        <rect x="20" y="50" width="120" height="38" rx="8" fill="#111"/>
+        <!-- Costas -->
+        <rect x="10" y="20" width="140" height="28" rx="8" fill="#1e1e1e"/>
+        <!-- Braços -->
+        <rect x="0" y="35" width="18" height="60" rx="8" fill="#1a1a1a"/>
+        <rect x="142" y="35" width="18" height="60" rx="8" fill="#1a1a1a"/>
+        <!-- Almofada dourada -->
+        <rect x="55" y="28" width="50" height="35" rx="7" fill="#e6a817" opacity=".85"/>
+        <rect x="60" y="33" width="40" height="25" rx="5" fill="#d4941a"/>
+        <!-- Linha de costura -->
+        <line x1="80" y1="30" x2="80" y2="61" stroke="#c08010" stroke-width="1" stroke-dasharray="3,2"/>
+        <!-- Pernas -->
+        <rect x="20" y="90" width="10" height="8" rx="3" fill="#0d0d0d"/>
+        <rect x="130" y="90" width="10" height="8" rx="3" fill="#0d0d0d"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Smartphone -->
+  <div class="prod-item smartphone">
+    <div class="phone-svg">
+      <svg viewBox="0 0 65 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Corpo -->
+        <rect x="3" y="2" width="59" height="116" rx="12" fill="#111"/>
+        <rect x="5" y="4" width="55" height="112" rx="11" fill="#0a0a0a"/>
+        <!-- Câmera tripla -->
+        <rect x="30" y="10" width="24" height="22" rx="6" fill="#1a1a1a"/>
+        <circle cx="38" cy="17" r="5" fill="#0d0d0d" stroke="#333" stroke-width="1"/>
+        <circle cx="38" cy="17" r="3" fill="#050505"/>
+        <circle cx="48" cy="17" r="5" fill="#0d0d0d" stroke="#333" stroke-width="1"/>
+        <circle cx="48" cy="17" r="3" fill="#050505"/>
+        <circle cx="43" cy="27" r="4" fill="#0d0d0d" stroke="#333" stroke-width="1"/>
+        <circle cx="43" cy="27" r="2.5" fill="#050505"/>
+        <!-- Flash -->
+        <circle cx="34" cy="26" r="2" fill="#333"/>
+        <!-- Reflexo lateral -->
+        <line x1="3" y1="30" x2="3" y2="80" stroke="#e6a817" stroke-width="1.5" opacity=".3"/>
+        <!-- Botões -->
+        <rect x="0" y="35" width="3" height="12" rx="1.5" fill="#1a1a1a"/>
+        <rect x="0" y="52" width="3" height="18" rx="1.5" fill="#1a1a1a"/>
+        <rect x="62" y="42" width="3" height="20" rx="1.5" fill="#1a1a1a"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Carro -->
+  <div class="prod-item carro">
+    <div class="carro-svg">
+      <svg viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="carGrad" cx="50%" cy="60%" r="60%">
+            <stop offset="0%" stop-color="#1a1a1a"/>
+            <stop offset="100%" stop-color="#080808"/>
+          </radialGradient>
+          <radialGradient id="farol" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#e6a817" stop-opacity=".9"/>
+            <stop offset="100%" stop-color="#c08010" stop-opacity=".3"/>
+          </radialGradient>
+        </defs>
+        <!-- Sombra carro -->
+        <ellipse cx="100" cy="88" rx="90" ry="6" fill="#000" opacity=".5"/>
+        <!-- Corpo principal -->
+        <path d="M15 58 Q18 38 50 28 L80 22 Q100 18 120 22 L155 28 Q182 36 188 58 L190 72 Q190 78 184 78 L16 78 Q10 78 10 72 Z"
+              fill="url(#carGrad)"/>
+        <!-- Tecto -->
+        <path d="M55 28 Q80 10 120 10 Q148 10 158 28"
+              fill="none" stroke="#1e1e1e" stroke-width="2"/>
+        <!-- Janelas -->
+        <path d="M60 28 Q80 14 115 14 Q135 14 148 28"
+              fill="#0a1a2a" stroke="#1a2a3a" stroke-width="1"/>
+        <!-- Divisória janelas -->
+        <line x1="104" y1="14" x2="100" y2="28" stroke="#111" stroke-width="3"/>
+        <!-- Faróis -->
+        <ellipse cx="23" cy="62" rx="12" ry="8" fill="url(#farol)" opacity=".8"/>
+        <ellipse cx="177" cy="62" rx="10" ry="6" fill="#c0392b" opacity=".6"/>
+        <!-- Rodas -->
+        <circle cx="52" cy="78" r="14" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+        <circle cx="52" cy="78" r="8" fill="#111" stroke="#444" stroke-width="1.5"/>
+        <circle cx="52" cy="78" r="4" fill="#1a1a1a"/>
+        <circle cx="148" cy="78" r="14" fill="#0a0a0a" stroke="#333" stroke-width="2"/>
+        <circle cx="148" cy="78" r="8" fill="#111" stroke="#444" stroke-width="1.5"/>
+        <circle cx="148" cy="78" r="4" fill="#1a1a1a"/>
+        <!-- Detalhes dourados -->
+        <rect x="18" y="68" width="30" height="3" rx="1.5" fill="#e6a817" opacity=".5"/>
+        <rect x="155" y="70" width="20" height="2" rx="1" fill="#c0392b" opacity=".7"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- Produtos lado direito -->
+<div class="produtos-dir">
+  <!-- Capacete -->
+  <div class="prod-item capacete">
+    <div class="capacete-svg">
+      <svg viewBox="0 0 110 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="helmGrad" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#f0c030"/>
+            <stop offset="60%" stop-color="#e6a817"/>
+            <stop offset="100%" stop-color="#b07810"/>
+          </radialGradient>
+        </defs>
+        <!-- Sombra -->
+        <ellipse cx="55" cy="95" rx="40" ry="5" fill="#000" opacity=".4"/>
+        <!-- Corpo capacete -->
+        <path d="M10 55 Q10 15 55 10 Q100 15 100 55 L98 68 Q95 75 88 75 L22 75 Q15 75 12 68 Z"
+              fill="url(#helmGrad)"/>
+        <!-- Viseira -->
+        <path d="M15 58 Q15 70 22 73 L88 73 Q95 70 95 58 L95 55 L15 55 Z"
+              fill="#c08010" opacity=".8"/>
+        <!-- Reflexo brilho -->
+        <path d="M25 22 Q45 12 70 18" fill="none" stroke="#fff" stroke-width="3"
+              stroke-linecap="round" opacity=".3"/>
+        <!-- Faixa lateral -->
+        <path d="M10 55 L100 55" stroke="#b07810" stroke-width="2"/>
+        <!-- Detalhes -->
+        <rect x="40" y="60" width="30" height="8" rx="3" fill="#a06808"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Furadeira -->
+  <div class="prod-item furadeira">
+    <div class="furadeira-svg">
+      <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="drillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1a1a1a"/>
+            <stop offset="50%" stop-color="#e6a817"/>
+            <stop offset="100%" stop-color="#111"/>
+          </linearGradient>
+        </defs>
+        <!-- Broca -->
+        <rect x="48" y="2" width="6" height="35" rx="2" fill="#555"/>
+        <polygon points="48,2 54,2 51,0" fill="#888"/>
+        <!-- Corpo principal -->
+        <rect x="20" y="30" width="65" height="38" rx="10" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+        <rect x="28" y="36" width="50" height="26" rx="7" fill="#111"/>
+        <!-- Detalhe dourado -->
+        <rect x="20" y="44" width="65" height="6" rx="3" fill="#e6a817" opacity=".6"/>
+        <!-- Chuck / mandril -->
+        <rect x="42" y="28" width="18" height="10" rx="4" fill="#333"/>
+        <rect x="44" y="30" width="14" height="6" rx="3" fill="#444"/>
+        <!-- Empunhadura -->
+        <path d="M35 68 Q30 72 30 88 Q30 100 40 100 L60 100 Q70 100 70 88 Q70 72 65 68 Z"
+              fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+        <path d="M38 70 Q34 75 34 88 Q34 97 40 97 L60 97 Q66 97 66 88 Q66 75 62 70 Z"
+              fill="#111"/>
+        <!-- Gatilho -->
+        <rect x="43" y="82" width="14" height="6" rx="3" fill="#333"/>
+        <!-- Ventoinhas -->
+        <circle cx="70" cy="47" r="8" fill="#1e1e1e" stroke="#333" stroke-width="1"/>
+        <circle cx="70" cy="47" r="5" fill="#161616"/>
+        <!-- Parafusos -->
+        <circle cx="25" cy="38" r="3" fill="#1e1e1e" stroke="#444" stroke-width="1"/>
+        <circle cx="25" cy="60" r="3" fill="#1e1e1e" stroke="#444" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Máquina de lavar -->
+  <div class="prod-item maquina">
+    <div class="maquina-svg">
+      <svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="portaGrad" cx="40%" cy="35%" r="60%">
+            <stop offset="0%" stop-color="#1e2a3a"/>
+            <stop offset="100%" stop-color="#0a0a0a"/>
+          </radialGradient>
+        </defs>
+        <!-- Sombra -->
+        <ellipse cx="60" cy="138" rx="50" ry="4" fill="#000" opacity=".5"/>
+        <!-- Corpo -->
+        <rect x="5" y="5" width="110" height="128" rx="12" fill="#111" stroke="#1e1e1e" stroke-width="1.5"/>
+        <rect x="9" y="9" width="102" height="120" rx="10" fill="#0d0d0d"/>
+        <!-- Painel topo -->
+        <rect x="9" y="9" width="102" height="28" rx="10" fill="#161616"/>
+        <!-- Botões painel -->
+        <circle cx="28" cy="23" r="5" fill="#c0392b" stroke="#a02a20" stroke-width="1"/>
+        <circle cx="44" cy="23" r="5" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+        <rect x="55" y="17" width="45" height="12" rx="4" fill="#0d0d0d" stroke="#222" stroke-width="1"/>
+        <rect x="58" y="20" width="38" height="6" rx="2" fill="#111"/>
+        <!-- Porta circular grande -->
+        <circle cx="60" cy="88" r="42" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="2"/>
+        <circle cx="60" cy="88" r="38" fill="url(#portaGrad)" stroke="#1e1e1e" stroke-width="1"/>
+        <circle cx="60" cy="88" r="30" fill="#0a1020" stroke="#1a2030" stroke-width="1"/>
+        <!-- Cruz interna -->
+        <line x1="60" y1="60" x2="60" y2="116" stroke="#0d1525" stroke-width="2"/>
+        <line x1="32" y1="88" x2="88" y2="88" stroke="#0d1525" stroke-width="2"/>
+        <!-- Reflexo porta -->
+        <path d="M40 70 Q55 62 72 68" fill="none" stroke="#1a2a40" stroke-width="3"
+              stroke-linecap="round" opacity=".5"/>
+        <!-- Dobradiça -->
+        <rect x="14" y="82" width="8" height="12" rx="3" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+        <!-- Detalhe dourado embaixo -->
+        <rect x="20" y="128" width="80" height="3" rx="1.5" fill="#e6a817" opacity=".3"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Caixa de som -->
+  <div class="prod-item caixa-som">
+    <div class="caixasom-svg">
+      <svg viewBox="0 0 70 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Corpo -->
+        <rect x="5" y="5" width="60" height="90" rx="10" fill="#111" stroke="#1e1e1e" stroke-width="1.5"/>
+        <!-- Grade superior -->
+        <rect x="12" y="12" width="46" height="40" rx="6" fill="#0a0a0a"/>
+        <circle cx="35" cy="32" r="16" fill="#161616" stroke="#222" stroke-width="1"/>
+        <circle cx="35" cy="32" r="10" fill="#0d0d0d" stroke="#1a1a1a" stroke-width="1"/>
+        <circle cx="35" cy="32" r="5" fill="#111"/>
+        <!-- Grade inferior -->
+        <rect x="12" y="62" width="46" height="26" rx="6" fill="#0a0a0a"/>
+        <circle cx="35" cy="75" r="8" fill="#161616" stroke="#222" stroke-width="1"/>
+        <circle cx="35" cy="75" r="5" fill="#0d0d0d"/>
+        <!-- LED dourado -->
+        <circle cx="18" cy="56" r="3" fill="#e6a817" opacity=".7"/>
+        <!-- Furos grade -->
+        <line x1="15" y1="65" x2="55" y2="65" stroke="#111" stroke-width="1"/>
+        <line x1="15" y1="68" x2="55" y2="68" stroke="#111" stroke-width="1"/>
+        <line x1="15" y1="71" x2="55" y2="71" stroke="#111" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CURVAS DE LUZ (DECORATIVAS)
+═══════════════════════════════════════════ -->
+<div class="curva-luz curva-esq"></div>
+<div class="curva-luz curva-dir"></div>
+
+<!-- ═══════════════════════════════════════════
+     PONTOS DECORATIVOS (GRID)
+═══════════════════════════════════════════ -->
+<div class="pontos-grid pontos-esq">
+  <svg viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="pgEsq" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#c0392b" stop-opacity=".4"/>
+        <stop offset="100%" stop-color="#c0392b" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <g fill="url(#pgEsq)">
+      <script type="text/javascript">/* gerado via JS */</script>
+    </g>
+  </svg>
+</div>
+<div class="pontos-grid pontos-dir">
+  <svg viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="pgDir" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#c0392b" stop-opacity=".4"/>
+        <stop offset="100%" stop-color="#c0392b" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CONTEÚDO CENTRAL
+═══════════════════════════════════════════ -->
+<div class="centro">
+
+  <!-- LOGO -->
+  <div class="logo-wrap" id="logoWrap">
+    <div class="logo-circulo-externo">
+      <!-- Anel vermelho externo com gradiente -->
+      <svg class="logo-anel" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="anelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#c0392b"/>
+            <stop offset="50%" stop-color="#e74c3c"/>
+            <stop offset="100%" stop-color="#8b0000"/>
+          </linearGradient>
+        </defs>
+        <!-- Anel exterior vermelho -->
+        <circle cx="110" cy="110" r="106" fill="none" stroke="url(#anelGrad)" stroke-width="6"/>
+        <!-- Fundo escuro do logo -->
+        <circle cx="110" cy="110" r="103" fill="#0d0d0d"/>
+        <!-- Mapa de África dourado (simplificado) -->
+        <g transform="translate(60,12) scale(0.45)">
+          <path d="M80 10 Q95 8 110 15 Q140 20 155 35 Q170 50 165 75
+                   Q172 90 168 110 Q175 125 165 140 Q170 158 155 175
+                   Q145 195 130 205 Q115 215 100 210
+                   Q85 220 70 210 Q55 200 48 185
+                   Q35 170 40 150 Q30 135 35 118
+                   Q25 100 32 82 Q28 62 42 48
+                   Q55 28 70 15 Z"
+                fill="none" stroke="#e6a817" stroke-width="4" stroke-linejoin="round"/>
+          <!-- Preenchimento mapa -->
+          <path d="M80 10 Q95 8 110 15 Q140 20 155 35 Q170 50 165 75
+                   Q172 90 168 110 Q175 125 165 140 Q170 158 155 175
+                   Q145 195 130 205 Q115 215 100 210
+                   Q85 220 70 210 Q55 200 48 185
+                   Q35 170 40 150 Q30 135 35 118
+                   Q25 100 32 82 Q28 62 42 48
+                   Q55 28 70 15 Z"
+                fill="#e6a817" opacity=".15"/>
+        </g>
+        <!-- Bandeira Angola pequena (canto superior direito do mapa) -->
+        <g transform="translate(140,22)">
+          <rect x="0" y="0" width="22" height="14" rx="2" fill="none" stroke="#e6a817" stroke-width="1.5"/>
+          <rect x="0" y="0" width="22" height="7" rx="2" fill="#c0392b" opacity=".8"/>
+          <rect x="0" y="7" width="22" height="7" rx="0" fill="#0d0d0d"/>
+          <!-- Machado cruzado -->
+          <circle cx="11" cy="10" r="3" fill="none" stroke="#e6a817" stroke-width="1"/>
+          <line x1="8" y1="7" x2="14" y2="13" stroke="#e6a817" stroke-width="1"/>
+          <line x1="14" y1="7" x2="8" y2="13" stroke="#e6a817" stroke-width="1"/>
+        </g>
+        <!-- Engrenagem (canto direito) -->
+        <g transform="translate(158,50)">
+          <circle cx="14" cy="14" r="10" fill="none" stroke="#e6a817" stroke-width="2.5"/>
+          <circle cx="14" cy="14" r="5" fill="none" stroke="#e6a817" stroke-width="2"/>
+          <!-- Dentes -->
+          <rect x="12" y="2" width="4" height="5" rx="1" fill="#e6a817"/>
+          <rect x="12" y="21" width="4" height="5" rx="1" fill="#e6a817"/>
+          <rect x="2" y="12" width="5" height="4" rx="1" fill="#e6a817"/>
+          <rect x="21" y="12" width="5" height="4" rx="1" fill="#e6a817"/>
+          <rect x="4" y="4" width="4" height="4" rx="1" fill="#e6a817" transform="rotate(45 6 6)"/>
+        </g>
+        <!-- Letras A K grandes -->
+        <text x="52" y="148" font-family="Arial Black, sans-serif" font-size="68"
+              font-weight="900" fill="#c0392b" opacity=".95">A</text>
+        <text x="118" y="148" font-family="Arial Black, sans-serif" font-size="68"
+              font-weight="900" fill="#e6a817" opacity=".95">K</text>
+        <!-- Linha decorativa abaixo AK -->
+        <line x1="52" y1="155" x2="168" y2="155" stroke="#c0392b" stroke-width="1.5" opacity=".5"/>
+      </svg>
+    </div>
+
+    <!-- Texto ANGOBIZ KIVENDA -->
+    <div class="logo-texto">
+      <div class="logo-nome">
+        <span class="logo-ango">ANGOBIZ</span>
+      </div>
+      <div class="logo-kivenda-linha">
+        <span class="linha-deco"></span>
+        <span class="logo-kiv">KIVENDA</span>
+        <span class="linha-deco"></span>
+      </div>
+      <div class="logo-slogan-topo">
+        NEGÓCIOS &bull; INOVAÇÃO &bull; CRESCIMENTO
+      </div>
+    </div>
+  </div>
+
+  <!-- TEXTO PRINCIPAL -->
+  <div class="texto-principal" id="textoPrincipal">
+    <p class="txt-linha1">Conectando negócios,</p>
+    <p class="txt-linha2">
+      <span class="txt-amarelo">inovação</span>
+      <span class="txt-branco"> e </span>
+      <span class="txt-vermelho">crescimento.</span>
+    </p>
+  </div>
+
+  <!-- ÍCONES DE FUNCIONALIDADES -->
+  <div class="icones-func" id="iconesFuncionalidades">
+    <div class="func-item">
+      <div class="func-ico">
+        <i class="fas fa-shield-halved"></i>
+      </div>
+      <span>Negócios<br/>seguros</span>
+    </div>
+    <div class="func-sep"></div>
+    <div class="func-item">
+      <div class="func-ico">
+        <i class="fas fa-bag-shopping"></i>
+      </div>
+      <span>Milhares de produtos<br/>e serviços</span>
+    </div>
+    <div class="func-sep"></div>
+    <div class="func-item">
+      <div class="func-ico">
+        <i class="fas fa-location-dot"></i>
+      </div>
+      <span>De todo o país<br/>para você</span>
+    </div>
+  </div>
+
+  <!-- SLOGAN BOTTOM -->
+  <div class="slogan-bottom" id="sloganBottom">
+    <p class="slogan-grande">
+      <span class="sl-vermelho">Compre.</span>
+      <span class="sl-amarelo"> Venda.</span>
+      <span class="sl-branco"> Conecte-se.</span>
+    </p>
+    <p class="slogan-sub">Tudo num só lugar.</p>
+  </div>
+
+  <!-- SPINNER + A CARREGAR -->
+  <div class="carregando" id="carregando">
+    <div class="spinner-wrap">
+      <svg class="spinner-svg" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+        <circle class="spinner-trilha" cx="22" cy="22" r="18"
+                fill="none" stroke="#1e1e1e" stroke-width="3"/>
+        <circle class="spinner-arco" cx="22" cy="22" r="18"
+                fill="none" stroke="#c0392b" stroke-width="3"
+                stroke-dasharray="30 83" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="txt-carregar">A carregar...</span>
+  </div>
+
+</div><!-- /centro -->
+
+<!-- BARRA DE PROGRESSO INVISÍVEL -->
+<div class="barra-prog" id="barraProgresso">
+  <div class="barra-prog-fill" id="barraFill"></div>
+</div>
+
+<script src="script/splash.js"></script>
+</body>
+</html>

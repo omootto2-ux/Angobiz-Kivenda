@@ -1,0 +1,166 @@
+<!-- ===== BARRA DE PESQUISA AVANÇADA ===== -->
+<section class="pesquisa-secao">
+  <div class="pesquisa-container">
+    
+    <!-- Título -->
+    <h2 class="pesquisa-titulo">Encontre o que procura</h2>
+    
+    <!-- Barra Principal de Pesquisa -->
+    <div class="pesquisa-barra">
+      <div class="pesquisa-input-wrapper">
+        <i class="fa fa-search pesquisa-icon"></i>
+        <input
+          type="text"
+          id="inputPesquisa"
+          class="pesquisa-input"
+          placeholder="Digite o nome do produto..."
+          autocomplete="off"
+        />
+        <button type="button" class="pesquisa-btn-limpar" id="btnLimparPesquisa" title="Limpar">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      <button type="button" class="pesquisa-btn-buscar" id="btnBuscar">
+        <i class="fa fa-search"></i> Buscar
+      </button>
+    </div>
+
+    <!-- Filtros Avançados -->
+    <div class="filtros-container">
+      
+      <!-- FILTRO: LOCALIZAÇÃO -->
+      <div class="filtro-grupo">
+        <label for="filtroLocalizacao" class="filtro-label">
+          <i class="fa fa-map-marker-alt"></i> Localização
+        </label>
+        <select id="filtroLocalizacao" class="filtro-select">
+          <option value="">Todas as localizações</option>
+          <option value="luanda">Luanda</option>
+          <option value="benguela">Benguela</option>
+          <option value="cabinda">Cabinda</option>
+          <option value="huambo">Huambo</option>
+          <option value="bie">Bié</option>
+          <option value="moxico">Moxico</option>
+          <option value="cuando-cubango">Cuando-Cubango</option>
+          <option value="huila">Huila</option>
+          <option value="namibe">Namibe</option>
+          <option value="cunene">Cunene</option>
+          <option value="zaire">Zaire</option>
+          <option value="uige">Uíge</option>
+          <option value="malanje">Malanje</option>
+          <option value="lunda-norte">Lunda Norte</option>
+          <option value="lunda-sul">Lunda Sul</option>
+          <option value="kwanza-norte">Kwanza Norte</option>
+          <option value="kwanza-sul">Kwanza Sul</option>
+          <option value="bengo">Bengo</option>
+        </select>
+      </div>
+
+      <!-- FILTRO: CATEGORIA -->
+      <div class="filtro-grupo">
+        <label for="filtroCategoria" class="filtro-label">
+          <i class="fa fa-tag"></i> Categoria
+        </label>
+        <select id="filtroCategoria" class="filtro-select">
+          <option value="">Todas as categorias</option>
+          <option value="supermercado">Supermercado</option>
+          <option value="eletronicos">Eletrônicos</option>
+          <option value="escritorio">Escritório</option>
+          <option value="industria">Indústria</option>
+          <option value="casa-deco">Casa & Decoração</option>
+          <option value="automovel">Automóvel</option>
+          <option value="moda-beleza">Moda & Beleza</option>
+          <option value="servicos">Serviços</option>
+        </select>
+      </div>
+
+      <!-- FILTRO: PREÇO -->
+      <div class="filtro-grupo filtro-preco">
+        <label class="filtro-label">
+          <i class="fa fa-dollar-sign"></i> Preço
+        </label>
+        <div class="preco-inputs">
+          <input
+            type="number"
+            id="precoMin"
+            class="preco-input"
+            placeholder="Mín."
+            min="0"
+            step="100"
+          />
+          <span class="preco-separador">—</span>
+          <input
+            type="number"
+            id="precoMax"
+            class="preco-input"
+            placeholder="Máx."
+            min="0"
+            step="100"
+          />
+        </div>
+        <div class="slider-range-container">
+          <input
+            type="range"
+            id="sliderPrecoMin"
+            class="slider-range"
+            min="0"
+            max="1000000"
+            step="1000"
+            value="0"
+          />
+          <input
+            type="range"
+            id="sliderPrecoMax"
+            class="slider-range"
+            min="0"
+            max="1000000"
+            step="1000"
+            value="1000000"
+          />
+          <div class="range-track"></div>
+        </div>
+        <div class="preco-label-range">
+          <span>Kz <strong id="precoMinDisplay">0</strong></span>
+          <span>—</span>
+          <span>Kz <strong id="precoMaxDisplay">1.000.000</strong></span>
+        </div>
+      </div>
+
+      <!-- FILTRO: ORDENAÇÃO -->
+      <div class="filtro-grupo">
+        <label for="filtroOrdenacao" class="filtro-label">
+          <i class="fa fa-sort"></i> Ordenar por
+        </label>
+        <select id="filtroOrdenacao" class="filtro-select">
+          <option value="relevancia">Relevância</option>
+          <option value="preco-menor">Preço: Menor para Maior</option>
+          <option value="preco-maior">Preço: Maior para Menor</option>
+          <option value="nome-asc">Nome: A a Z</option>
+          <option value="nome-desc">Nome: Z a A</option>
+          <option value="data-novo">Mais Recentes</option>
+          <option value="avaliacao">Melhor Avaliação</option>
+        </select>
+      </div>
+
+      <!-- BOTÕES DE AÇÃO -->
+      <div class="filtros-acoes">
+        <button type="button" class="btn-filtro-aplicar" id="btnAplicarFiltros">
+          <i class="fa fa-check"></i> Aplicar Filtros
+        </button>
+        <button type="button" class="btn-filtro-limpar" id="btnLimparFiltros">
+          <i class="fa fa-redo"></i> Limpar
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Resultado da Pesquisa -->
+    <div class="pesquisa-resultado">
+      <span id="textoResultado">Mostrando todos os produtos</span>
+      <button type="button" class="btn-ver-menos" id="btnVerMenos" style="display: none;">
+        <i class="fa fa-chevron-up"></i> Ver menos
+      </button>
+    </div>
+
+  </div>
+</section>
